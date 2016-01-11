@@ -1,0 +1,47 @@
+{
+  "name": "bn-mentors",
+  "version": "0.0.1",
+  "description": "Bloomington-Normal Mentors Website",
+  "main": "index.js",
+  "scripts": {
+    "test": "gulp test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bgin-io/bn-mentors.git"
+  },
+  "author": "brian.jesse@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Bgin-io/bn-mentors/issues"
+  },
+  "homepage": "https://github.com/Bgin-io/bn-mentors#readme",
+  "devDependencies": {
+    "connect-livereload": "^0.5.3",
+    "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-conventional-changelog": "^0.7.0",
+    "gulp-debug": "^2.1.2",
+    "gulp-express": "^0.3.5",
+    "gulp-imagemin": "^2.4.0",
+    "gulp-istanbul": "^0.10.2",
+    "gulp-jsdoc-to-markdown": "^1.1.1",
+    "gulp-jshint": "^1.12.0",
+    "gulp-load-plugins": "^1.1.0",
+    "gulp-minify-css": "^1.2.1",
+    "gulp-minify-html": "^1.0.4",
+    "gulp-mocha": "^2.2.0",
+    "gulp-nodemon": "^2.0.4",
+    "gulp-plumber": "^1.0.1",
+    "gulp-sass": "^2.1.0",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "^1.5.1",
+    "jshint-stylish": "^2.1.0",
+    "tiny-lr": "^0.2.1"
+  },
+  "dependencies": {
+    "lodash": "^3.10.1",
+    "nodep": "^0.2.0"
+  }
+}
