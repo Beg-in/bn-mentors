@@ -1,0 +1,14 @@
+{
+  "name": "bn-mentors",
+  "version": "0.0.1",
+  "homepage": "https://github.com/bgin-io/bn-mentors",
+  "authors": [
+    "Brian Jesse <brian.jesse@gmail.com>"
+  ],
+  "description": "Bloomington-Normal Mentors Website",
+  "main": "src/server/index.js",
+  "moduleType": [
+    "node"
+  ],
+  "license": "MIT"
+}

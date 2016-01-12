@@ -1,0 +1,10 @@
+{
+    "dev": {
+        "port": 8081,
+        "root": "/../client"
+    },
+    "prd": {
+        "port": 8080,
+        "root": "/../../public"
+    }
+}
