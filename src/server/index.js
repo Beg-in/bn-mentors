@@ -4,7 +4,7 @@ var $p = require('nodep')();
 var _ = require('lodash');
 var express = require('express');
 var app = express();
-var config = require('./config.json');
+var config = require('../../config.json');
 
 $p.init({
     _: _,

@@ -46,36 +46,24 @@ gp.path = require('path');
  * @module contributing
  */
 
-var paths = {
-    client: 'src/client/',
-    server: 'src/server/',
-    dest: 'public/',
-    bower: 'bower_components/',
-    test: 'test/'
-};
-paths.srcStyles = paths.client + 'styles/';
-paths.destStyles = paths.dest + 'styles/';
-paths.srcScripts = paths.client + 'scripts/';
-paths.destScripts = paths.dest + 'scripts/';
-
+var config = require('./config.json');
+var paths = config.paths;
 var files = {
     html: [
         paths.client + '*.html'
     ],
     styles: [
         paths.bower + 'roboto-fontface/css/*.scss',
-        paths.srcStyles + 'main.scss',
-        paths.srcStyles + '**/!(main).scss'
+        paths.stylesSrc + 'main.scss',
+        paths.stylesSrc + '**/!(main).scss'
     ],
     scripts:[
-        paths.srcScripts + '**/*.js'
+        paths.scriptsSrc + '**/*.js'
     ],
     images: [
         paths.client + '*.png'
     ]
 };
-
-var config = require('./' + paths.server + 'config.json');
 
 var log = function() {
     var args = _.map(arguments, arg => gp.util.colors.green(arg));
@@ -100,7 +88,7 @@ var styles = function(src, dest, plumber) {
             .pipe(gp.concat(dest))
             .pipe(gp.cssmin())
             .pipe(gp.sourcemaps.write('.'))
-            .pipe(gulp.dest(paths.destStyles));
+            .pipe(gulp.dest(paths.stylesDest));
     };
 };
 gulp.task('sass', styles(files.styles, 'app.min.css'));
@@ -124,10 +112,10 @@ var scripts = function(src, dest, plumber) {
         .pipe(gp.concat('app.min.js'))
         .pipe(gp.uglify())
         .pipe(gp.sourcemaps.write('.'))
-        .pipe(gulp.dest(paths.destScripts));
+        .pipe(gulp.dest(dest));
 };
-gulp.task('scripts', ['jshint'], scripts(files.scripts, paths.destScripts));
-gulp.task('build-scripts', ['jshint'], scripts(files.scripts, paths.destScripts, false));
+gulp.task('scripts', ['jshint'], scripts(files.scripts, paths.scriptsDest));
+gulp.task('build-scripts', ['jshint'], scripts(files.scripts, paths.scriptsDest, false));
 
 gulp.task('images', function() {
     gulp.src(files.images)
@@ -220,7 +208,7 @@ gulp.task('test', [
 ]);
 
 gulp.task('autotest', function() {
-    gulp.watch([paths.src + '**/*.js', paths.test + '**/*.js'], ['test']);
+    gulp.watch([paths.scriptsSrc + '**/*.js', paths.test + '**/*.js'], ['test']);
 });
 
 gulp.task('docs', function() {
