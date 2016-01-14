@@ -4,7 +4,7 @@ var $p = require('nodep')();
 var _ = require('lodash');
 var express = require('express');
 var app = express();
-var config = require('../../config.json');
+var config = require('../../config');
 
 $p.init({
     _: _,
@@ -15,12 +15,10 @@ $p.init({
     '**/*',
 ]);
 
-var env = process.env.NODE_ENV || 'dev';
-
-if(env === 'dev') {
+if(config.env.isDev) {
     app.use(require('connect-livereload')());
 }
 
-app.use(express.static(__dirname + config[env].root));
-app.listen(config[env].port);
+app.use(express.static(config.env.root));
+app.listen(config.env.port);
 

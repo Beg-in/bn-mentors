@@ -14,30 +14,50 @@ gp.livereload = require('tiny-lr')();
 gp.path = require('path');
 
 /**
- * # Build
- * ## Requirements
+ * ## Build
+ * ### Requirements
  * - [Gulp](http://gulpjs.com/)
  * ```bash
  * $ npm install -g gulp
  * ```
- * ## Running the test suite
- * ### Single Run:
+ * - [Bower](http://bower.io/)
+ * ```bash
+ * $ npm install -g bower
+ * ```
+ * - [Postgresql](http://www.postgresql.org/)
+ * ```bash
+ * $ npm install -g bower
+ * ```
+ * ### Development runtime
+ * #### Livereload server:
+ * ```bash
+ * $ gulp server
+ * ```
+ *
+ * - You can now visit [http://localhost:8081/](http://localhost:8081/) to view changes live.
+ * #### Directories
+ * - `src/client` - clientside html, scripts, and styles
+ * - `src/server` - serverside scripts and sql queries
+ * #### Serverside runtime
+ * - Uses dependency injection from [Nodep](http://nodep.org)
+ * ### Running the test suite
+ * #### Single Run:
  * ```bash
  * $ gulp test
  * ```
- * ### Continuous testing when files are changed:
+ * #### Continuous testing when files are changed:
  * ```bash
  * $ gulp autotest
  * ```
- * ## Generating README.md
+ * ### Generating README.md
  * ```bash
  * $ gulp docs
  * ```
- * ## Generating CHANGELOG.md
+ * ### Generating CHANGELOG.md
  * ```bash
  * $ gulp changelog
  * ```
- * ## Notes
+ * ### Notes
  * - jshint is part of the test suite and should be kept clean
  * - Commits should have high test coverage
  * - Docs should be kept up to date
@@ -46,7 +66,7 @@ gp.path = require('path');
  * @module contributing
  */
 
-var config = require('./config.json');
+var config = require('./config');
 var paths = config.paths;
 var files = {
     html: [
@@ -212,7 +232,7 @@ gulp.task('autotest', function() {
 });
 
 gulp.task('docs', function() {
-    gulp.src(['*.js','test/*.js'])
+    gulp.src(['gulpfile.js', 'config.js', 'src/**/*.js','test/*.js'])
         .pipe(gp.concat('README.md'))
         .pipe(gp.jsdocToMarkdown({
             template: fs.readFileSync('./docs.hbs', 'utf8')
