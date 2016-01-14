@@ -25,9 +25,6 @@ gp.path = require('path');
  * $ npm install -g bower
  * ```
  * - [Postgresql](http://www.postgresql.org/)
- * ```bash
- * $ npm install -g bower
- * ```
  * ### Development runtime
  * #### Livereload server:
  * ```bash
@@ -35,11 +32,14 @@ gp.path = require('path');
  * ```
  *
  * - You can now visit [http://localhost:8081/](http://localhost:8081/) to view changes live.
+ *
  * #### Directories
  * - `src/client` - clientside html, scripts, and styles
  * - `src/server` - serverside scripts and sql queries
+ *
  * #### Serverside runtime
  * - Uses dependency injection from [Nodep](http://nodep.org)
+ *
  * ### Running the test suite
  * #### Single Run:
  * ```bash
