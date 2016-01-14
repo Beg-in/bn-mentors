@@ -12,6 +12,7 @@ $ npm install -g gulp
 $ npm install -g bower
 ```
 - [Postgresql](http://www.postgresql.org/)
+
 ### Development runtime
 #### Livereload server:
 ```bash
