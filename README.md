@@ -27,6 +27,7 @@ Add a file called `.env` to the root of the project with the following contents:
     }
 }
 ```
+You can now run the development server by running the following command:
 ```bash
 $ nf run gulp server
 ```

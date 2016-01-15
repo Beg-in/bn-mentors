@@ -40,6 +40,7 @@ gp.path = require('path');
  *     }
  * }
  * ```
+ * You can now run the development server by running the following command:
  * ```bash
  * $ nf run gulp server
  * ```
