@@ -192,7 +192,7 @@ gulp.task('connect', ['dev'], function() {
         });
     });
 
-    log('app started on port', config.dev.port);
+    log('app started on port', config.env.port);
 });
 gulp.task('public', ['connect', 'watch']);
 gulp.task('server', function() {
