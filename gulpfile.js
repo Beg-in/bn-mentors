@@ -109,7 +109,7 @@ gulp.task('html', function() {
 });
 
 gulp.task('styles', function() {
-    gulp.src(paths.stylesSrc + 'main.scss')
+    gulp.src(paths.stylesSrc + 'styles.scss')
         //.pipe(gp.debug({title: 'styles'}))
         //.pipe(gp.plumber({errorHandler: true}))
         .pipe(gp.sourcemaps.init({loadMaps: true}))
