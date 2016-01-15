@@ -43,6 +43,7 @@ gp.livereload = require('tiny-lr')();
  * You can now run the development server by running the following commands:
  * ```bash
  * $ npm install
+ * $ bower install
  * $ nf run gulp server
  * ```
  *

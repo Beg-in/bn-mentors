@@ -30,6 +30,7 @@ Add a file called `.env` to the root of the project with the following contents:
 You can now run the development server by running the following commands:
 ```bash
 $ npm install
+$ bower install
 $ nf run gulp server
 ```
 
