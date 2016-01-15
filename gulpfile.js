@@ -73,7 +73,9 @@ var files = {
         paths.client + '*.html'
     ],
     styles: [
-        paths.stylesSrc + 'main.scss'
+        paths.stylesSrc + '**/*.scss',
+        paths.bower + 'roboto-fontface/css/*.scss',
+        paths.bower + 'bootstrap-sass/assets/stylesheets/**/*.scss'
     ],
     scripts:[
         paths.scriptsSrc + '**/*.js'
@@ -103,7 +105,7 @@ gulp.task('html', function() {
 });
 
 gulp.task('styles', function() {
-    gulp.src(files.styles)
+    gulp.src(paths.stylesSrc + 'main.scss')
         //.pipe(gp.debug({title: 'styles'}))
         //.pipe(gp.plumber({errorHandler: true}))
         .pipe(gp.sourcemaps.init({loadMaps: true}))
