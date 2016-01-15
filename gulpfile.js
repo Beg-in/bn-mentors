@@ -109,17 +109,18 @@ var log = function() {
     gp.util.log.apply(gp.util, args);
 };
 
-gulp.task('clean', function() {
-    gp.clean([paths.dest]);
+gulp.task('clean', function(cb) {
+    gp.clean.sync([paths.dest]);
+    cb();
 });
 
-gulp.task('html', ['clean'], function() {
+gulp.task('html', function() {
     gulp.src(paths.client + '*.html')
         .pipe(gp.htmlmin({collapseWhitespace: true}))
         .pipe(gulp.dest(paths.dest));
 });
 
-gulp.task('styles', ['clean'], function() {
+gulp.task('styles', function() {
     gulp.src(paths.stylesSrc + 'styles.scss')
         //.pipe(gp.debug({title: 'styles'}))
         //.pipe(gp.plumber({errorHandler: true}))
@@ -138,14 +139,14 @@ gulp.task('styles', ['clean'], function() {
         .pipe(gulp.dest(paths.stylesDest));
 });
 
-gulp.task('jshint', ['clean'], function() {
+gulp.task('jshint', function() {
     gulp.src(_.union(files.scripts, ['gulpfile.js', paths.server + '**/*.js']))
         .pipe(gp.jshint())
         .pipe(gp.jshint.reporter(require('jshint-stylish')));
         //.pipe(jshint.reporter('fail'));
 });
 
-gulp.task('scripts', ['jshint'], function() {
+gulp.task('scripts', function() {
     gulp.src(files.scripts)
         //.pipe(gp.debug({title: 'scripts'}))
         //.pipe(gp.plumber({errorHandler: true}))
@@ -156,18 +157,19 @@ gulp.task('scripts', ['jshint'], function() {
         .pipe(gulp.dest(paths.scriptsDest));
 });
 
-gulp.task('images', ['clean'], function() {
+gulp.task('images', function() {
     gulp.src(files.images)
         .pipe(gp.imagemin())
         .pipe(gulp.dest(paths.dest));
 });
 
-gulp.task('fonts', ['clean'], function() {
+gulp.task('fonts', function() {
     gulp.src(files.fonts)
         .pipe(gulp.dest(paths.dest + '/fonts'));
 });
 
 gulp.task('build', [
+    'clean',
     'html',
     'styles',
     'scripts',
@@ -176,6 +178,7 @@ gulp.task('build', [
 ]);
 
 gulp.task('demon', ['build'], function() {
+    /*
     _.forEach(files, function(glob, task) {
         gulp.watch(glob, [task]);
     });
@@ -193,6 +196,7 @@ gulp.task('demon', ['build'], function() {
         cp.execSync('bower install', {stdio: 'inherit'});
         process.exit(0);
     });
+    */
 
     gp.nodemon({
       script: paths.server + 'index.js',
