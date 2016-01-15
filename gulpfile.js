@@ -73,10 +73,7 @@ var files = {
         paths.client + '*.html'
     ],
     styles: [
-        paths.bower + 'roboto-fontface/css/*.scss',
-        paths.bower + 'bootstrap-sass/assets/stylesheets/_bootstrap.scss',
-        paths.stylesSrc + 'main.scss',
-        paths.stylesSrc + '**/!(main).scss'
+        paths.stylesSrc + 'main.scss'
     ],
     scripts:[
         paths.scriptsSrc + '**/*.js'
@@ -110,10 +107,16 @@ gulp.task('styles', function() {
         //.pipe(gp.debug({title: 'styles'}))
         //.pipe(gp.plumber({errorHandler: true}))
         .pipe(gp.sourcemaps.init({loadMaps: true}))
-        .pipe(gp.sass())
+        .pipe(gp.sass({
+            includePaths: [
+                paths.client + 'styles',
+                paths.bower + 'roboto-fontface/css',
+                paths.bower + 'bootstrap-sass/assets/stylesheets'
+            ]
+        }))
         .pipe(gp.autoprefixer())
         .pipe(gp.concat('app.min.css'))
-        .pipe(gp.cssmin())
+        //.pipe(gp.cssmin())
         .pipe(gp.sourcemaps.write('.'))
         .pipe(gulp.dest(paths.stylesDest));
 });
