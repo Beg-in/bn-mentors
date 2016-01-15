@@ -1,6 +1,6 @@
 * { margin:0; padding:0; outline:0; }
 
-html, body { height: 100%; -webkit-font-smoothing: subpixel-antialiased; }
+html, body { height: 100%; -webkit-font-smoothing: subpixel-antialiased; background-color: $background-grey;}
 
 *:not(.ng-animate) {
     transition: width 0.5s;
@@ -59,4 +59,15 @@ div[svg-directive] {
     .hidden-xxs {
         display: none !important;
     }
+}
+
+.page {
+    background-color: #fff;
+    padding: 30px 25px;
+    border-radius: 1px;
+    margin-bottom: 30px;
+}
+
+.card-shadow {
+    box-shadow: 0px 1px 3px 0px $card-shadow !important; 
 }
