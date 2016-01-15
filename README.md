@@ -16,6 +16,7 @@ $ npm install -g bower
 $ npm install -g foreman
 ```
 - [Postgresql](http://www.postgresql.org/)
+
 ### Development runtime
 #### Livereload server:
 ```bash
