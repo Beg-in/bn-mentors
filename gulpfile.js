@@ -82,6 +82,9 @@ var files = {
     ],
     images: [
         paths.client + '*.png'
+    ],
+    fonts: [
+        paths.bower + 'roboto-fontface/fonts/**/*'
     ]
 };
 
@@ -91,51 +94,45 @@ var log = function() {
     gp.util.log.apply(gp.util, args);
 };
 
+gulp.task('clean', function(cb) {
+    gp.clean([paths.dest], cb);
+});
 gulp.task('html', function() {
     gulp.src(paths.client + '*.html')
-        .pipe(gp.htmlmin())
+        .pipe(gp.htmlmin({collapseWhitespace: true}))
         .pipe(gulp.dest(paths.dest));
 });
 
-var styles = function(src, dest, plumber) {
-    return function() {
-        gulp.src(src)
-            //.pipe(gp.debug({title: 'styles'}))
-            .pipe(gp.plumber({errorHandler: plumber}))
-            .pipe(gp.sourcemaps.init())
-            .pipe(gp.sass())
-            .pipe(gp.autoprefixer())
-            .pipe(gp.concat(dest))
-            .pipe(gp.cssmin())
-            .pipe(gp.sourcemaps.write('.'))
-            .pipe(gulp.dest(paths.stylesDest));
-    };
-};
-gulp.task('sass', styles(files.styles, 'app.min.css'));
-gulp.task('sass-main', styles(files.styles[0], 'main.min.css'));
-gulp.task('styles', ['sass', 'sass-main']);
-gulp.task('build-sass', styles(files.styles, 'app.min.css', false));
-gulp.task('build-sass-main', styles(files.styles[0], 'main.min.css', false));
-gulp.task('build-styles', ['build-sass', 'build-sass-main']);
+gulp.task('styles', function() {
+    gulp.src(files.styles)
+        //.pipe(gp.debug({title: 'styles'}))
+        //.pipe(gp.plumber({errorHandler: true}))
+        .pipe(gp.sourcemaps.init())
+        .pipe(gp.sass())
+        .pipe(gp.autoprefixer())
+        .pipe(gp.concat('app.min.css'))
+        .pipe(gp.cssmin())
+        .pipe(gp.sourcemaps.write('.'))
+        .pipe(gulp.dest(paths.stylesDest));
+});
 
 gulp.task('jshint', function() {
-    gulp.src(_.union(files.scripts, ['gulpfile.js']))
+    gulp.src(_.union(files.scripts, ['gulpfile.js', paths.server + '**/*.js']))
         .pipe(gp.jshint())
         .pipe(gp.jshint.reporter(require('jshint-stylish')));
         //.pipe(jshint.reporter('fail'));
 });
-var scripts = function(src, dest, plumber) {
+
+gulp.task('scripts', ['jshint'], function() {
     gulp.src(files.scripts)
         //.pipe(gp.debug({title: 'scripts'}))
-        .pipe(gp.plumber({errorHandler: plumber}))
+        //.pipe(gp.plumber({errorHandler: true}))
         .pipe(gp.sourcemaps.init())
         .pipe(gp.concat('app.min.js'))
         .pipe(gp.uglify())
         .pipe(gp.sourcemaps.write('.'))
-        .pipe(gulp.dest(dest));
-};
-gulp.task('scripts', ['jshint'], scripts(files.scripts, paths.scriptsDest));
-gulp.task('build-scripts', ['jshint'], scripts(files.scripts, paths.scriptsDest, false));
+        .pipe(gulp.dest(paths.scriptsDest));
+});
 
 gulp.task('images', function() {
     gulp.src(files.images)
@@ -143,17 +140,18 @@ gulp.task('images', function() {
         .pipe(gulp.dest(paths.dest));
 });
 
-gulp.task('dev', [
+gulp.task('fonts', function() {
+    gulp.src(files.fonts)
+        .pipe(gulp.dest(paths.dest + '/fonts'));
+});
+
+gulp.task('build', [
+    'clean',
     'html',
     'styles',
     'scripts',
-    'images'
-]);
-gulp.task('build', [
-    'html',
-    'build-styles',
-    'build-scripts',
-    'images'
+    'images',
+    'fonts'
 ]);
 
 gulp.task('watch', function() {
@@ -175,9 +173,11 @@ gulp.task('watch', function() {
         process.exit(0);
     });
 });
-gulp.task('connect', ['dev'], function() {
+gulp.task('connect', ['build'], function() {
     gp.nodemon({
-      script: paths.server + 'index.js'
+      script: paths.server + 'index.js',
+      watch: paths.server,
+      tasks: ['jshint']
     }).on('restart', function () {
         log('app restarted!');
     });
@@ -206,9 +206,6 @@ gulp.task('server', function() {
         });
     };
     spawnChild();
-});
-
-gulp.task('update npm', function() {
 });
 
 gulp.task('spec', function() {

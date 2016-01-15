@@ -10,5 +10,8 @@
   "moduleType": [
     "node"
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "roboto-fontface": "~0.4.3"
+  }
 }

@@ -7,28 +7,10 @@
 
 var client = 'src/client';
 var dest = 'public';
-var env = process.env.NODE_ENV || 'dev';
-if(env == 'dev') {
-    env = {
-        isDev: true,
-        port: 8081,
-        root: __dirname + '/' + client
-    }
-} else {
-    env = {
-        isDev: false,
-        port: process.env.PORT || 8080,
-        root: __dirname + '/' + dest
-    }
-}
-env.pg = {
-    user: process.env.PG_USER,
-    pass: process.env.PG_PASS
-};
 
 module.exports = {
     paths: {
-        client: client,
+        client: client + '/',
         server: 'src/server/',
         dest: dest,
         bower: 'bower_components/',
@@ -39,5 +21,13 @@ module.exports = {
         stylesDest: dest + '/styles/',
         stylesDev: __dirname + '/' + dest + '/styles'
     },
-    env: env
+    env: {
+        isDev: process.env.NODE_ENV === 'dev',
+        port: process.env.PORT || 8081,
+        root: __dirname + '/' + this.isDev ? client : dest
+    },
+    pg: {
+        user: process.env.PG_USER,
+        pass: process.env.PG_PASS
+    }
 };
