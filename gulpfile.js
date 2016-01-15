@@ -2,6 +2,7 @@
 
 var cp = require('child_process');
 var fs = require('fs');
+var path = require('path');
 var _ = require('lodash');
 var gulp = require('gulp');
 var gp = require('gulp-load-plugins')({
@@ -11,7 +12,6 @@ var gp = require('gulp-load-plugins')({
 });
 gp.clean = require('del');
 gp.livereload = require('tiny-lr')();
-gp.path = require('path');
 
 /**
  * ## Build
@@ -85,21 +85,21 @@ var config = require('./config');
 var paths = config.paths;
 var files = {
     html: [
-        paths.client + '*.html'
+        path.join(paths.client, '*.html')
     ],
     styles: [
-        paths.stylesSrc + '**/*.scss',
-        paths.bower + 'roboto-fontface/css/*.scss',
-        paths.bower + 'bootstrap-sass/assets/stylesheets/**/*.scss'
+        path.join(paths.stylesSrc, '**/*.scss'),
+        path.join(paths.bower, 'roboto-fontface/css/*.scss'),
+        path.join(paths.bower, 'bootstrap-sass/assets/stylesheets/**/*.scss')
     ],
     scripts:[
-        paths.scriptsSrc + '**/*.js'
+        path.join(paths.scriptsSrc, '**/*.js')
     ],
     images: [
-        paths.client + '*.png'
+        path.join(paths.client, '*.png')
     ],
     fonts: [
-        paths.bower + 'roboto-fontface/fonts/**/*'
+        path.join(paths.bower, 'roboto-fontface/fonts/**/*')
     ]
 };
 
@@ -115,21 +115,21 @@ gulp.task('clean', function(cb) {
 });
 
 gulp.task('html', function() {
-    gulp.src(paths.client + '*.html')
+    gulp.src(path.join(paths.client, '*.html'))
         .pipe(gp.htmlmin({collapseWhitespace: true}))
         .pipe(gulp.dest(paths.dest));
 });
 
 gulp.task('styles', function() {
-    gulp.src(paths.stylesSrc + 'styles.scss')
+    gulp.src(path.join(paths.stylesSrc, 'styles.scss'))
         //.pipe(gp.debug({title: 'styles'}))
         //.pipe(gp.plumber({errorHandler: true}))
         .pipe(gp.sourcemaps.init({loadMaps: true}))
         .pipe(gp.sass({
             includePaths: [
-                paths.client + 'styles',
-                paths.bower + 'roboto-fontface/css',
-                paths.bower + 'bootstrap-sass/assets/stylesheets'
+                path.join(paths.client, 'styles'),
+                path.join(paths.bower, 'roboto-fontface/css'),
+                path.join(paths.bower, 'bootstrap-sass/assets/stylesheets')
             ]
         }))
         .pipe(gp.autoprefixer())
@@ -140,7 +140,7 @@ gulp.task('styles', function() {
 });
 
 gulp.task('jshint', function() {
-    gulp.src(_.union(files.scripts, ['gulpfile.js', paths.server + '**/*.js']))
+    gulp.src(_.union(files.scripts, ['gulpfile.js', path.join(paths.server, '**/*.js')]))
         .pipe(gp.jshint())
         .pipe(gp.jshint.reporter(require('jshint-stylish')));
         //.pipe(jshint.reporter('fail'));
@@ -165,7 +165,7 @@ gulp.task('images', function() {
 
 gulp.task('fonts', function() {
     gulp.src(files.fonts)
-        .pipe(gulp.dest(paths.dest + '/fonts'));
+        .pipe(gulp.dest(path.join(paths.dest, 'fonts')));
 });
 
 gulp.task('build', [
@@ -199,7 +199,7 @@ gulp.task('demon', ['build'], function() {
     */
 
     gp.nodemon({
-      script: paths.server + 'index.js',
+      script: path.join(paths.server, 'index.js'),
       watch: paths.server,
       tasks: ['jshint']
     }).on('restart', function () {
@@ -208,11 +208,11 @@ gulp.task('demon', ['build'], function() {
     log('app started on port', config.env.port);
 
     gp.livereload.listen(35729);
-    gulp.watch(paths.client + '/**/*', function(event){
+    gulp.watch(path.join(paths.client, '**/*'), function(event){
         log('livereload initiated');
         gp.livereload.changed({
             body: {
-                files: [gp.path.relative('' + config.env.port, event.path)]
+                files: [path.relative('' + config.env.port, event.path)]
             }
         });
     });
@@ -237,7 +237,7 @@ gulp.task('spec', function() {
         .pipe(gp.istanbul())
         .pipe(gp.istanbul.hookRequire())
         .on('finish', function() {
-            gulp.src(paths.test + 'spec.js')
+            gulp.src(path.join(paths.test, 'spec.js'))
                 .pipe(gp.mocha())
                 .pipe(gp.istanbul.writeReports());
         });
@@ -249,7 +249,7 @@ gulp.task('test', [
 ]);
 
 gulp.task('autotest', function() {
-    gulp.watch([paths.scriptsSrc + '**/*.js', paths.test + '**/*.js'], ['test']);
+    gulp.watch([path.join(paths.scriptsSrc, '**/*.js'), path.join(paths.test, '**/*.js')], ['test']);
 });
 
 gulp.task('docs', function() {

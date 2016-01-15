@@ -30,29 +30,32 @@
  * @module introduction
  */
 
-var client = 'src/client';
-var dest = 'public';
+var path = require('path');
+
+var client = path.resolve('src/client');
+var dest = path.resolve('public');
 
 module.exports = {
     paths: {
-        client: client + '/',
-        server: 'src/server/',
+        client: client,
+        server: path.resolve('src/server/'),
         dest: dest,
-        bower: 'bower_components/',
-        test: 'test/',
-        scriptsSrc: client + '/scripts/',
-        scriptsDest: dest + '/scripts/',
-        stylesSrc: client + '/styles/',
-        stylesDest: dest + '/styles/',
-        stylesDev: __dirname + '/' + dest + '/styles'
+        bower: path.resolve('bower_components/'),
+        test: path.resolve('test/'),
+        scriptsSrc: path.join(client, 'scripts'),
+        scriptsDest: path.join(dest, 'scripts'),
+        stylesSrc: path.join(client, 'styles'),
+        stylesDest: path.join(dest, 'styles'),
+        stylesDev: path.join(dest, 'styles')
     },
     env: {
         isDev: process.env.NODE_ENV === 'dev',
         port: process.env.PORT || 8081,
-        root: __dirname + '/' + this.isDev ? client : dest
+        root: this.isDev ? client : dest
     },
     pg: {
         user: process.env.PG_USER,
         pass: process.env.PG_PASS
     }
 };
+
