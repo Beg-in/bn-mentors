@@ -74,6 +74,7 @@ var files = {
     ],
     styles: [
         paths.bower + 'roboto-fontface/css/*.scss',
+        paths.bower + 'bootstrap-sass/assets/stylesheets/_bootstrap.scss',
         paths.stylesSrc + 'main.scss',
         paths.stylesSrc + '**/!(main).scss'
     ],
@@ -94,9 +95,10 @@ var log = function() {
     gp.util.log.apply(gp.util, args);
 };
 
-gulp.task('clean', function(cb) {
-    gp.clean([paths.dest], cb);
+gulp.task('clean', function() {
+    gp.clean([paths.dest]);
 });
+
 gulp.task('html', function() {
     gulp.src(paths.client + '*.html')
         .pipe(gp.htmlmin({collapseWhitespace: true}))
@@ -107,7 +109,7 @@ gulp.task('styles', function() {
     gulp.src(files.styles)
         //.pipe(gp.debug({title: 'styles'}))
         //.pipe(gp.plumber({errorHandler: true}))
-        .pipe(gp.sourcemaps.init())
+        .pipe(gp.sourcemaps.init({loadMaps: true}))
         .pipe(gp.sass())
         .pipe(gp.autoprefixer())
         .pipe(gp.concat('app.min.css'))
@@ -154,7 +156,7 @@ gulp.task('build', [
     'fonts'
 ]);
 
-gulp.task('watch', function() {
+gulp.task('demon', ['build'], function() {
     _.forEach(files, function(glob, task) {
         gulp.watch(glob, [task]);
     });
@@ -172,8 +174,7 @@ gulp.task('watch', function() {
         cp.execSync('bower install', {stdio: 'inherit'});
         process.exit(0);
     });
-});
-gulp.task('connect', ['build'], function() {
+
     gp.nodemon({
       script: paths.server + 'index.js',
       watch: paths.server,
@@ -181,6 +182,7 @@ gulp.task('connect', ['build'], function() {
     }).on('restart', function () {
         log('app restarted!');
     });
+    log('app started on port', config.env.port);
 
     gp.livereload.listen(35729);
     gulp.watch(paths.client + '/**/*', function(event){
@@ -192,14 +194,13 @@ gulp.task('connect', ['build'], function() {
         });
     });
 
-    log('app started on port', config.env.port);
 });
-gulp.task('public', ['connect', 'watch']);
+
 gulp.task('server', function() {
     cp.execSync('npm install', {stdio: 'inherit'});
     cp.execSync('bower install', {stdio: 'inherit'});
     var spawnChild = function() {
-        cp.spawn('gulp', ['public'], {stdio: 'inherit'}).on('close', function(code) {
+        cp.spawn('gulp', ['demon'], {stdio: 'inherit'}).on('close', function(code) {
             if(code === 0) {
                 spawnChild();
             }

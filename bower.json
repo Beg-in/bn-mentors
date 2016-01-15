@@ -3,7 +3,8 @@
   "version": "0.0.1",
   "homepage": "https://github.com/bgin-io/bn-mentors",
   "authors": [
-    "Brian Jesse <brian.jesse@gmail.com>"
+    "Brian Jesse <brian.jesse@gmail.com>",
+    "Cody Sherman <cody@codysherman.com>"
   ],
   "description": "Bloomington-Normal Mentors Website",
   "main": "src/server/index.js",
@@ -12,6 +13,7 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "roboto-fontface": "~0.4.3"
+    "roboto-fontface": "0.4.3",
+    "bootstrap-sass": "3.3.6"
   }
 }
