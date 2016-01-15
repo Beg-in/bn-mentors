@@ -1,6 +1,6 @@
 * { margin:0; padding:0; outline:0; }
 
-html, body { height: 100%; -webkit-font-smoothing: subpixel-antialiased;}
+html, body { height: 100%; -webkit-font-smoothing: subpixel-antialiased; }
 
 *:not(.ng-animate) {
     transition: width 0.5s;
@@ -30,7 +30,7 @@ a:hover, a:focus {
 }
 
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
-  display: none !important;
+    display: none !important;
 }
 
 div[svg-directive] {
@@ -41,22 +41,22 @@ div[svg-directive] {
   display: none !important;
 }
 @media (max-width: 500px) {
-  .visible-xxs {
+    .visible-xxs {
     display: block !important;
-  }
-  table.visible-xxs {
-    display: table;
-  }
-  tr.visible-xxs {
-    display: table-row !important;
-  }
-  th.visible-xxs,
-  td.visible-xxs {
-    display: table-cell !important;
-  }
+    }
+    table.visible-xxs {
+        display: table;
+    }
+    tr.visible-xxs {
+        display: table-row !important;
+    }
+    th.visible-xxs,
+    td.visible-xxs {
+        display: table-cell !important;
+    }
 }
 @media (max-width: 500px) {
-  .hidden-xxs {
-    display: none !important;
-  }
+    .hidden-xxs {
+        display: none !important;
+    }
 }
