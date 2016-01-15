@@ -44,8 +44,10 @@
   },
   "dependencies": {
     "express": "4.13.3",
+    "later": "^1.2.0",
     "lodash": "3.10.1",
     "nodep": "0.2.1",
-    "pg": "4.4.3"
+    "pg": "4.4.3",
+    "schedulejs": "^0.6.3"
   }
 }
