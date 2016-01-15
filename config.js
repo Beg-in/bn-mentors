@@ -46,16 +46,18 @@ module.exports = {
         scriptsDest: path.join(dest, 'scripts'),
         stylesSrc: path.join(client, 'styles'),
         stylesDest: path.join(dest, 'styles'),
-        stylesDev: path.join(__dirname, dest, 'styles')
+        stylesDev: path.join(dest, 'styles')
     },
     env: {
         isDev: process.env.NODE_ENV === 'dev',
         port: process.env.PORT || 8081,
-        root: path.join(__dirname, this.isDev ? client : dest)
+        root: this.isDev ? client : dest
     },
     pg: {
         user: process.env.PG_USER,
         pass: process.env.PG_PASS
     }
 };
+
+console.log(module.exports);
 
