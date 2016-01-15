@@ -71,3 +71,57 @@ div[svg-directive] {
 .card-shadow {
     box-shadow: 0px 1px 3px 0px $card-shadow !important; 
 }
+
+h1 {
+    font-size: 60px;
+    font-style: italic;
+    font-weight: 700;
+    color: @near-black;
+    padding: 0px 0 10px 0;
+}
+
+@media (max-width: 415px) {
+    h1 {
+        font-size: 50px;
+    }
+}
+
+h2 {
+    font-size: 48px;
+    line-height: 120%;
+    font-style: italic;
+    text-transform: uppercase;
+    font-weight: 300;
+    color: @near-black;
+    padding: 0px 0 20px 0;
+}
+
+h3 {
+    font-size: 36px;
+    line-height: 120%;
+    font-weight: 300;
+    color: @near-black;
+    padding: 20px 0 10px 0;
+}
+
+h4 {
+    font-size: 24px;
+    line-height: 140%;
+    font-weight: 300;
+    color: @near-black;
+    padding: 20px 0 5px 0;
+}
+
+@media (max-width: 767px) {
+    h2 {
+        font-size: 28px;
+    }
+
+    h3 {
+        font-size: 20px;
+    }
+
+    h4 {
+        font-size: 16px;
+    }
+}
