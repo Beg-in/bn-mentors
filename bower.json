@@ -13,7 +13,8 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "roboto-fontface": "0.4.3","angular": "1.4.8",
+    "roboto-fontface": "0.4.3",
+    "angular": "1.4.8",
     "angular-sanitize": "1.4.8",
     "angular-route": "1.4.8",
     "angular-animate": "1.4.8",
