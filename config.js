@@ -21,6 +21,10 @@ if(env == 'dev') {
         root: __dirname + '/' + dest
     }
 }
+env.pg = {
+    user: process.env.PG_USER,
+    pass: process.env.PG_PASS
+};
 
 module.exports = {
     paths: {
@@ -32,7 +36,8 @@ module.exports = {
         scriptsSrc: client + '/scripts/',
         scriptsDest: dest + '/scripts/',
         stylesSrc: client + '/styles/',
-        stylesDest: dest + '/styles/'
+        stylesDest: dest + '/styles/',
+        stylesDev: __dirname + '/' + dest + '/styles'
     },
     env: env
 };

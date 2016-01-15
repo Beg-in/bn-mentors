@@ -17,6 +17,7 @@ $p.init({
 
 if(config.env.isDev) {
     app.use(require('connect-livereload')());
+    app.use('/styles', express.static(config.paths.stylesDev));
 }
 
 app.use(express.static(config.env.root));
