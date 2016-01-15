@@ -24,9 +24,9 @@ if(env == 'dev') {
 
 module.exports = {
     paths: {
-        client: '/' + client,
+        client: client,
         server: 'src/server/',
-        dest: '/' + dest,
+        dest: dest,
         bower: 'bower_components/',
         test: 'test/',
         scriptsSrc: client + '/scripts/',

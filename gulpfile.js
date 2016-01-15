@@ -187,7 +187,7 @@ gulp.task('connect', ['dev'], function() {
         log('livereload initiated');
         gp.livereload.changed({
             body: {
-                files: [gp.path.relative('' + config.dev.port, event.path)]
+                files: [gp.path.relative('' + config.env.port, event.path)]
             }
         });
     });
