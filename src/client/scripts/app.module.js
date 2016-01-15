@@ -30,10 +30,18 @@ angular.module('bnMentorsApp', [
         //static page
         templateUrl: '/views/login.html',
         controller: 'loginController'
-     }).when('/profile', {
+    }).when('/profile', {
         //static page
         templateUrl: '/views/profile.html',
         controller: 'profileController'
+    }).when('/signup', {
+        //static page
+        templateUrl: '/views/sign-up.html',
+        controller: 'signUpController'
+    }).when('/about', {
+        //static page
+        templateUrl: '/views/sign-up.html',
+        controller: 'signUpController'
     }).otherwise({
         redirectTo: '/404'
     });
