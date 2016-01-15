@@ -3,12 +3,16 @@
   "version": "0.0.1",
   "homepage": "https://github.com/bgin-io/bn-mentors",
   "authors": [
-    "Brian Jesse <brian.jesse@gmail.com>"
+    "Brian Jesse <brian.jesse@gmail.com>",
+    "Cody Sherman <cody@codysherman.com>"
   ],
   "description": "Bloomington-Normal Mentors Website",
   "main": "src/server/index.js",
   "moduleType": [
     "node"
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "bootstrap": "3.3.6"
+  }
 }
