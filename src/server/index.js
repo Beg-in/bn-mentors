@@ -18,6 +18,7 @@ $p.init({
 if(config.env.isDev) {
     app.use(require('connect-livereload')());
     app.use('/styles', express.static(config.paths.stylesDev));
+    app.use('/bower_components', express.static(config.paths.bower));
 }
 
 app.use(express.static(config.env.root));
