@@ -19,6 +19,14 @@ $ npm install -g foreman
 
 ### Development runtime
 #### Livereload server:
+Add a file called `.env` to the root of the project with the following contents:
+```json
+{
+    "node": {
+        "env": "dev"
+    }
+}
+```
 ```bash
 $ nf run gulp server
 ```
