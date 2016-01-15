@@ -32,7 +32,17 @@ gp.path = require('path');
  *
  * ### Development runtime
  * #### Livereload server:
+ * Add a file called `.env` to the root of the project with the following contents:
+ * ```json
+ * {
+ *     "node": {
+ *         "env": "dev"
+ *     }
+ * }
+ * ```
+ * You can now run the development server by running the following commands:
  * ```bash
+ * $ npm install
  * $ nf run gulp server
  * ```
  *
