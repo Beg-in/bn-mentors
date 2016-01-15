@@ -14,8 +14,8 @@ angular.module('bnMentorsApp', [
 
     $routeProvider.when('/', {
         //home page
-        templateUrl: '/views/404.html',
-        controller: 'staticController'
+        templateUrl: '/views/home.html',
+        controller: 'homeController'
     }).when('/index.html', {
         redirectTo: '/'
     }).when('/404', {
