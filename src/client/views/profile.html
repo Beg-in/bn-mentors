@@ -1,1 +1,29 @@
-Profile page here
+<div class="profile-image">
+	<!-- <img ng-src="profile.image"> -->
+	<img class="profile-image" src="/images/profile/test-profile-image.jpg">
+
+</div>
+<div class="profile-view-container">
+	<div class="profile-info"> 
+		
+		<div class="profile-contact"> 
+			<div id="profile-name">{{profile.name}}</div> 
+			<div id="profile-email">{{profile.email}}</div> 
+			<div id="profile-phone">{{profile.phone}}</div>
+		</div>
+		
+		<div class="profile-skills"> My Skills / Interests {{profile.skills}} </div>
+		
+		<div class="profile-bio">
+			
+			<div class="profile-shortbio"><input type="text" shortbio = {{profile.shortbio}}> </div>
+		</div>
+
+		<div class="profile-scheduled"> {{profile.schedule}}</div>
+
+	</div>
+
+		<div class="profile-submit submit-mentor"> <input class="btn btn-default" type="submit" value="Schedule 'Office' Hours"> </div>
+		<div class="profile-submit submit-mentee"> <input class="btn btn-default" type="submit" value="Find a Mentor"> </div>
+
+</div>

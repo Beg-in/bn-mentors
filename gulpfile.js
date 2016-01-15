@@ -90,7 +90,6 @@ var files = {
     ],
     styles: [
         path.join(paths.stylesSrc, '**/*.scss'),
-        path.join(paths.bower, 'roboto-fontface/css/*.scss'),
         path.join(paths.bower, 'bootstrap-sass/assets/stylesheets/**/*.scss')
     ],
     scripts:[
@@ -98,9 +97,6 @@ var files = {
     ],
     images: [
         path.join(paths.client, '*.png')
-    ],
-    fonts: [
-        path.join(paths.bower, 'roboto-fontface/fonts/**/*')
     ]
 };
 
@@ -129,7 +125,6 @@ gulp.task('styles', function() {
         .pipe(gp.sass({
             includePaths: [
                 path.join(paths.client, 'styles'),
-                path.join(paths.bower, 'roboto-fontface/css'),
                 path.join(paths.bower, 'bootstrap-sass/assets/stylesheets')
             ]
         }))
@@ -164,18 +159,12 @@ gulp.task('images', function() {
         .pipe(gulp.dest(paths.dest));
 });
 
-gulp.task('fonts', function() {
-    gulp.src(files.fonts)
-        .pipe(gulp.dest(path.join(paths.dest, 'fonts')));
-});
-
 gulp.task('build', [
     'clean',
     'html',
     'styles',
     'scripts',
-    'images',
-    'fonts'
+    'images'
 ]);
 
 gulp.task('demon', ['build'], function() {
