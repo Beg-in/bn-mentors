@@ -199,7 +199,7 @@ gulp.task('demon', ['build'], function() {
     */
 
     gp.nodemon({
-      script: path.join(paths.server, 'index.js'),
+      script: 'index.js',
       watch: paths.server,
       tasks: ['jshint']
     }).on('restart', function () {

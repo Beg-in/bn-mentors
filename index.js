@@ -4,7 +4,7 @@ var $p = require('nodep')();
 var _ = require('lodash');
 var express = require('express');
 var app = express();
-var config = require('../../config');
+var config = require('./config');
 
 $p.init({
     _: _,
@@ -12,7 +12,7 @@ $p.init({
     app: app,
     config: config
 }).init([
-    '**/*',
+    'src/server/**/*',
 ]);
 
 if(config.env.isDev) {
