@@ -11,12 +11,15 @@ $ npm install -g gulp
 ```bash
 $ npm install -g bower
 ```
+- [Node-Foreman](http://strongloop.github.io/node-foreman/)
+```bash
+$ npm install -g foreman
+```
 - [Postgresql](http://www.postgresql.org/)
-
 ### Development runtime
 #### Livereload server:
 ```bash
-$ gulp server
+$ nf run gulp server
 ```
 
 - You can now visit [http://localhost:8081/](http://localhost:8081/) to view changes live.
