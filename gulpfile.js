@@ -178,10 +178,11 @@ gulp.task('build', [
 ]);
 
 gulp.task('demon', ['build'], function() {
-    /*
+   
     _.forEach(files, function(glob, task) {
         gulp.watch(glob, [task]);
     });
+     /*
     gulp.watch('gulpfile.js', function() {
         log('gulpfile.js changed, reloading server');
         process.exit(0);
@@ -210,11 +211,13 @@ gulp.task('demon', ['build'], function() {
     gp.livereload.listen(35729);
     gulp.watch(path.join(paths.client, '**/*'), function(event){
         log('livereload initiated');
-        gp.livereload.changed({
-            body: {
-                files: [path.relative('' + config.env.port, event.path)]
-            }
-        });
+        setTimeout(function() {
+            gp.livereload.changed({
+                body: {
+                    files: [path.relative('' + config.env.port, event.path)]
+                }
+            });
+        }, 1000);
     });
 
 });
