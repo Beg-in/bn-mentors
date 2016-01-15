@@ -6,7 +6,7 @@ var _ = require('lodash');
 var gulp = require('gulp');
 var gp = require('gulp-load-plugins')({
     rename: {
-        'gulp-cssnano': 'cssmin',
+        'gulp-cssnano': 'cssmin'
     }
 });
 gp.clean = require('del');
@@ -113,13 +113,13 @@ gulp.task('clean', function() {
     gp.clean([paths.dest]);
 });
 
-gulp.task('html', function() {
+gulp.task('html', ['clean'], function() {
     gulp.src(paths.client + '*.html')
         .pipe(gp.htmlmin({collapseWhitespace: true}))
         .pipe(gulp.dest(paths.dest));
 });
 
-gulp.task('styles', function() {
+gulp.task('styles', ['clean'], function() {
     gulp.src(paths.stylesSrc + 'styles.scss')
         //.pipe(gp.debug({title: 'styles'}))
         //.pipe(gp.plumber({errorHandler: true}))
@@ -138,7 +138,7 @@ gulp.task('styles', function() {
         .pipe(gulp.dest(paths.stylesDest));
 });
 
-gulp.task('jshint', function() {
+gulp.task('jshint', ['clean'], function() {
     gulp.src(_.union(files.scripts, ['gulpfile.js', paths.server + '**/*.js']))
         .pipe(gp.jshint())
         .pipe(gp.jshint.reporter(require('jshint-stylish')));
@@ -156,19 +156,18 @@ gulp.task('scripts', ['jshint'], function() {
         .pipe(gulp.dest(paths.scriptsDest));
 });
 
-gulp.task('images', function() {
+gulp.task('images', ['clean'], function() {
     gulp.src(files.images)
         .pipe(gp.imagemin())
         .pipe(gulp.dest(paths.dest));
 });
 
-gulp.task('fonts', function() {
+gulp.task('fonts', ['clean'], function() {
     gulp.src(files.fonts)
         .pipe(gulp.dest(paths.dest + '/fonts'));
 });
 
 gulp.task('build', [
-    'clean',
     'html',
     'styles',
     'scripts',
