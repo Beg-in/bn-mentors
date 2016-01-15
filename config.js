@@ -35,6 +35,12 @@ var path = require('path');
 var client = path.resolve('src/client');
 var dest = path.resolve('public');
 
+var env = {
+    isDev: process.env.NODE_ENV === 'dev',
+    port: process.env.PORT || 8081,
+};
+env.root = env.isDev ? client : dest;
+
 module.exports = {
     paths: {
         client: client,
@@ -46,13 +52,10 @@ module.exports = {
         scriptsDest: path.join(dest, 'scripts'),
         stylesSrc: path.join(client, 'styles'),
         stylesDest: path.join(dest, 'styles'),
-        stylesDev: path.join(dest, 'styles')
+        stylesDev: path.join(dest, 'styles'),
+        fontsDev: path.join(dest, 'fonts')
     },
-    env: {
-        isDev: process.env.NODE_ENV === 'dev',
-        port: process.env.PORT || 8081,
-        root: this.isDev ? client : dest
-    },
+    env: env,
     pg: {
         user: process.env.PG_USER,
         pass: process.env.PG_PASS

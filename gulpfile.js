@@ -208,7 +208,7 @@ gulp.task('demon', ['build'], function() {
     log('app started on port', config.env.port);
 
     gp.livereload.listen(35729);
-    gulp.watch(paths.client + '/**/*', function(event){
+    gulp.watch(path.join(paths.client, '**/*'), function(event){
         log('livereload initiated');
         gp.livereload.changed({
             body: {
