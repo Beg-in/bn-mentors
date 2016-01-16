@@ -58,7 +58,10 @@ module.exports = {
     env: env,
     pg: {
         user: process.env.PG_USER,
-        pass: process.env.PG_PASS
+        pass: process.env.PG_PASS,
+        host: process.env.PG_HOST,
+        port: process.env.PG_PORT,
+        db: process.env.PG_DB
     },
     platform: process.platform,
     isWin: process.platform === 'win32'

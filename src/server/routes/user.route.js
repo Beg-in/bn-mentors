@@ -3,7 +3,9 @@
 module.exports = function(routeController) {
     routeController('user', function(route) {
         route.get('test', function() {
-            return {};
+            return {
+                test: 'hello'
+            };
         });
 
         route.post('test', function(req, body) {
