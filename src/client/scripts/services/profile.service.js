@@ -6,8 +6,6 @@ angular.module('bnMentorsApp').factory('ProfileService', function(
     var base = '/#/profile/';
 
     return {
-        convertIncomingProfile: convertIncomingProfile,
-        convertOutgoingProfile: convertOutgoingProfile,
         getUserProfile: function(id) {
             return ApiService.get(base + id).success(function(response) {
                 return response;

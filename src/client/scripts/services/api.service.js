@@ -5,7 +5,7 @@
  *
  * A service that manages the active api and a list of all availble api locations
  */
-angular.module('internrocketApp').factory('ApiService', function(
+angular.module('bnMentorsApp').factory('ApiService', function(
     _,
     $q,
     $http,
@@ -14,8 +14,8 @@ angular.module('internrocketApp').factory('ApiService', function(
 
     /**
      * @ngdoc object
-     * @name internrocketApp.service:ApiService#state
-     * @propertyOf internrocketApp.service:ApiService
+     * @name bnMentorsApp.service:ApiService#state
+     * @propertyOf bnMentorsApp.service:ApiService
      * @description the state of the service to be shared externally through the get method.
      *
      *  - **active** – `{string}` – The key of the active loction in the location list
