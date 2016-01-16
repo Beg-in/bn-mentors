@@ -1,0 +1,183 @@
+/*
+
+Hero Area Styles
+	Hero Image Overlay Styles
+	Search Box Styles
+Sponsor Area Styles
+Benifits Area Styles
+
+*/
+
+
+/* HERO AREA STYLE */
+
+[class*="arrow-box"] {
+	background-size: cover;
+	overflow: hidden;
+	padding-bottom: 0px;
+	position: relative;
+}
+
+[class*="arrow-box"]:before,
+[class*="arrow-box"]:after {
+	background-color: #fff;
+    bottom: -200px;
+	content: '';
+    height: 200px;
+    position: absolute;
+    width: 100%;
+
+}
+
+[class*="arrow-box"]:before {
+    left: 0;
+    -webkit-transform: skewY(15deg);
+    -moz-transform: skewY(15deg);
+    -ms-transform: skewY(15deg);
+    -o-transform: skewY(15deg);
+    transform: skewY(15deg);
+}
+
+[class*="arrow-box"]:after {
+    right: 0;
+    -webkit-transform: skewY(-15deg);
+    -moz-transform: skewY(-15deg);
+    -ms-transform: skewY(-15deg);
+    -o-transform: skewY(-15deg);
+    transform: skewY(-15deg);
+}
+
+.box-sec,
+.arrow-box-sec:before,
+.arrow-box-sec:after {
+	background-color: #f3f3f5;
+}
+
+/*SECOND ARROW BOX*/
+
+[class*="arrow-box2"] {
+	background-size: cover;
+	overflow: hidden;
+	padding-bottom: 0px;
+	position: relative;
+}
+
+[class*="arrow-box2"]:before,
+[class*="arrow-box2"]:after {
+	background-color: #F6F6F6;
+    bottom: -200px;
+	content: '';
+    height: 200px;
+    position: absolute;
+    width: 100%;
+
+}
+
+[class*="arrow-box2"]:before {
+    left: 0;
+    -webkit-transform: skewY(15deg);
+    -moz-transform: skewY(15deg);
+    -ms-transform: skewY(15deg);
+    -o-transform: skewY(15deg);
+    transform: skewY(15deg);
+}
+
+[class*="arrow-box2"]:after {
+    right: 0;
+    -webkit-transform: skewY(-15deg);
+    -moz-transform: skewY(-15deg);
+    -ms-transform: skewY(-15deg);
+    -o-transform: skewY(-15deg);
+    transform: skewY(-15deg);
+}
+
+.box-sec,
+.arrow-box-sec:before,
+.arrow-box-sec:after {
+	background-color: #f3f3f5;
+}
+/*HERO IMAGE OVERLAY*/
+
+.mentor-image-overlay {
+	color: white;
+	text-align: center;
+	height: 550px;
+	background-image: url('/images/mentors/mentor-hero.jpg');
+	font-size: 18px;
+    padding: 50px 25px 50px 25px;
+}
+
+/*END HERO IMAGE OVERLAY*/
+/***************************/
+/*SEARCH BOX STYLES*/
+
+.button-text{
+	margin-top: 120px;
+
+	p{
+	font-size: 20px;
+		font-weight: 10px;
+	}
+}
+.search-box{
+
+	p{
+	font-size: 20px;
+		font-weight: 10px;
+	}
+}
+
+.form-control{
+	border-style: solid;
+	border-color: black;
+	border-width: 3px;
+}
+
+/*END SEARCH BOX STYLES*/
+/***************************/
+/*END HERO AREA STYLES*/
+
+/***************************/
+/***************************/
+
+/*SPONSOR AREA STYLES*/
+
+.sponsor{
+	width: 100%;
+	background-color: #ffffff;
+	padding-bottom:120px;
+
+	img{
+		max-width: 100%;
+		}
+}
+
+.sponsor-icon{
+	height: 50px;
+	padding-top: 40px;
+	padding-bottom: 40px;
+}
+.sponsor-portrait-no{
+	height: 50px;
+}
+
+/*END SPONSOR AREA STYLES*/
+
+/***************************/
+/***************************/
+
+/*BENIFITS AREA STYLES*/
+
+.benifits{
+	padding-top:30px;
+	padding-bottom:40px;
+}
+
+/*END BENIFITS AREA STYLES*/
+
+
+
+
+
+
+
