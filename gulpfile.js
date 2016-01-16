@@ -203,8 +203,8 @@ gulp.task('demon', ['build'], function() {
     }).on('crash', function () {
         log('app crashed!');
     }).on('exit', function () {
+        process.kill(process.pid, 'SIGUSR2');
         log('app exited!');
-        process.kill(process.pid, 'SIGUSR2'); 
     });
     log('app started on port', config.env.port);
 
