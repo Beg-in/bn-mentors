@@ -23,11 +23,11 @@ angular.module('bnMentorsApp', [
         templateUrl: '/views/404.html',
         controller: 'staticController'
     }).when('/home', {
-        //static page
+        //home page
         templateUrl: '/views/404.html',
         controller: 'staticController'
     }).when('/login', {
-        //static page
+        //log in page
         templateUrl: '/views/login.html',
         controller: 'loginController'
     }).when('/profile', {
@@ -35,12 +35,12 @@ angular.module('bnMentorsApp', [
         templateUrl: '/views/profile.html',
         controller: 'profileController'
     }).when('/signup', {
-        //static page
+        //sign up
         templateUrl: '/views/sign-up.html',
         controller: 'signUpController'
-    }).when('/about', {
-        //static page
-        templateUrl: '/views/about.html',
+    }).when('/ourstory', {
+        //about page
+        templateUrl: '/views/our-story.html',
         controller: 'aboutController'
     }).otherwise({
         redirectTo: '/404'
