@@ -1,6 +1,6 @@
 * { margin:0; padding:0; outline:0; }
 
-html, body { height: 100%; -webkit-font-smoothing: subpixel-antialiased;}
+html, body { height: 100%; -webkit-font-smoothing: subpixel-antialiased; background-color: $background-grey;}
 
 *:not(.ng-animate) {
     transition: width 0.5s;
@@ -30,7 +30,7 @@ a:hover, a:focus {
 }
 
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
-  display: none !important;
+    display: none !important;
 }
 
 div[svg-directive] {
@@ -41,22 +41,87 @@ div[svg-directive] {
   display: none !important;
 }
 @media (max-width: 500px) {
-  .visible-xxs {
+    .visible-xxs {
     display: block !important;
-  }
-  table.visible-xxs {
-    display: table;
-  }
-  tr.visible-xxs {
-    display: table-row !important;
-  }
-  th.visible-xxs,
-  td.visible-xxs {
-    display: table-cell !important;
-  }
+    }
+    table.visible-xxs {
+        display: table;
+    }
+    tr.visible-xxs {
+        display: table-row !important;
+    }
+    th.visible-xxs,
+    td.visible-xxs {
+        display: table-cell !important;
+    }
 }
 @media (max-width: 500px) {
-  .hidden-xxs {
-    display: none !important;
-  }
+    .hidden-xxs {
+        display: none !important;
+    }
+}
+
+.page {
+    background-color: #fff;
+    padding: 30px 25px;
+    border-radius: 1px;
+    margin-bottom: 30px;
+}
+
+.card-shadow {
+    box-shadow: 0px 1px 3px 0px $card-shadow !important; 
+}
+
+h1 {
+    font-size: 60px;
+    font-style: italic;
+    font-weight: 700;
+    color: $near-black;
+    padding: 0px 0 10px 0;
+}
+
+@media (max-width: 415px) {
+    h1 {
+        font-size: 50px;
+    }
+}
+
+h2 {
+    font-size: 48px;
+    line-height: 120%;
+    font-style: italic;
+    text-transform: uppercase;
+    font-weight: 300;
+    color: $near-black;
+    padding: 0px 0 20px 0;
+}
+
+h3 {
+    font-size: 36px;
+    line-height: 120%;
+    font-weight: 300;
+    color: $near-black;
+    padding: 20px 0 10px 0;
+}
+
+h4 {
+    font-size: 24px;
+    line-height: 140%;
+    font-weight: 300;
+    color: $near-black;
+    padding: 20px 0 5px 0;
+}
+
+@media (max-width: 767px) {
+    h2 {
+        font-size: 28px;
+    }
+
+    h3 {
+        font-size: 20px;
+    }
+
+    h4 {
+        font-size: 16px;
+    }
 }
