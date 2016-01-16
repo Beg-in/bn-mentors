@@ -24,4 +24,3 @@ if(config.env.isDev) {
 
 app.use(express.static(config.env.root));
 app.listen(config.env.port);
-
