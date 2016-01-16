@@ -43,6 +43,7 @@
     "tiny-lr": "0.2.1"
   },
   "dependencies": {
+    "body-parser": "1.14.2",
     "express": "4.13.3",
     "later": "^1.2.0",
     "lodash": "3.10.1",

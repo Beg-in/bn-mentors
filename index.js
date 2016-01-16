@@ -4,7 +4,10 @@ var $p = require('nodep')();
 var _ = require('lodash');
 var express = require('express');
 var app = express();
+var bodyParser = require('body-parser');
 var config = require('./config');
+
+app.use(bodyParser.json());
 
 $p.init({
     _: _,

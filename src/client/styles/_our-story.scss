@@ -1,16 +1,16 @@
 .about-image-overlay {
 	color: white;
 	text-align: center;
-	Height: 300px;
-	Background-image: url('/images/about/Culture of Code.jpg');
+	height: 300px;
+	background-image: url('/images/about/Culture of Code.jpg');
 	font-size: 18px;
     padding: 70px 25px 70px 25px;
 }
 .about-image-overlay-vision {
 	color: white;
 	text-align: center;
-	Height: 200px;
-	Background-image: url('/images/about/our Vision.jpg');
+	height: 200px;
+	background-image: url('/images/about/our Vision.jpg');
 	font-size: 18px;
     padding: 60px 100px 60px 100px;
 }
@@ -28,4 +28,7 @@
 }
 .about-bios{
 	text-align: center;
+}
+.about-image-title{
+	color: white;
 }
