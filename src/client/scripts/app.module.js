@@ -41,7 +41,7 @@ angular.module('bnMentorsApp', [
     }).when('/ourstory', {
         //about page
         templateUrl: '/views/our-story.html',
-        controller: 'aboutController'
+        controller: 'ourStoryController'
     }).otherwise({
         redirectTo: '/404'
     });
