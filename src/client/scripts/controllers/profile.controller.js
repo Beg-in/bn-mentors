@@ -6,7 +6,7 @@ angular.module('bnMentorsApp').controller('profileController', function(
 		name: "Brandon Frisch",
 		email: "bfrisch1@gmail.com",
 		phone: "847.847.8847",
-		skills:" #law #business #technology #science"
+		skills: ["law", "business", "technology", "science"]
 	};
 
 });
