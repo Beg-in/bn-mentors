@@ -42,7 +42,7 @@
 	font-size: 14px;
 	display: flex;
 	flex-direction:row;
-	border:1px solid black;
+	border-bottom: 2px solid $light-grey;
 	padding:5px;
 	margin-bottom: 10px;
 	
@@ -55,7 +55,7 @@ margin-right:30px;
 }
 
 .profile-skills-container{
-border:1px solid black;
+border-bottom: 2px solid $light-grey;
 margin-bottom: 10px;
 }
 
