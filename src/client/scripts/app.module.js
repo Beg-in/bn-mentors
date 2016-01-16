@@ -22,10 +22,10 @@ angular.module('bnMentorsApp', [
         //404 error
         templateUrl: '/views/404.html',
         controller: 'staticController'
-    }).when('/home', {
+    }).when('/mentors', {
         //home page
-        templateUrl: '/views/404.html',
-        controller: 'staticController'
+        templateUrl: '/views/mentors.html',
+        controller: 'mentorsController'
     }).when('/login', {
         //log in page
         templateUrl: '/views/login.html',
