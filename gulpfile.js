@@ -200,6 +200,11 @@ gulp.task('demon', ['build'], function() {
       tasks: ['jshint']
     }).on('restart', function () {
         log('app restarted!');
+    }).on('crash', function () {
+        log('app crashed!');
+    }).on('exit', function () {
+        log('app exited!');
+        process.kill(process.pid, 'SIGUSR2'); 
     });
     log('app started on port', config.env.port);
 
