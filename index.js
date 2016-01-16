@@ -1,19 +1,22 @@
 'use strict';
 
-var $p = require('nodep')();
+var path = require('path');
 var _ = require('lodash');
 var express = require('express');
 var app = express();
+var bodyParser = require('body-parser');
+var $p = require('nodep')();
 var config = require('./config');
 
+app.use(bodyParser.json());
+
 $p.init({
+    path: path,
     _: _,
     express: express,
     app: app,
     config: config
-}).init([
-    'src/server/**/*',
-]);
+}).init('src/server/**/*');
 
 if(config.env.isDev) {
     app.use(require('connect-livereload')());

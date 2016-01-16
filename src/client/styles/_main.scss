@@ -33,10 +33,6 @@ a:hover, a:focus {
     display: none !important;
 }
 
-div[svg-directive] {
-    margin-bottom: -4px; // This is the fix the bug when using svg inside of ng-include
-}
-
 .visible-xxs {
   display: none !important;
 }
@@ -69,7 +65,7 @@ div[svg-directive] {
 }
 
 .card-shadow {
-    box-shadow: 0px 1px 3px 0px $card-shadow !important; 
+    box-shadow: $card-shadow;
 }
 
 h1 {

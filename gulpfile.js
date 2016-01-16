@@ -200,6 +200,11 @@ gulp.task('demon', ['build'], function() {
       tasks: ['jshint']
     }).on('restart', function () {
         log('app restarted!');
+    }).on('crash', function () {
+        log('app crashed!');
+    }).on('exit', function () {
+        process.kill(process.pid, 'SIGUSR2');
+        log('app exited!');
     });
     log('app started on port', config.env.port);
 
@@ -230,11 +235,11 @@ gulp.task('server', function() {
 });
 
 gulp.task('spec', function() {
-    return gulp.src('nodep.js')
+    return gulp.src(['index.js', 'config.js', path.join(paths.server, '**/*.js')])
         .pipe(gp.istanbul())
         .pipe(gp.istanbul.hookRequire())
         .on('finish', function() {
-            gulp.src(path.join(paths.test, 'spec.js'))
+            gulp.src('spec.js')
                 .pipe(gp.mocha())
                 .pipe(gp.istanbul.writeReports());
         });
