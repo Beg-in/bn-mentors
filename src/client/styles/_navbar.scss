@@ -1,17 +1,31 @@
-#header-logo {
-	margin: 10px 0;
+#header-wrap { 
+	border-bottom: 1px solid rgba(0,0,0,.2);
+	width:100%;
 }
+#nav-lg { display: inline-block;}
+.nav-item a {
+	padding: 37px 20px;
+	float: right;
+	display: inline-block;
+	font-size: 15px;
+	letter-spacing: 2px;
+	font-weight: 700;
+	text-transform: uppercase;
+}
+#header-logo {margin: 10px 0;}
+.nav-buttons { margin-top:  25px; text-align:  right; padding-left: 0;}
 
-#nav-buttons button {
-	height: 36px;
+a.nav-buttons {
+	height: 40px;
 	font-size: 14px;
-	border-radius: 18px;
-	-moz-border-radius: 18px;
-	-webkit-border-radius: 18px ;
+	line-height: 38px;
+	border-radius: 20px;
+	-moz-border-radius: 20px;
+	-webkit-border-radius: 20px ;
 	display: inline-block;
     position: relative;
-    height: 36px;
     padding: 0 16px;
+    margin-left: 10px;
     color: rgba(0,0,0,0.4);
     background: rgba(0,0,0,0);
     text-align: center;
@@ -31,14 +45,29 @@
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    transition: color .1s ease-in-out;
-    -moz-transition: color .1s ease-in-out;
-    -webkit-transition: color .1s ease-in-out;
+    transition: all .1s ease-in-out;
+    -moz-transition: all .1s ease-in-out;
+    -webkit-transition: all .1s ease-in-out;
+}
+a.nav-buttons:hover {
+	color: $dark-blue;
+	border: 1px solid $dark-blue; 
 }
 
-#nav-buttons button:hover {
-	background-color: #96E6FA;
-	color: #FFF;
-	border: 1px solid #96E6FA; 
+@media (max-width: 768px) {
+	a.nav-buttons {
+	height: 30px;
+	float: right;
+	font-size: 12px;
+	line-height: 28px;
+	border-radius: 15px;
+	-moz-border-radius: 15px;
+	-webkit-border-radius: 15px ;
+	padding: 0 14px;
+    margin-left: 10px;
+	}
+	.nav-buttons {margin-top:10px;}
+	.nav-item { padding-right: 5px;}
+	.nav-item a { padding: 15px 0 15px 15px;}
 
 }
