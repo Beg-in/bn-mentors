@@ -1,6 +1,7 @@
 <div class="page card-shadow">
 
 	<div class="profile-page-title"> {{profile.name}}'s Profile </div>
+	<button type="submit" class="btn btn-primary" ng-click="toggleEdit()">Edit</button>
 
 		<div class="profile-image">
 			<!-- <img ng-src="profile.image"> -->
@@ -10,22 +11,28 @@
 		<div class="profile-view-container">
 			<div class="profile-info"> 
 				
-				<div class="profile-contact"> 
-					<div class="profile-contact-input">{{profile.name}}</div> 
-					<div class="profile-contact-input">{{profile.email}}</div> 
-					<div class="profile-contact-input">{{profile.phone}}</div>
+				<div class="profile-contact">
+					<input type="text" ng-model=profile.name ng-show="edit">
+					<input type="text" ng-model=profile.email ng-show="edit">
+					<input type="text" ng-model=profile.phone ng-show="edit">
+					<div class="profile-contact-input" ng-hide="edit" class="ng-hide">{{profile.name}}</div>
+					<div class="profile-contact-input" ng-hide="edit" class="ng-hide">{{profile.email}}</div>
+					<div class="profile-contact-input" ng-hide="edit" class="ng-hide">{{profile.phone}}</div>
 				</div>
 				
 			<div class="profile-skills-container">
 				<div class="profile-skills-title"> My Skills / Interests</div>
 				<div class="profile-skill-tag-flex">
-					<div class="profile-skill-tag" ng-repeat="skill in profile.skills"> #{{skill}}</div>
+					<div class="profile-skill-tag" ng-hide="edit" ng-model=profile.skills ng-repeat="skill in profile.skills"> #{{skill}}</div>
+					<input type="text" ng-model=profile.skills ng-show="edit">
 				</div>
 			</div>
 					
 				<div class="profile-bio">
-					
-					<div class="profile-shortbio"><input class="shortbio-input" type="text" placeholder="Short Bio: Keep it under 140 words" shortbio = {{profile.shortbio}}> </div>
+					<div class="profile-shortbio">
+						<input class="shortbio-input" type="text" ng-show="edit" ng-model=profile.shortbio placeholder="Short Bio: Keep it under 140 words" shortbio = {{profile.shortbio}}>
+						<div class="shortbio-input" ng-hide="edit" ng-model=profile.shortbio class="ng-hide">{{profile.shortbio}}</div>
+					</div>
 				</div>
 
 				<div class="profile-scheduled"> {{profile.schedule}}</div>
