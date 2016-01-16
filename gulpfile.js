@@ -200,12 +200,12 @@ gulp.task('demon', ['build'], function() {
       tasks: ['jshint']
     }).on('restart', function () {
         log('app restarted!');
-    }).on('crash', function () {
+    })/*.on('crash', function () {
         log('app crashed!');
     }).on('exit', function () {
         process.kill(process.pid, 'SIGUSR2');
         log('app exited!');
-    });
+    })*/;
     log('app started on port', config.env.port);
 
     gp.livereload.listen(35729);
