@@ -59,6 +59,8 @@ module.exports = {
     pg: {
         user: process.env.PG_USER,
         pass: process.env.PG_PASS
-    }
+    },
+    platform: process.platform,
+    isWin: process.platform === 'win32'
 };
 

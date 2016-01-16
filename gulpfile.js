@@ -10,7 +10,7 @@ var gp = require('gulp-load-plugins')({
         'gulp-cssnano': 'cssmin'
     }
 });
-gp.clean = require('del');
+var del = require('del');
 gp.livereload = require('tiny-lr')();
 
 /**
@@ -96,7 +96,7 @@ var files = {
         path.join(paths.scriptsSrc, '**/*.js')
     ],
     images: [
-        path.join(paths.client, '*.png')
+        path.join(paths.client, '**/*.png')
     ]
 };
 
@@ -106,19 +106,18 @@ var log = function() {
     gp.util.log.apply(gp.util, args);
 };
 
-gulp.task('clean', function(cb) {
-    gp.clean.sync([paths.dest]);
-    cb();
+gulp.task('clean', ['jshint'], function() {
+    return del([paths.dest]);
 });
 
-gulp.task('html', function() {
-    gulp.src(path.join(paths.client, '*.html'))
+gulp.task('html', ['clean'], function() {
+    return gulp.src(path.join(paths.client, '*.html'))
         .pipe(gp.htmlmin({collapseWhitespace: true}))
         .pipe(gulp.dest(paths.dest));
 });
 
-gulp.task('styles', function() {
-    gulp.src(path.join(paths.stylesSrc, 'styles.scss'))
+gulp.task('styles', ['clean'], function() {
+    return gulp.src(path.join(paths.stylesSrc, 'styles.scss'))
         //.pipe(gp.debug({title: 'styles'}))
         //.pipe(gp.plumber({errorHandler: true}))
         .pipe(gp.sourcemaps.init({loadMaps: true}))
@@ -130,20 +129,20 @@ gulp.task('styles', function() {
         }))
         .pipe(gp.autoprefixer())
         .pipe(gp.concat('app.min.css'))
-        //.pipe(gp.cssmin())
+        .pipe(gp.cssmin())
         .pipe(gp.sourcemaps.write('.'))
         .pipe(gulp.dest(paths.stylesDest));
 });
 
 gulp.task('jshint', function() {
-    gulp.src(_.union(files.scripts, ['gulpfile.js', path.join(paths.server, '**/*.js')]))
+    return gulp.src(_.union(files.scripts, ['*.js', path.join(paths.server, '**/*.js')]))
         .pipe(gp.jshint())
         .pipe(gp.jshint.reporter(require('jshint-stylish')));
         //.pipe(jshint.reporter('fail'));
 });
 
-gulp.task('scripts', function() {
-    gulp.src(files.scripts)
+gulp.task('scripts', ['clean'], function() {
+    return gulp.src(files.scripts)
         //.pipe(gp.debug({title: 'scripts'}))
         //.pipe(gp.plumber({errorHandler: true}))
         .pipe(gp.sourcemaps.init())
@@ -153,8 +152,8 @@ gulp.task('scripts', function() {
         .pipe(gulp.dest(paths.scriptsDest));
 });
 
-gulp.task('images', function() {
-    gulp.src(files.images)
+gulp.task('images', ['clean'], function() {
+    return gulp.src(files.images)
         .pipe(gp.imagemin())
         .pipe(gulp.dest(paths.dest));
 });
@@ -168,30 +167,36 @@ gulp.task('build', [
 ]);
 
 gulp.task('demon', ['build'], function() {
-   
     _.forEach(files, function(glob, task) {
         gulp.watch(glob, [task]);
     });
-     /*
-    gulp.watch('gulpfile.js', function() {
+    var reloadable = function(file, cb) {
+        gulp.watch(file, function(event) {
+            if(event.path.indexOf(file) === -1) {
+                return;
+            } else {
+                cb();
+            }
+        });
+    };
+    reloadable('gulpfile.js', function() {
         log('gulpfile.js changed, reloading server');
         process.exit(0);
     });
-    gulp.watch('package.json', function() {
+    reloadable('package.json', function() {
         log('package.json changed, installing packages...');
         cp.execSync('npm install', {stdio: 'inherit'});
         process.exit(0);
     });
-    gulp.watch('bower.json', function() {
+    reloadable('bower.json', function() {
         log('bower.json changed, installing packages...');
         cp.execSync('bower install', {stdio: 'inherit'});
         process.exit(0);
     });
-    */
 
     gp.nodemon({
       script: 'index.js',
-      watch: paths.server,
+      watch: [paths.server, 'config.js', 'index.js'],
       tasks: ['jshint']
     }).on('restart', function () {
         log('app restarted!');
@@ -209,14 +214,13 @@ gulp.task('demon', ['build'], function() {
             });
         }, 1000);
     });
-
 });
 
 gulp.task('server', function() {
     cp.execSync('npm install', {stdio: 'inherit'});
     cp.execSync('bower install', {stdio: 'inherit'});
     var spawnChild = function() {
-        cp.spawn('gulp', ['demon'], {stdio: 'inherit'}).on('close', function(code) {
+        cp.spawn('gulp' + (config.isWin ? '.cmd' : ''), ['demon'], {stdio: 'inherit'}).on('close', function(code) {
             if(code === 0) {
                 spawnChild();
             }
@@ -226,7 +230,7 @@ gulp.task('server', function() {
 });
 
 gulp.task('spec', function() {
-    gulp.src('nodep.js')
+    return gulp.src('nodep.js')
         .pipe(gp.istanbul())
         .pipe(gp.istanbul.hookRequire())
         .on('finish', function() {
@@ -246,7 +250,7 @@ gulp.task('autotest', function() {
 });
 
 gulp.task('docs', function() {
-    gulp.src(['gulpfile.js', 'config.js', 'src/**/*.js','test/*.js'])
+    return gulp.src(['gulpfile.js', 'config.js', 'src/**/*.js','test/*.js'])
         .pipe(gp.concat('README.md'))
         .pipe(gp.jsdocToMarkdown({
             template: fs.readFileSync('./docs.hbs', 'utf8')
@@ -254,7 +258,7 @@ gulp.task('docs', function() {
 });
 
 gulp.task('changelog', function() {
-    gulp.src('CHANGELOG.md')
+    return gulp.src('CHANGELOG.md')
         .pipe(gp.conventionalChangelog({
             preset: 'angular'
         })).pipe(gulp.dest('.'));

@@ -5,38 +5,93 @@
 	width:100%;
 	flex-wrap:wrap;
 	flex-direction:row;
+	font-family: $lato;
+
+}
+
+.profile-page-title{
+	font-family: $lato;
+	font-weight: 100;
+	font-size: 24px;
 
 }
 
 .profile-image {
-	width:400px;
+	margin:10px auto;
+	width:250px;
 
 }
 
+.profile-image img {
+	width:250px;
+	/*border-radius: 175px !important;*/
+	box-shadow: $card-shadow;
+}
+
+
+
 .profile-info {
 	display:flex;
-	flex-direction:row;
+	flex-direction:column;
+	font-weight: 100px;
 
 }
 
 .profile-contact {
-	font-size: 18px;
+
+	font-size: 14px;
+	display: flex;
+	flex-direction:row;
+	border:1px solid black;
+	padding:5px;
+	margin-bottom: 10px;
+	
+}
+
+.profile-contact-input{
+margin-left:30px;
+margin-right:30px;
 
 }
 
-.profile-skills{
+.profile-skills-container{
+border:1px solid black;
+margin-bottom: 10px;
+}
+
+.profile-skills-title{
+margin:5px auto;
+text-align: center;
+font-weight: 700;
+
+}
+
+.profile-skill-tag-flex{
+	display:flex;
+	flex-direction:row;
+	justify-content:center;
+
+}
+
+.profile-skill-tag{
+	font-size:14px;
+	margin:5px 30px 5px 3px;
 
 
 }
+
+.shortbio-input{
+width: 500px;
+height:100px;
+margin-bottom: 10px;
+
+}
+
 
 .profile-bio {
 
 
 }
 
-.profile-submit{
-
-
-}
-
-//you spelled container wrong
+.btn-default{
+background-color: $primary-color;
