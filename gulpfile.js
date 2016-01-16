@@ -235,11 +235,11 @@ gulp.task('server', function() {
 });
 
 gulp.task('spec', function() {
-    return gulp.src('nodep.js')
+    return gulp.src(['index.js', 'config.js', path.join(paths.server, '**/*.js')])
         .pipe(gp.istanbul())
         .pipe(gp.istanbul.hookRequire())
         .on('finish', function() {
-            gulp.src(path.join(paths.test, 'spec.js'))
+            gulp.src('spec.js')
                 .pipe(gp.mocha())
                 .pipe(gp.istanbul.writeReports());
         });
