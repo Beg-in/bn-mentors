@@ -71,6 +71,15 @@ a:hover, a:focus {
     margin-bottom: 30px;
 }
 
+@keyframes pagein {
+    from { opacity: 0; transform: translateY(25px);}
+    to   { opacity: 1;  transform: translateY(0);}
+}
+
+.page-in {
+    animation: pagein 0.5s;
+}
+
 .card-shadow {
     box-shadow: $card-shadow;
 }
