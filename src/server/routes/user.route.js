@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = function(routeController, userController) {
-    routeController('user', function(route) {
+    routeController('api/v1/user', function(route) {
         route.get('all', function() {
             return userController.getAll();
         });

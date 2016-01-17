@@ -32,8 +32,12 @@ angular.module('bnMentorsApp', [
         //log in page
         templateUrl: '/views/login.html',
         controller: 'loginController'
+    }).when('/profile/:id', {
+        //profile page
+        templateUrl: '/views/profile.html',
+        controller: 'profileController'
     }).when('/profile', {
-        //static page
+        //profile page example
         templateUrl: '/views/profile.html',
         controller: 'profileController'
     }).when('/signup', {
