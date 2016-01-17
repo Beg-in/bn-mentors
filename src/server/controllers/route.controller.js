@@ -4,7 +4,18 @@ module.exports = function(app, express) {
     var route = function(base) {
         var register = function(method, path, cb) {
             app[method]('/' + base + '/' + path, function(req, res) {
-                res.json(cb(req, req.body, res));
+                var content = cb(req, req.body, res);
+                if(content instanceof Promise) {
+                    content.then(function(result) {
+                        res.json(result);
+                    }).catch(function(err) {
+                        res.json({
+                            error: err.message
+                        });
+                    });
+                } else {
+                    res.json(content);
+                }
             });
         };
 
