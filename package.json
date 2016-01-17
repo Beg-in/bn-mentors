@@ -45,8 +45,10 @@
   "dependencies": {
     "body-parser": "1.14.2",
     "express": "4.13.3",
+    "handlebars": "4.0.5",
     "later": "^1.2.0",
     "lodash": "3.10.1",
+    "marked": "0.3.5",
     "nodep": "0.2.1",
     "pg": "4.4.3",
     "schedulejs": "^0.6.3",

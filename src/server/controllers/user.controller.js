@@ -3,18 +3,13 @@
 module.exports = function(userModel) {
     return {
         getAll: function() {
-            return new Promise(function(resolve, reject) {
-                userModel.getAll().then(function(result) {
-                    resolve(result.rows);
-                    console.log(result.rows);
-                }).catch(reject);
+            return userModel.getAll().then(function(result) {
+                return result.rows;
             });
         },
         getByEmail: function(email) {
-            return new Promise(function(resolve, reject) {
-                userModel.getByEmail([email]).then(function(result) {
-                    resolve(result.rows);
-                }).catch(reject);
+            userModel.getByEmail([email]).then(function(result) {
+                return result.rows;
             });
         }
     };
