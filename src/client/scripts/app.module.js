@@ -48,6 +48,10 @@ angular.module('bnMentorsApp', [
         //about page
         templateUrl: '/views/our-story.html',
         controller: 'ourStoryController'
+    }).when('/termsofuse', {
+        //terms of use
+        templateUrl: '/views/terms-of-use.html',
+        controller: 'staticController'
     }).when('/calendar', {
         //calendar page
         templateUrl: '/views/calendar.html',
