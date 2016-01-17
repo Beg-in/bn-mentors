@@ -6,6 +6,7 @@
  * A service that manages the active api and a list of all availble api locations
  */
 angular.module('bnMentorsApp').factory('ApiService', function(
+    _,
     $q,
     $http,
     ApiConfig
