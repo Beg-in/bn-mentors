@@ -3,6 +3,13 @@
     to { transform: translateY(0px); }
 }
 
+#logo {
+    img {
+    max-width: 200px;
+    width: 100%;
+    height: auto;}
+}
+
 #header-wrap { 
     border-bottom: 1px solid rgba(0,0,0,.2);
     width:100%;
@@ -64,7 +71,7 @@ a.nav-buttons:hover {
     border: 1px solid $dark-blue; 
 }
 
-@media (max-width: 768px) {
+@media (max-width: 991px) {
     a.nav-buttons {
     height: 30px;
     float: right;
@@ -78,6 +85,11 @@ a.nav-buttons:hover {
     }
     .nav-buttons {margin-top:10px;}
     .nav-item { padding-right: 5px;}
-    .nav-item a { padding: 15px 0 15px 15px;}
+    .nav-item a { padding: 15px 0 15px 15px; font-size: 12px;}
+    .home-mobile-nav-item {
+        a:nth-child(2) {
+            padding: 15px 5px 15px 0;
+        }
+    }
 
 }
