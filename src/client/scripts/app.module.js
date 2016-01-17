@@ -1,7 +1,8 @@
 angular.module('bnMentorsApp', [
     'ngAnimate',
     'ngRoute',
-    'lodash'
+    'lodash',
+    'angular-md5'
 ]).config(function(
     $locationProvider,
     $routeProvider,

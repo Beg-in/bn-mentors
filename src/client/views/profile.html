@@ -7,7 +7,8 @@
 
                 <div class="profile-image">
                     <!-- <img class="profile-image" ng-src="profile.image"> -->
-                    <img class="profile-image" src="/images/profile/test-profile-image.jpg">
+                    <!-- <img class="profile-image" src="/images/profile/test-profile-image.jpg"> -->
+                    <img ng-show="gravatar" class="profile-image" ng-src="https://secure.gravatar.com/avatar/{{gravatar}}">
 
                 </div>
                 <div class="profile-view-container">
