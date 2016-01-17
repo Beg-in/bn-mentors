@@ -22,9 +22,7 @@ $ npm install -g foreman
 Add a file called `.env` to the root of the project with the following contents:
 ```json
 {
-    "node": {
-        "env": "dev"
-    }
+    "NODE_ENV": "dev"
 }
 ```
 You can now run the development server by running the following commands:
