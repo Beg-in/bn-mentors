@@ -9,10 +9,10 @@ angular.module('bnMentorsApp').controller('profileController', function(
 	};
 
 	$scope.profile = {
-		name: "Brandon Frisch",
-		email: "bfrisch1@gmail.com",
-		phone: "847.847.8847",
-		skills: ["law", "business", "technology", "science"],
-		shortbio: "I'm awesome!"
+		name: 'Brandon Frisch',
+		email: 'bfrisch1@gmail.com',
+		phone: '847.847.8847',
+		skills: ['law', 'business', 'technology', 'science'],
+		shortbio: 'Im awesome!'
 	};
 });
