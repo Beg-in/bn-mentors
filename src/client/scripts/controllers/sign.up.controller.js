@@ -1,20 +1,12 @@
 angular.module('bnMentorsApp').controller('signUpController', function(
-	$scope
+	$scope,
+  ProfileService
 ) { 'use strict';
 
-  $scope.form = {
-    email: "",
-    password: ""
-  }
+  $scope.profile = {};
 
-  $scope.profile = {
-    email: "",
-    password: ""
-	};
-
-  $scope.sendFormToProfile = function() {
-    $scope.profile.email = $scope.form.email;
-    $scope.profile.password = $scope.form.password;
+  $scope.saveProfile = function() {
+    ProfileService.setUserProfile($scope.profile);
   }
 
 });
