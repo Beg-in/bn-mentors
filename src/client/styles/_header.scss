@@ -1,7 +1,13 @@
+@keyframes header-slide-in {
+    from { transform: translateY(-50px); }
+    to { transform: translateY(0px); }
+}
+
 #header-wrap { 
 	border-bottom: 1px solid rgba(0,0,0,.2);
 	width:100%;
     background-color: #fff;
+    animation: header-slide-in 0.5s ease forwards;
 }
 #nav-lg { display: inline-block;}
 .nav-item a {
@@ -14,6 +20,9 @@
 	text-transform: uppercase;
 }
 #header-logo {margin: 10px 0;}
+#header-logo:active {
+    transform:translateY(1px);
+}
 .nav-buttons { margin-top:  25px; text-align:  right; padding-left: 0;}
 
 a.nav-buttons {
