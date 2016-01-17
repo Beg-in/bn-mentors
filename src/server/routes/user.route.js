@@ -6,8 +6,8 @@ module.exports = function(routeController, userController) {
             return userController.getAll();
         });
 
-        route.post('test', function(req, body) {
-            return body;
+        route.post('email', function(req, body) {
+            return userController.getByEmail(body.email);
         });
     });
 };

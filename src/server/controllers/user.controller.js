@@ -9,6 +9,13 @@ module.exports = function(userModel) {
                     console.log(result.rows);
                 }).catch(reject);
             });
+        },
+        getByEmail: function(email) {
+            return new Promise(function(resolve, reject) {
+                userModel.getByEmail([email]).then(function(result) {
+                    resolve(result.rows);
+                }).catch(reject);
+            });
         }
     };
 };
