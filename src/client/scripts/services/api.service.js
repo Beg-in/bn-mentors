@@ -29,7 +29,7 @@ angular.module('bnMentorsApp').factory('ApiService', function(
     var init = function() {
         var active = state.list.active;
         delete state.list.active;
-        state.active = (NativeService.get.isNative || PrerenderService.isPrerender ? 'https:' : '') + state.list[active];
+        state.active = state.list[active];
     };
     init();
 
@@ -71,7 +71,7 @@ angular.module('bnMentorsApp').factory('ApiService', function(
                 login.error();
                 return;
             }
-            AlertService.setError('API error: ' + response.error, true);
+            console.log('API error: ' + response.error, true);
         });
         var oldError = http.error;
         http.error = function(cb) {
@@ -88,7 +88,7 @@ angular.module('bnMentorsApp').factory('ApiService', function(
         location: state,
         setApi: function(api) {
             if(!state.list[api]) {
-                AlertService.setError('Invalid api location: ' + api);
+                console.log('Invalid api location: ' + api);
                 return;
             }
             state.active = state.list[api];

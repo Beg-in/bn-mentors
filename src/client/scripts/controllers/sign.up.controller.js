@@ -7,6 +7,6 @@ angular.module('bnMentorsApp').controller('signUpController', function(
 
   $scope.saveProfile = function() {
     ProfileService.setUserProfile($scope.profile);
-  }
+  };
 
 });

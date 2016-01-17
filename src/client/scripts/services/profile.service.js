@@ -11,7 +11,7 @@ angular.module('bnMentorsApp').factory('ProfileService', function(
             });
         },
         setUserProfile: function(data) {
-            return ApiService.post(base + 'user', convertOutgoingProfile(data)).success(function(response) {
+            return ApiService.post(base + 'user', data).success(function(response) {
                 return response;
             });
         }

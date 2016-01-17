@@ -62,7 +62,7 @@ module.exports = function(config) {
                     data jsonb
                 );
             `).then(function() {
-                console.log(`load table ${name}`)
+                console.log(`load table ${name}`);
             });
         }
     };
