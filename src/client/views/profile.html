@@ -8,7 +8,7 @@
                 <div class="profile-image">
                     <!-- <img class="profile-image" ng-src="profile.image"> -->
                     <!-- <img class="profile-image" src="/images/profile/test-profile-image.jpg"> -->
-                    <img ng-show="gravatar" class="profile-image" ng-src="https://secure.gravatar.com/avatar/{{gravatar}}">
+                    <img ng-show="gravatar" class="profile-image" ng-src="https://secure.gravatar.com/avatar/{{gravatar}}?s=500">
 
                 </div>
                 <div class="profile-view-container">
@@ -38,7 +38,7 @@
                             </div>
                         </div>
 
-                        <div class="profile-scheduled"> {{profile.schedule}}</div>
+                        <div class="profile-scheduled">{{profile.schedule}}</div>
 
                         <div class="profile-submit submit-mentor"> <input class="btn btn-default" type="submit" value="Schedule 'Office' Hours" > </div>
                         <div class="profile-submit submit-mentee"> <input class="btn btn-default" type="submit" value="Find a Mentor"> </div>
