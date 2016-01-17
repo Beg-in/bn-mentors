@@ -107,7 +107,7 @@ var log = function() {
 };
 
 gulp.task('clean', ['jshint'], function() {
-    return del([paths.dest]);
+    // return del([paths.dest]); //Commented out because breaks saving new app.module.js
 });
 
 gulp.task('html', ['clean'], function() {
