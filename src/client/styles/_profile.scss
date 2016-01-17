@@ -1,51 +1,51 @@
 
 .profile-view-container {
-	display:flex;
-	justify-content:center;
-	width:100%;
-	flex-wrap:wrap;
-	flex-direction:row;
-	font-family: $lato;
+    display:flex;
+    justify-content:center;
+    width:100%;
+    flex-wrap:wrap;
+    flex-direction:row;
+    font-family: $lato;
 
 }
 
 .profile-page-title{
-	font-family: $lato;
-	font-weight: 100;
-	font-size: 24px;
+    font-family: $lato;
+    font-weight: 100;
+    font-size: 24px;
 
 }
 
 .profile-image {
-	margin:10px auto;
-	width:250px;
+    margin:10px auto;
+    width:250px;
 
 }
 
 .profile-image img {
-	width:250px;
-	/*border-radius: 175px !important;*/
-	box-shadow: $card-shadow;
+    width:250px;
+    /*border-radius: 175px !important;*/
+    box-shadow: $card-shadow;
 }
 
 
 
 .profile-info {
-	display:flex;
-	flex-direction:column;
-	font-weight: 100px;
+    display:flex;
+    flex-direction:column;
+    font-weight: 100px;
 
 }
 
 .profile-contact {
 
-	font-size: 14px;
-	display: flex;
-	flex-direction:row;
-	border-bottom: 2px solid $light-grey;
-	padding:5px;
-	margin-bottom: 10px;
-	
+    font-size: 14px;
+    display: flex;
+    flex-direction:row;
+    border-bottom: 2px solid $light-grey;
+    padding:5px;
+    margin-bottom: 10px;
+    
 }
 
 .profile-contact-input{
@@ -67,23 +67,23 @@ font-weight: 700;
 }
 
 .profile-skill-tag-flex{
-	display:flex;
-	flex-direction:row;
-	justify-content:center;
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
 
 }
 
 .profile-skill-tag{
-	font-size:14px;
-	margin:5px 30px 5px 3px;
+    font-size:14px;
+    margin:5px 30px 5px 3px;
 
 
 }
 
 .shortbio-input{
-	width: 500px;
-	height:100px;
-	margin-bottom: 10px;
+    width: 500px;
+    height:100px;
+    margin-bottom: 10px;
 }
 
 
