@@ -2,7 +2,7 @@
 
 Hero Area Styles
 	Hero Image Overlay Styles
-	Search Box Styles
+	Check Mark Styles
 Sponsor Area Styles
 Benifits Area Styles
 
@@ -53,6 +53,80 @@ Benifits Area Styles
 	background-color: #f3f3f5;
 }
 
+/*HERO IMAGE OVERLAY*/
+
+.mentor-image-overlay {
+	color: white;
+	text-align: center;
+	height: 550px;
+	background-image: url('/images/mentors/mentor-hero.jpg');
+	font-size: 18px;
+    padding: 50px 25px 50px 25px;
+}
+
+/*END HERO IMAGE OVERLAY*/
+
+/***************************/
+
+/*CHECK MARK STYLES*/
+li:before {
+    content: '✔';   
+    margin-left: -1em; margin-right: .100em;
+}
+
+ul{
+    
+   padding-left:20px;
+   text-indent:2px;
+    list-style: none;
+   list-style-position:outside; 
+  
+}
+
+.checkmark-text{
+	font-size: 20px;
+	text-align: left;
+	margin-left: 60px;
+	text-shadow: 2px 2px #333;
+}
+
+/*END CHECK MARK STYLES*/
+
+/***************************/
+
+/*SEARCH BOX STYLES*/
+
+.button-text{
+	margin-top: 80px;
+
+	p{
+	font-size: 20px;
+		font-weight: 10px;
+	}
+}
+.search-box{
+
+	p{
+	font-size: 20px;
+		font-weight: 10px;
+	}
+}
+
+.form-control{
+	border-style: solid;
+	border-color: black;
+	border-width: 3px;
+}
+
+/*END SEARCH BOX STYLES*/
+/***************************/
+/*END HERO AREA STYLES*/
+
+/***************************/
+/***************************/
+
+/*SPONSOR AREA STYLES*/
+
 /*SECOND ARROW BOX*/
 
 [class*="arrow-box2"] {
@@ -96,51 +170,6 @@ Benifits Area Styles
 .arrow-box-sec:after {
 	background-color: #f3f3f5;
 }
-/*HERO IMAGE OVERLAY*/
-
-.mentor-image-overlay {
-	color: white;
-	text-align: center;
-	height: 550px;
-	background-image: url('/images/mentors/mentor-hero.jpg');
-	font-size: 18px;
-    padding: 50px 25px 50px 25px;
-}
-
-/*END HERO IMAGE OVERLAY*/
-/***************************/
-/*SEARCH BOX STYLES*/
-
-.button-text{
-	margin-top: 120px;
-
-	p{
-	font-size: 20px;
-		font-weight: 10px;
-	}
-}
-.search-box{
-
-	p{
-	font-size: 20px;
-		font-weight: 10px;
-	}
-}
-
-.form-control{
-	border-style: solid;
-	border-color: black;
-	border-width: 3px;
-}
-
-/*END SEARCH BOX STYLES*/
-/***************************/
-/*END HERO AREA STYLES*/
-
-/***************************/
-/***************************/
-
-/*SPONSOR AREA STYLES*/
 
 .sponsor{
 	width: 100%;
@@ -155,7 +184,7 @@ Benifits Area Styles
 .sponsor-icon{
 	height: 50px;
 	padding-top: 40px;
-	padding-bottom: 40px;
+	padding-bottom: 50px;
 }
 .sponsor-portrait-no{
 	height: 50px;
