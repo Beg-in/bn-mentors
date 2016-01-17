@@ -8,7 +8,7 @@ module.exports = function(userModel) {
             });
         },
         getByEmail: function(email) {
-            userModel.getByEmail([email]).then(function(result) {
+            return userModel.getByEmail([email]).then(function(result) {
                 return result.rows;
             });
         }
