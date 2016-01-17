@@ -44,6 +44,10 @@ angular.module('bnMentorsApp', [
         //about page
         templateUrl: '/views/our-story.html',
         controller: 'ourStoryController'
+    }).when('/calendar', {
+        //calendar page
+        templateUrl: '/views/calendar.html',
+        controller: 'calendarController'
     }).otherwise({
         redirectTo: '/404'
     });
