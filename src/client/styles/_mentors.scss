@@ -104,12 +104,11 @@ ul{
         font-weight: 10px;
     }
 }
-.search-box{
 
-    p{
+.mentors-button {
+    width: auto;
+    height: 50px;
     font-size: 20px;
-        font-weight: 10px;
-    }
 }
 
 /*END SEARCH BOX STYLES*/
@@ -164,47 +163,3 @@ ul{
 .arrow-box-sec:after {
     background-color: #f3f3f5;
 }
-
-.sponsor{
-    width: 100%;
-    background-color: #ffffff;
-    padding-bottom:120px;
-
-    img{
-        max-width: 100%;
-        }
-}
-
-.sponsor-icon{
-    height: 50px;
-    padding-top: 40px;
-    padding-bottom: 50px;
-}
-.sponsor-portrait-no{
-    height: 50px;
-}
-
-/*END SPONSOR AREA STYLES*/
-
-/***************************/
-/***************************/
-
-/*BENIFITS AREA STYLES*/
-
-.benifits{
-    padding-top:30px;
-    padding-bottom:40px;
-}
-
-/*END BENIFITS AREA STYLES*/
-
-
-.bottom-bar{
-    width:100%;
-    height: 20px;
-    background-color: $link-secondary;
-}
-
-
-
-

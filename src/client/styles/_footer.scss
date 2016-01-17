@@ -1,5 +1,46 @@
+
+[class*="footer-arrow-box"] {
+    background-size: cover;
+    overflow: hidden;
+    padding-bottom: 0px;
+    position: relative;
+}
+
+[class*="footer-arrow-box"]:before,
+[class*="footer-arrow-box"]:after {
+    background-color: #fff;
+    bottom: -170px;
+    content: '';
+    height: 200px;
+    position: absolute;
+    width: 100%;
+
+}
+
+[class*="footer-arrow-box"]:before {
+    left: 0;
+    -webkit-transform: skewY(15deg);
+    -moz-transform: skewY(15deg);
+    -ms-transform: skewY(15deg);
+    -o-transform: skewY(15deg);
+    transform: skewY(15deg);
+}
+
+[class*="footer-arrow-box"]:after {
+    right: 0;
+    -webkit-transform: skewY(-15deg);
+    -moz-transform: skewY(-15deg);
+    -ms-transform: skewY(-15deg);
+    -o-transform: skewY(-15deg);
+    transform: skewY(-15deg);
+}
+
 .footer-text{
 	text-align: center;
-	margin-top: 10px;
-	margin-bottom:10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: 210px;
+    padding-top: 130px;
+    z-index: 6;
+    position: relative;
 }
