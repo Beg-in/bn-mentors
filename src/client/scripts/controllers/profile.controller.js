@@ -26,4 +26,4 @@ angular.module('bnMentorsApp').controller('profileController', function(
         $scope.gravatar = md5.createHash($scope.profile.email);
     }
     
-}
+});
