@@ -3,11 +3,10 @@
         <div class="page card-shadow">
 
             <div class="profile-page-title"> {{profile.name}}'s Profile </div>
-            <button type="submit" class="btn btn-primary" ng-click="toggleEdit()">Edit</button>
+            <button type="submit" class="btn btn-primary" ng-click="toggleEdit()">{{edit ? 'Save' : 'Edit'}}</button>
 
                 <div class="profile-image">
-                    <!-- <img class="profile-image" ng-src="profile.image"> -->
-                    <img class="profile-image" src="/images/profile/test-profile-image.jpg">
+                    <img ng-show="gravatar" class="profile-image" ng-src="https://secure.gravatar.com/avatar/{{gravatar}}?s=500">
 
                 </div>
                 <div class="profile-view-container">
@@ -37,14 +36,12 @@
                             </div>
                         </div>
 
-                        <div class="profile-scheduled"> {{profile.schedule}}</div>
+                        <div class="profile-scheduled">{{profile.schedule}}</div>
 
                         <div class="profile-submit submit-mentor"> <input class="btn btn-default" type="submit" value="Schedule 'Office' Hours" > </div>
                         <div class="profile-submit submit-mentee"> <input class="btn btn-default" type="submit" value="Find a Mentor"> </div>
 
                     </div>
-
-                        
 
                 </div>
         </div>
