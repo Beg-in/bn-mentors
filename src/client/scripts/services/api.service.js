@@ -8,8 +8,7 @@
 angular.module('bnMentorsApp').factory('ApiService', function(
     _,
     $q,
-    $http,
-    ApiConfig
+    $http
 ) { 'use strict';
 
     /**
@@ -22,9 +21,18 @@ angular.module('bnMentorsApp').factory('ApiService', function(
      *  - **list** – `{string}` – a list of all the available api locations
      *  - **api** – `{string}` – the full uri string of the current api location
      */
+
+
+    var apiConfig = {
+        active: 'local',
+        dev: '//dev.bnmentors.com/api/v1',
+        prd: '//bnmentors.com/api/v1',
+        local: '//localhost:8081/api/v1'
+     }
+
     var state = {
-        api: 'https:' + ApiConfig.active,
-        list: angular.copy(ApiConfig)
+        api: 'https:' + apiConfig.active,
+        list: angular.copy(apiConfig)
     };
 
     var init = function() {
