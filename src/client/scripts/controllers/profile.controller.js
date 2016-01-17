@@ -1,16 +1,12 @@
 angular.module('bnMentorsApp').controller('profileController', function(
     $scope,
+    $routeParams,
+    $location,
+    ProfileService,
     md5
 ) { 'use strict';
 
     $scope.edit = false;
-
-    $scope.toggleEdit = function() {
-        $scope.edit = !$scope.edit;
-        if ($scope.profile.email) {
-            $scope.gravatar = md5.createHash($scope.profile.email);
-        }
-    };
 
     $scope.profile = {
         name: 'Brandon Frisch',
@@ -19,6 +15,24 @@ angular.module('bnMentorsApp').controller('profileController', function(
         skills: ['law', 'business', 'technology', 'science'],
         shortbio: 'Hi, welcome to Chili\'s!'
     };
+
+    if ($routeParams.id) {
+        ProfileService.getUserProfile($routeParams.id).success(function(){
+            console.log('it works! ' + response);
+            $scope.profile = response;
+        });
+    } else {
+        // $location.path('/#/404');
+    }
+
+    $scope.toggleEdit = function() {
+        $scope.edit = !$scope.edit;
+        if ($scope.profile.email) {
+            $scope.gravatar = md5.createHash($scope.profile.email);
+        }
+    };
+
+    
 
     if ($scope.profile.email) {
         $scope.gravatar = md5.createHash($scope.profile.email);

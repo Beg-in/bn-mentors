@@ -32,8 +32,12 @@ angular.module('bnMentorsApp', [
         //log in page
         templateUrl: '/views/login.html',
         controller: 'loginController'
+    }).when('/profile/:id', {
+        //profile page
+        templateUrl: '/views/profile.html',
+        controller: 'profileController'
     }).when('/profile', {
-        //static page
+        //profile page example
         templateUrl: '/views/profile.html',
         controller: 'profileController'
     }).when('/signup', {
@@ -44,6 +48,10 @@ angular.module('bnMentorsApp', [
         //about page
         templateUrl: '/views/our-story.html',
         controller: 'ourStoryController'
+    }).when('/calendar', {
+        //calendar page
+        templateUrl: '/views/calendar.html',
+        controller: 'calendarController'
     }).otherwise({
         redirectTo: '/404'
     });
