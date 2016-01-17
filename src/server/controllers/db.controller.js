@@ -64,6 +64,16 @@ module.exports = function(config) {
             `).then(function() {
                 console.log(`load table ${name}`);
             });
+        }, prepare: function(name, text) {
+            return function(values) {
+                return query({
+                    name: name,
+                    text: text,
+                    values: values
+                }).catch(function(err) {
+                    console.error(`error in query ${name}`, err);
+                });
+            };
         }
     };
 };
