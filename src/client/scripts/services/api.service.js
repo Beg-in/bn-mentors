@@ -5,7 +5,7 @@
  *
  * A service that manages the active api and a list of all availble api locations
  */
-angular.module('internrocketApp').factory('ApiService', function(
+angular.module('bnMentorsApp').factory('ApiService', function(
     _,
     $q,
     $http,
@@ -14,8 +14,8 @@ angular.module('internrocketApp').factory('ApiService', function(
 
     /**
      * @ngdoc object
-     * @name internrocketApp.service:ApiService#state
-     * @propertyOf internrocketApp.service:ApiService
+     * @name bnMentorsApp.service:ApiService#state
+     * @propertyOf bnMentorsApp.service:ApiService
      * @description the state of the service to be shared externally through the get method.
      *
      *  - **active** – `{string}` – The key of the active loction in the location list
@@ -30,7 +30,7 @@ angular.module('internrocketApp').factory('ApiService', function(
     var init = function() {
         var active = state.list.active;
         delete state.list.active;
-        state.active = (NativeService.get.isNative || PrerenderService.isPrerender ? 'https:' : '') + state.list[active];
+        state.active = state.list[active];
     };
     init();
 
@@ -72,7 +72,7 @@ angular.module('internrocketApp').factory('ApiService', function(
                 login.error();
                 return;
             }
-            AlertService.setError('API error: ' + response.error, true);
+            console.log('API error: ' + response.error, true);
         });
         var oldError = http.error;
         http.error = function(cb) {
@@ -89,7 +89,7 @@ angular.module('internrocketApp').factory('ApiService', function(
         location: state,
         setApi: function(api) {
             if(!state.list[api]) {
-                AlertService.setError('Invalid api location: ' + api);
+                console.log('Invalid api location: ' + api);
                 return;
             }
             state.active = state.list[api];
