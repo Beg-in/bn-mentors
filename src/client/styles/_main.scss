@@ -7,6 +7,13 @@ html, body { height: 100%; -webkit-font-smoothing: subpixel-antialiased; backgro
     animation: none 0s;
 }
 
+/* CLEAR FIX*/
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
 .clickable {
     cursor: pointer;
 }
@@ -62,6 +69,15 @@ a:hover, a:focus {
     padding: 30px 25px;
     border-radius: 1px;
     margin-bottom: 30px;
+}
+
+@keyframes pagein {
+    from { opacity: 0; transform: translateY(25px);}
+    to   { opacity: 1;  transform: translateY(0);}
+}
+
+.page-in {
+    animation: pagein 0.5s;
 }
 
 .card-shadow {
