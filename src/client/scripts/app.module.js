@@ -24,7 +24,7 @@ angular.module('bnMentorsApp', [
         templateUrl: '/views/404.html',
         controller: 'staticController'
     }).when('/mentors', {
-        //home page
+        //mentors call to action
         templateUrl: '/views/mentors.html',
         controller: 'mentorsController'
     }).when('/login', {
