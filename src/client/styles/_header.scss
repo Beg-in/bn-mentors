@@ -4,20 +4,20 @@
 }
 
 #header-wrap { 
-	border-bottom: 1px solid rgba(0,0,0,.2);
-	width:100%;
+    border-bottom: 1px solid rgba(0,0,0,.2);
+    width:100%;
     background-color: #fff;
     animation: header-slide-in 0.5s ease forwards;
 }
 #nav-lg { display: inline-block;}
 .nav-item a {
-	padding: 37px 20px;
-	float: right;
-	display: inline-block;
-	font-size: 15px;
-	letter-spacing: 2px;
-	font-weight: 700;
-	text-transform: uppercase;
+    padding: 37px 20px;
+    float: right;
+    display: inline-block;
+    font-size: 15px;
+    letter-spacing: 2px;
+    font-weight: 700;
+    text-transform: uppercase;
 }
 #header-logo {margin: 10px 0;}
 #header-logo:active {
@@ -26,13 +26,13 @@
 .nav-buttons { margin-top:  25px; text-align:  right; padding-left: 0;}
 
 a.nav-buttons {
-	height: 40px;
-	font-size: 14px;
-	line-height: 38px;
-	border-radius: 20px;
-	-moz-border-radius: 20px;
-	-webkit-border-radius: 20px ;
-	display: inline-block;
+    height: 40px;
+    font-size: 14px;
+    line-height: 38px;
+    border-radius: 20px;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px ;
+    display: inline-block;
     position: relative;
     padding: 0 16px;
     margin-left: 10px;
@@ -60,24 +60,24 @@ a.nav-buttons {
     -webkit-transition: all .1s ease-in-out;
 }
 a.nav-buttons:hover {
-	color: $dark-blue;
-	border: 1px solid $dark-blue; 
+    color: $dark-blue;
+    border: 1px solid $dark-blue; 
 }
 
 @media (max-width: 768px) {
-	a.nav-buttons {
-	height: 30px;
-	float: right;
-	font-size: 12px;
-	line-height: 28px;
-	border-radius: 15px;
-	-moz-border-radius: 15px;
-	-webkit-border-radius: 15px ;
-	padding: 0 14px;
+    a.nav-buttons {
+    height: 30px;
+    float: right;
+    font-size: 12px;
+    line-height: 28px;
+    border-radius: 15px;
+    -moz-border-radius: 15px;
+    -webkit-border-radius: 15px ;
+    padding: 0 14px;
     margin-left: 10px;
-	}
-	.nav-buttons {margin-top:10px;}
-	.nav-item { padding-right: 5px;}
-	.nav-item a { padding: 15px 0 15px 15px;}
+    }
+    .nav-buttons {margin-top:10px;}
+    .nav-item { padding-right: 5px;}
+    .nav-item a { padding: 15px 0 15px 15px;}
 
 }
