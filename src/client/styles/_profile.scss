@@ -19,7 +19,17 @@
 .profile-image {
     margin:10px auto;
     width:250px;
+    position: relative;
 
+    a {
+        position: absolute;
+        top: 15px;
+        right: 5px;
+        color: #fff;
+        background-color: $link-secondary;
+        border-radius: 3px;
+        padding: 4px 8px;
+    }
 }
 
 .profile-image img {
@@ -45,7 +55,7 @@
     border-bottom: 2px solid $light-grey;
     padding:5px;
     margin-bottom: 10px;
-    
+
 }
 
 .profile-contact-input{

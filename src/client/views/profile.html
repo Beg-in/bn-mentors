@@ -1,34 +1,35 @@
 <div class="row">
     <div class="col-md-9 col-md-offset-2">
-        <div class="page card-shadow">
+        <div class="page card-shadow page-in">
 
-            <div class="profile-page-title"> {{profile.name}}'s Profile </div>
+            <div class="profile-page-title"> {{profile.name}}'s Profile</div>
             <button type="submit" class="btn btn-primary" ng-click="toggleEdit()">{{edit ? 'Save' : 'Edit'}}</button>
 
                 <div class="profile-image">
-                    <img ng-show="gravatar" class="profile-image" ng-src="https://secure.gravatar.com/avatar/{{gravatar}}?s=500">
-
+                    <img ng-show="avatar" class="profile-image" ng-src="{{avatar}}">
+                    <img ng-hide="avatar" class="profile-image" ng-src="/images/profile/default.png">
+                    <a href="https://gravatar.com/" target="_blank" ng-show="edit">{{avatar ? 'Edit' : 'Upload Image'}}</a>
                 </div>
                 <div class="profile-view-container">
-                    <div class="profile-info"> 
-                        
+                    <div class="profile-info">
+
                         <div class="profile-contact">
-                            <input type="text" ng-model=profile.name ng-show="edit">
-                            <input type="text" ng-model=profile.email ng-show="edit">
-                            <input type="text" ng-model=profile.phone ng-show="edit">
+                            <input type="text" class="form-control" ng-model="profile.name" ng-show="edit" placeholder="Name">
+                            <input type="text" class="form-control" ng-model="profile.email" ng-show="edit" placeholder="Email">
+                            <input type="text" class="form-control" ng-model="profile.phone" ng-show="edit" placeholder="Phone">
                             <div class="profile-contact-input" ng-hide="edit" class="ng-hide">{{profile.name}}</div>
                             <div class="profile-contact-input" ng-hide="edit" class="ng-hide">{{profile.email}}</div>
                             <div class="profile-contact-input" ng-hide="edit" class="ng-hide">{{profile.phone}}</div>
                         </div>
-                        
+
                         <div class="profile-skills-container">
                             <div class="profile-skills-title"> My Skills / Interests</div>
                             <div class="profile-skill-tag-flex">
                                 <div class="profile-skill-tag" ng-hide="edit" ng-repeat="skill in profile.skills"> #{{skill}}</div>
-                                <input type="text" ng-model="profile.skills" ng-show="edit" ng-list required>
+                                <input type="text" class="form-control" ng-model="profile.skills" ng-show="edit" ng-list required placeholder="Email">
                             </div>
                         </div>
-                            
+
                         <div class="profile-bio">
                             <div class="profile-shortbio">
                                 <input class="shortbio-input" type="text" ng-show="edit" ng-model=profile.shortbio placeholder="Short Bio: Keep it under 140 words" shortbio = {{profile.shortbio}}>
