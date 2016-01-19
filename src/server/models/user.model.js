@@ -12,6 +12,11 @@ module.exports = function(dbController) {
             select *
             from Users
             where data->>'email' = $1
+        `),
+        getByUrl: dbController.prepare('USER_GET_BY_URL', `
+            select *
+            from Users
+            where data->>'url' = $1
         `)
     };
 };

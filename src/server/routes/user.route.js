@@ -9,5 +9,9 @@ module.exports = function(routeController, userController) {
         route.post('email', function(req, body) {
             return userController.getByEmail(body.email);
         });
+
+        route.get('url/:url', function(req) {
+            return userController.getByUrl(req.params.url);
+        });
     });
 };
