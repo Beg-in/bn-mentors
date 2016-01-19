@@ -11,7 +11,7 @@ angular.module('bnMentorsApp').controller('profileController', function(
 
     $scope.profile = {
         name: 'Brandon Frisch',
-        email: 'bfrisch1@gmail.com',
+        email: 'brandon@gmale.com',
         phone: '847.847.8847',
         skills: ['law', 'business', 'technology', 'science'],
         shortbio: 'Hi, welcome to Chili\'s!'
