@@ -32,6 +32,10 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     border: 0;
 }
 
+.click-drop:active {
+    transform:translateY(1px);
+}
+
 a, a:hover, a:active, a:focus {
   outline: 0;
 }
