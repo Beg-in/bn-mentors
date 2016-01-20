@@ -1,1 +1,12 @@
-hello world
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <h3 class="search-title"> My search results</h3>
+        <div class="search-row page card-shadow" ng-repeat="result in searchResults">
+            <img class="search-result-image" src="/images/profile/default.png">
+            <div>{{result.name}}</div>
+            <div> {{result.email}}
+
+
+        </div>
+    </div>
+</div>
