@@ -28,6 +28,10 @@ angular.module('bnMentorsApp', [
         //mentors call to action
         templateUrl: '/views/mentors.html',
         controller: 'mentorsController'
+    }).when('/search', {
+        //search page
+        templateUrl: '/views/search.html',
+        controller: 'searchController'
     }).when('/login', {
         //log in page
         templateUrl: '/views/login.html',
