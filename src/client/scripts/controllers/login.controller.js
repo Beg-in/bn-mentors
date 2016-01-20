@@ -1,12 +1,22 @@
 angular.module('bnMentorsApp').controller('loginController', function(
-    $scope
+    $scope,
+    $location,
+    LoginService
 ) { 'use strict';
 
-    $scope.form = {};
     $scope.profile = {};
+    $scope.fail = false;
+    $scope.remember = false;
 
-    $scope.sendFormToProfile = function() {
-        $scope.profile.email = $scope.form.email;
-        $scope.profile.password = $scope.form.password;
+    $scope.login = function() {
+        $scope.fail = false;
+        LoginService.login({
+            email: $scope.email,
+            password: $scope.password
+        }, $scope.remember).success(function() {
+            $location.path('/#/');
+        }).error(function() {
+            $scope.fail = true;
+        });
     };
 });
