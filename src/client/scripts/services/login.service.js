@@ -1,5 +1,6 @@
 angular.module('bnMentorsApp').factory('LoginService', function(
-    ApiService
+    ApiService,
+    LocalStorageService
 ) { 'use strict';
 
     var base = '/login/';
@@ -28,14 +29,12 @@ angular.module('bnMentorsApp').factory('LoginService', function(
             state.currentUser = localStoreCurrentUser;
             state.isLoggedIn = true;
         }
-        getCurrentUser();
+        // getCurrentUser();
     };
     init();
 
     return {
-        get: state,
         remember: remember,
-        forget: forget,
         login: function(data, shouldRemember) {
             return ApiService.post(base, data).success(function(response) {
                 if(shouldRemember) {
