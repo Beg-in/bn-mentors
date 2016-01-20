@@ -4,19 +4,21 @@
         <div class="search-row page card-shadow" ng-repeat="result in searchResults">
             <div class="row">
                 <div class="col-md-2">
-                    <img class="search-result-image" src="/images/profile/default.jpg">
+                    <div class="search-result-image-flex">
+                        <img class="search-result-image" src="/images/profile/default.jpg">
+                    </div>
                 </div>
                 <div class="col-md-7">
                     <div class="search-name">{{result.name}}, <span class="search-job-title" >{{result.jobTitle}}</span> </div>
                     <div class="search-info">
                         <div class="search-skills" ng-repeat="skill in result.skills">#{{skill}}</div>
-                        <div class="search-bio">{{result.bio | limitTo : 140}}...</div>
+                        <div class="search-shortbio">{{result.shortBio | limitTo : 140}}...</div>
                     </div>
                 </div>
                 <div class="col-md-3">
-                    <a class="search-view-profile-button">
-                        <button type="button" class="btn btn-info">View Profile</button>
-                    </a>
+                    <div class="search-view-profile-button click-drop">
+                        <a><button type="button" class="btn btn-info">View Profile</button></a>
+                    </div>
                 </div>
             </div>
         </div>

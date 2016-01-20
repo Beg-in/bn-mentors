@@ -11,10 +11,11 @@ angular.module('bnMentorsApp').controller('profileController', function(
 
     $scope.profile = {
         name: 'Brandon Frisch',
+        jobTitle:'Startup Cofounder',
         email: 'brandon@gmale.com',
         phone: '847.847.8847',
         skills: ['law', 'business', 'technology', 'science'],
-        shortbio: 'Hi, welcome to Chili\'s!'
+        shortBio: 'Hi, welcome to Chili\'s!'
     };
 
     if ($routeParams.id) {
