@@ -4,10 +4,13 @@
 }
 
 #logo {
+    margin: 10px 0;
+
     img {
-    max-width: 200px;
-    width: 100%;
-    height: auto;}
+        max-width: 200px;
+        width: 100%;
+        height: auto;
+    }
 }
 
 #header-wrap {
@@ -26,7 +29,6 @@
     font-weight: 700;
     text-transform: uppercase;
 }
-#header-logo {margin: 10px 0;}
 
 .nav-buttons { margin-top:  25px; text-align:  right; padding-left: 0;}
 
