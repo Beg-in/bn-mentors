@@ -3,7 +3,7 @@ angular.module('bnMentorsApp').controller('signUpController', function(
     ProfileService
 ) { 'use strict';
 
-    $scope.profile = [];
+    $scope.profile = {};
 
     $scope.saveProfile = function() {
         ProfileService.setUserProfile($scope.profile);

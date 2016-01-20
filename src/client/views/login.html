@@ -9,14 +9,11 @@
                 <div class="form-group">
                     <input type="password" class="form-control" id="signup-password" ng-model="form.password" placeholder="Password">
                 </div>
-                <button type="submit" class="btn btn-primary" ng-click="sendFormToProfile()">Log In</button>
-
-                <div class="form-group">
-                    <div>{{profile.email}}</div>
+                <div class="form-remember">
+                    <input type="checkbox" ng-model="remember">
+                    <span>Remember Me{{remember ? '.' : '?'}}</span>
                 </div>
-                <div class="form-group">
-                    <div>{{profile.password}}</div>
-                </div>
+                <button type="submit" class="btn btn-primary" ng-click="login()">Log In</button>
             </form>
         </div>
     </div>

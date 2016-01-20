@@ -1,6 +1,22 @@
 .login-center {
     text-align: center;
-    // display: flex;
-    // justify-content: center;
-    // align-items: center;
+
+    form {
+        max-width: 300px;
+        margin: 0 auto;
+
+        .form-remember {
+            margin-bottom: 10px;
+
+            span {
+                display: inline-block;
+                width: 100px;
+                text-align: left;
+            }
+        }
+    }
+
+    .login-message {
+        margin-top: 20px;
+    }
 }

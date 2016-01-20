@@ -2,7 +2,7 @@ angular.module('bnMentorsApp').factory('ProfileService', function(
     ApiService
 ) { 'use strict';
 
-    var base = '/#/profile/';
+    var base = '/profile/';
 
     return {
         getUserProfile: function(id) {
