@@ -1,7 +1,6 @@
 'use strict';
 
-module.exports = function(routeController, loginController) {
-    routeController('api/v1/login', function(route) {
-	
+module.exports = function(route, loginController) {
+    route('api/v1/login', function(method) {
     });
 };

@@ -2,7 +2,7 @@
 
 var pg = require('pg');
 
-module.exports = function(config) {
+module.exports = function(_, config) {
 
     var connect = function() {
         return new Promise(function(resolve, reject) {
@@ -56,16 +56,11 @@ module.exports = function(config) {
         pg: pg,
         connect: connect,
         query: query,
-        createJsonTable: function(name) {
-            return query(`
-                create table if not exists ${name} (
-                    data jsonb
-                );
-            `).then(function() {
-                console.log(`load table ${name}`);
-            });
-        }, prepare: function(name, text) {
+        prepare: function(name, text) {
             return function(values) {
+                if(!_.isArray(values)) {
+                    values = [values];
+                }
                 return query({
                     name: name,
                     text: text,

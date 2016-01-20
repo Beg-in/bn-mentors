@@ -53,6 +53,7 @@
     "nodep": "0.2.1",
     "pg": "4.4.3",
     "schedulejs": "^0.6.3",
-    "sequelize": "^3.17.3"
+    "sequelize": "^3.17.3",
+    "shortid": "2.2.4"
   }
 }

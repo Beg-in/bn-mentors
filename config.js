@@ -43,8 +43,11 @@ env.root = env.isDev ? client : dest;
 
 module.exports = {
     paths: {
+        root: path.resolve('.'),
         client: client,
         server: path.resolve('src/server/'),
+        resources: path.resolve('src/resources/'),
+        templates: path.resolve('src/resources/templates'),
         dest: dest,
         bower: path.resolve('bower_components/'),
         test: path.resolve('test/'),
