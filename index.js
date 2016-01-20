@@ -6,6 +6,7 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var $p = require('nodep')();
+var jwt = require('jsonwebtoken');
 var config = require('./config');
 
 app.use(bodyParser.json());
