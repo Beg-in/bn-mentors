@@ -22,6 +22,7 @@ module.exports = function(model) {
     }) {
         // TODO User specific class structure
         constructor() {
+            super(obj);
         }
     };
 };

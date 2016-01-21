@@ -67,6 +67,7 @@ module.exports = {
         db: process.env.PG_DB
     },
     platform: process.platform,
+    workers: process.env.WEB_CONCURRENCY || 1,
     isWin: process.platform === 'win32'
 };
 

@@ -61,9 +61,14 @@ module.exports = function(_, db) {
             into ${descriptor.table}
             values($1, $2);
         `);
-        var readQuery = db.prepare(`${descriptor.table.toUpperCase()}_RETRIEVE`, `
+        var readQuery = db.prepare(`${descriptor.table.toUpperCase()}_READ`, `
             select data
             from ${descriptor.table}
+            where id = $1;
+        `);
+        var updateQuery = db.prepare(`${descriptor.table.toUpperCase()}_UPDATE`, `
+            update ${descriptor.table}
+            set data = $2
             where id = $1;
         `);
         var deleteQuery = db.prepare(`${descriptor.table.toUpperCase()}_DELETE`, `
@@ -77,28 +82,24 @@ module.exports = function(_, db) {
                 if(!valid.id.test(obj._id)) {
                     this._id = shortid.generate();
                 }
+                _.forEach(descriptor.properties, function(rule, property) {
+                    this[property] = obj[property];
+                }, this);
             }
             create() {
                 return createQuery([this._id, JSON.stringify(this)]);
             }
             update() {
-                return Model.update(this);
+                return updateQuery([this._id, JSON.stringify(this)]);
             }
             delete() {
                 return deleteQuery(this._id);
             }
             build(obj) {
-                var self = this;
-                return Model.validate(obj).then(function() {
-                    _.forEach(obj, function(value, property) {
-                        self[property] = value;
-                    });
-                });
-            }
-            static update(value) {
-                return deleteQuery(value._id).then(function() {
-                    return createQuery([value._id, JSON.stringify(value)]);
-                });
+                _.forEach(obj, function(value, property) {
+                    this[property] = value;
+                }, this);
+                return Model.validate(this);
             }
             static validate(obj) {
                 return new Promise(function(resolve, reject) {
@@ -107,7 +108,7 @@ module.exports = function(_, db) {
                             reject(rule.message);
                         }
                     });
-                    resolve();
+                    resolve(obj);
                 });
             }
             static build(obj) {
@@ -119,6 +120,7 @@ module.exports = function(_, db) {
 
         Model.create = createQuery;
         Model.read = readQuery;
+        Model.update = updateQuery;
         Model.delete = deleteQuery;
 
         if(descriptor.queries) {
