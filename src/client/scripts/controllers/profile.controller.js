@@ -10,12 +10,12 @@ angular.module('bnMentorsApp').controller('profileController', function(
     $scope.edit = false;
 
     $scope.profile = {
-        name: 'Brandon Frisch',
-        jobTitle:'Startup Cofounder',
-        email: 'brandon@gmale.com',
-        phone: '847.847.8847',
-        skills: ['law', 'business', 'technology', 'science'],
-        shortBio: 'Hi, welcome to Chili\'s!'
+        name: 'Harrison Ford',
+        jobTitle: 'Actor',
+        email: 'harrison@gmale.com',
+        phone: '847.555.8847',
+        skills: ['acting', 'wars', 'raiding', 'running'],
+        shortBio: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
     };
 
     if ($routeParams.id) {
