@@ -194,18 +194,26 @@ gulp.task('demon', ['build'], function() {
         process.exit(0);
     });
 
-    gp.nodemon({
+    var nodemon = gp.nodemon({
       script: 'index.js',
-      watch: [paths.server, 'config.js', 'index.js'],
+      watch: [path.join(paths.server, '**/*.js'), 'config.js', 'index.js'],
       tasks: ['jshint']
-    }).on('restart', function () {
+    }).on('restart', function() {
         log('app restarted!');
-    })/*.on('crash', function () {
+    }).on('crash', function() {
         log('app crashed!');
-    }).on('exit', function () {
-        // process.kill(process.pid, 'SIGUSR2');
+    }).on('quit', function() {
         log('app exited!');
-    })*/;
+        process.exit();
+    });
+    /*
+    process.on('SIGINT', function() {
+        nodemon.on('exit', function() {
+            log('app exited!');
+            process.exit();
+        });
+    });
+    */
     log('app started on port', config.env.port);
 
     gp.livereload.listen(35729);

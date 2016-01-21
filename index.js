@@ -12,7 +12,6 @@ var config = require('./config');
 throng(function() {
     app.use(bodyParser.json());
 
-
     $p.init({
         path: path,
         _: _,
