@@ -7,21 +7,29 @@
   },
   "main": "src/server/index.js",
   "scripts": {
-    "test": "gulp test"
+    "preinstall": "",
+    "postinstall": "bower install && gulp build",
+    "start": "nf run gulp server",
+    "test": "gulp test",
+    "setup": "npm install -g gulp bower foreman node-inspector",
+    "debug-command": "node-debug -c -p 8082 index.js",
+    "debug": "NODE_DEBUG=1 nf run npm run debug-command"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Bgin-io/bn-mentors.git"
-  },
-  "author": "brian.jesse@gmail.com",
+  "repository": "Bgin-io/bn-mentors",
+  "private": true,
+  "author": "Brian Jesse <brian.jesse@gmail.com> (brianjesse.com)",
+  "contributors": [],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/Bgin-io/bn-mentors/issues"
   },
   "homepage": "https://github.com/Bgin-io/bn-mentors#readme",
-  "devDependencies": {
+  "dependencies": {
+    "body-parser": "1.14.2",
+    "compression": "1.6.1",
     "connect-livereload": "0.5.4",
     "del": "2.2.0",
+    "express": "4.13.3",
     "gulp": "3.9.0",
     "gulp-autoprefixer": "3.1.0",
     "gulp-concat": "2.6.0",
@@ -42,13 +50,8 @@
     "gulp-sourcemaps": "1.6.0",
     "gulp-uglify": "1.5.1",
     "gulp-util": "3.0.7",
-    "jshint-stylish": "2.1.0",
-    "tiny-lr": "0.2.1"
-  },
-  "dependencies": {
-    "body-parser": "1.14.2",
-    "express": "4.13.3",
     "handlebars": "4.0.5",
+    "jshint-stylish": "2.1.0",
     "later": "^1.2.0",
     "lodash": "3.10.1",
     "marked": "0.3.5",
@@ -59,6 +62,7 @@
     "scrypt": "5.4.1",
     "sequelize": "^3.17.3",
     "shortid": "2.2.4",
-    "throng": "1.0.1"
+    "throng": "1.0.1",
+    "tiny-lr": "0.2.1"
   }
 }
