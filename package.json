@@ -1,6 +1,6 @@
 {
   "name": "bn-mentors",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Bloomington-Normal Mentors Website",
   "engines": {
     "node": ">=5.0"
@@ -59,7 +59,6 @@
     "nodep": "0.2.1",
     "pg": "4.4.3",
     "schedulejs": "^0.6.3",
-    "scrypt": "5.4.1",
     "sequelize": "^3.17.3",
     "shortid": "2.2.4",
     "throng": "1.0.1",
