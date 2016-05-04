@@ -126,12 +126,10 @@ Benefits Area Styles
     height: 50px;
     font-size: 20px;
     margin-left: -15px;
-    float: left;
 }
 
 @media (max-width: 991px) {
     .home-search-button {
-        float: none;
         margin-left: 0px;
         width: 150px;
     }
@@ -172,7 +170,7 @@ Benefits Area Styles
 }
 .sponsor-portrait-no {
     height: 64px;
-    
+
 }
 
 /*END SPONSOR AREA STYLES*/
@@ -185,6 +183,15 @@ Benefits Area Styles
 .benefits {
     padding-top:30px;
     padding-bottom:40px;
+
+    img {
+        display: block;
+        margin: 0 auto;
+    }
+
+    h4, p {
+        text-align: center;
+    }
 }
 
 /*END BENEFITS AREA STYLES*/
@@ -199,11 +206,3 @@ Benefits Area Styles
     background-color: $link-secondary;
     height:200px;
 }*/
-
-
-
-
-
-
-
-

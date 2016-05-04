@@ -122,6 +122,7 @@ h3 {
     font-weight: 300;
     color: $near-black;
     padding: 20px 0 10px 0;
+    text-align: center;
 }
 
 h4 {
@@ -151,6 +152,6 @@ h4 {
 }
 
 .btn-default{
-background-color: $link-primary;
-color: #fff;
+    background-color: $link-primary;
+    color: #fff;
 }

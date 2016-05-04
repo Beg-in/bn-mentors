@@ -18,6 +18,7 @@
     "angular-route": "1.4.8",
     "angular-animate": "1.4.8",
     "bootstrap-sass": "3.3.6",
+    "frow": "0.9.2",
     "lodash": "4.0.0",
     "angular-md5": "0.1.10"
   }

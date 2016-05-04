@@ -90,7 +90,8 @@ var files = {
     ],
     styles: [
         path.join(paths.stylesSrc, '**/*.scss'),
-        path.join(paths.bower, 'bootstrap-sass/assets/stylesheets/**/*.scss')
+        path.join(paths.bower, 'bootstrap-sass/assets/stylesheets/**/*.scss'),
+        path.join(paths.bower, 'frow/sass/**/*.scss')
     ],
     scripts:[
         path.join(paths.scriptsSrc, '**/*.js')
@@ -124,7 +125,8 @@ gulp.task('styles', ['clean'], function() {
         .pipe(gp.sass({
             includePaths: [
                 path.join(paths.client, 'styles'),
-                path.join(paths.bower, 'bootstrap-sass/assets/stylesheets')
+                path.join(paths.bower, 'bootstrap-sass/assets/stylesheets'),
+                path.join(paths.bower, 'frow/sass')
             ]
         }))
         .pipe(gp.autoprefixer())
@@ -278,4 +280,3 @@ gulp.task('changelog', function() {
 });
 
 gulp.task('default', ['server']);
-

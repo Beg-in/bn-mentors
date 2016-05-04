@@ -15,23 +15,34 @@
     padding: 50px 100px 50px 100px;
     margin-bottom: 30px;
 }
-.about-values{
-    padding-top: 30px;
-    padding-bottom: 30px;
+.about-values {
+    h3 {
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+
+    img {
+        display: block;
+        margin: 0 auto;
+    }
+
+    h4, p {
+        text-align: center;
+    }
 }
-.about-stewardship{
+.about-stewardship {
     padding-bottom: 30px;
     padding-bottom: 50px;
 }
-.about-pics{
+.about-pics {
     padding-top: 30px;
     padding-bottom: 10px;
     border-radius:50%;
 }
-.about-bios{
+.about-bios {
     text-align: center;
 }
-.about-image-title{
+.about-image-title {
     color: white;
 }
 

@@ -1,21 +1,21 @@
-<div class="row">
-    <div class="col-md-8 col-md-offset-2">
+<div class="frow">
+    <div class="col-md-2-3">
         <h3 class="search-title"> My search results</h3>
         <div class="search-row page card-shadow" ng-repeat="result in searchResults">
-            <div class="row">
-                <div class="col-md-2">
+            <div class="frow">
+                <div class="col-md-1-6">
                     <div class="search-result-image-flex">
                         <img class="search-result-image" src="/images/profile/default.jpg">
                     </div>
                 </div>
-                <div class="col-md-7">
+                <div class="col-md-7-12">
                     <div class="search-name">{{result.name}}, <span class="search-job-title" >{{result.jobTitle}}</span> </div>
                     <div class="search-info">
                         <div class="search-skills" ng-repeat="skill in result.skills">#{{skill}}</div>
                         <div class="search-shortbio">{{result.shortBio | limitTo : 140}}...</div>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-1-4">
                     <div class="search-view-profile-button click-drop">
                         <a><button type="button" class="btn btn-info">View Profile</button></a>
                     </div>
