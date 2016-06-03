@@ -24,7 +24,7 @@ angular.module('bnMentorsApp', [
     }).when('/404', {
         //404 error
         templateUrl: '404.html',
-        controller: 'staticController'
+        controller: '404Controller'
     }).when('/mentors', {
         //mentors call to action
         templateUrl: 'mentors.html',
