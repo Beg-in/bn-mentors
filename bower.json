@@ -1,7 +1,7 @@
 {
   "name": "bn-mentors",
   "version": "0.0.1",
-  "homepage": "https://github.com/bgin-io/bn-mentors",
+  "homepage": "https://github.com/Beg-in/bn-mentors",
   "authors": [
     "Brian Jesse <brian.jesse@gmail.com>",
     "Cody Sherman <cody@codysherman.com>"
@@ -18,7 +18,7 @@
     "angular-route": "1.4.8",
     "angular-animate": "1.4.8",
     "bootstrap-sass": "3.3.6",
-    "frow": "0.9.2",
+    "frow": "1.0.0",
     "lodash": "4.0.0",
     "angular-md5": "0.1.10"
   }

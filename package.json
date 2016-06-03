@@ -15,15 +15,15 @@
     "debug-command": "node-debug -c -p 8082 index.js",
     "debug": "NODE_DEBUG=1 nf run npm run debug-command"
   },
-  "repository": "Bgin-io/bn-mentors",
+  "repository": "Beg-in/bn-mentors",
   "private": true,
   "author": "Brian Jesse <brian.jesse@gmail.com> (brianjesse.com)",
   "contributors": [],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Bgin-io/bn-mentors/issues"
+    "url": "https://github.com/Beg-in/bn-mentors/issues"
   },
-  "homepage": "https://github.com/Bgin-io/bn-mentors#readme",
+  "homepage": "https://github.com/Beg-in/bn-mentors#readme",
   "dependencies": {
     "body-parser": "1.14.2",
     "compression": "1.6.1",
