@@ -1,6 +1,11 @@
     'use strict';
 
     module.exports = function(profileModel) {
+        profileModel.read('nope').then(function(result) {
+            console.log('result', result);
+        }).catch(function(err) {
+            console.log('error', err);
+        });
         return {
             getAll: function() {
             return profileModel.getAll().then(function(result) {
@@ -13,4 +18,20 @@
             });
         }
     };
+
+    // Profile.build({bio: 'thing', name: 'brian', email: 'brian.jesse@gmail.com'}).then(function(profile) {
+    //     console.log('build', profile);
+    //     profile.create();
+    //     return profile.build({bio: 'new thing'})
+    // }).then(function(profile) {
+    //     console.log('update', profile);
+    //     return profile.update();
+    // }).then(function(profile) {
+    //     return Profile.read(profile._id);
+    // }).then(function(profile) {
+    //     console.log('read', profile);
+    // }).catch(function(err) {
+    //     console.log(err);
+    // });
+
 };
