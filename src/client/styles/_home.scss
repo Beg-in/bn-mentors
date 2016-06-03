@@ -147,7 +147,7 @@ Benefits Area Styles
 .sponsor {
     width: 100%;
     background-color: #ffffff;
-    padding-bottom:120px;
+    padding:60px 40px 120px 40px;
 
 
     img {
@@ -181,13 +181,13 @@ Benefits Area Styles
 /*BENEFITS AREA STYLES*/
 
 .benefits {
-    padding-top:30px;
-    padding-bottom:40px;
 
     img {
         display: block;
         margin: 0 auto;
+        width: 80px;
     }
+    img:first-of-type { margin-top:40px}
 
     h4, p {
         text-align: center;

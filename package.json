@@ -34,7 +34,6 @@
     "marked": "0.3.5",
     "nodemailer": "2.0.0",
     "nodep": "0.2.3",
-    "schedulejs": "^0.6.3",
-    "scrypt": "5.4.1"
+    "schedulejs": "^0.6.3"
   }
 }

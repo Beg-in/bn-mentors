@@ -1,31 +1,31 @@
 .about-image-overlay {
     color: white;
     text-align: center;
-    height: 280px;
     background-image: url('/images/about/Culture-of-Code.jpg');
-    font-size: 18px;
-    padding: 50px 25px 50px 25px;
+    padding: 40px 30px 60px 30px;
+}
+.about-image-overlay,.about-image-overlay-vision {
+  p { font-size: 20px; line-height: 1.6em; font-weight: 400;letter-spacing: .01em}
 }
 .about-image-overlay-vision {
     color: black;
     text-align: center;
-    height: 300px;
     background-image: url('/images/about/our-Vision.jpg');
     font-size: 18px;
-    padding: 50px 100px 50px 100px;
+    padding:40px 30px 60px 30px;
     margin-bottom: 30px;
 }
 .about-values {
     h3 {
         padding-top: 30px;
-        padding-bottom: 30px;
     }
 
     img {
         display: block;
         margin: 0 auto;
+        width: 80px;
     }
-
+    img:first-of-type {margin-top: 40px}
     h4, p {
         text-align: center;
     }
