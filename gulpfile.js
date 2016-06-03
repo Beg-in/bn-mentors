@@ -86,10 +86,13 @@ require('gulp-begin')(gulp, {
             include: {
                 lib: [
                     //path.join(paths.client, 'styles'),
-                    'bootstrap-sass/assets/stylesheets/**/*.scss',
+                    'bootstrap-sass/assets/stylesheets',
                     'frow/sass'
                 ]
             }
+        },
+        images: {
+            src: ['**/*.png', '**/*.jpg', '**/*.PNG', '**/*.JPG']
         }
     }
 });

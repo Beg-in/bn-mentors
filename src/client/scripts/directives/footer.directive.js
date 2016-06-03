@@ -5,7 +5,7 @@ angular.module('bnMentorsApp').directive('footerDirective', function(
 ) { 'use strict';
 
     return {
-        templateUrl: '/views/footer.html',
+        templateUrl: 'footer.html',
         link: function($scope) {
         }
     };
