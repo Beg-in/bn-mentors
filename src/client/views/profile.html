@@ -2,51 +2,54 @@
     <div class="col-md-3-4">
         <div class="page card-shadow page-in">
 
+            <button type="submit" class="btn btn-primary profile-button-edit pull-right" ng-click="toggleEdit()">{{edit ? 'Save' : 'Edit'}}</button>
+
             <div class="profile-page-title"> {{profile.name}}'s Profile</div>
-            <button type="submit" class="btn btn-primary" ng-click="toggleEdit()">{{edit ? 'Save' : 'Edit'}}</button>
 
-                <div class="profile-image">
-                    <img ng-show="avatar" class="profile-image" ng-src="{{avatar}}">
-                    <img ng-hide="avatar" class="profile-image" ng-src="/images/profile/default.jpg">
-                    <a href="https://gravatar.com/" target="_blank" ng-show="edit">{{avatar ? 'Edit' : 'Upload Image'}}</a>
-                </div>
-                <div class="profile-view-container">
-                    <div class="profile-info">
+			<div class="profile-image">
+				<img ng-show="avatar" class="profile-image" ng-src="{{avatar}}">
+				<img ng-hide="avatar" class="profile-image" ng-src="/images/profile/default.jpg">
+				<a href="https://gravatar.com/" target="_blank" ng-show="edit">{{avatar ? 'Edit' : 'Upload Image'}}</a>
+			</div>
+			
+			<div class="profile-view-container">
+				<div class="profile-info">
 
-                        <div class="profile-contact">
-                            <input type="text" class="form-control" ng-model="profile.name" ng-show="edit" placeholder="Name">
-                            <input type="text" class="form-control" ng-model="profile.jobTitle" ng-show="edit" placeholder="Job Title">
-                            <input type="text" class="form-control" ng-model="profile.email" ng-show="edit" placeholder="Email">
-                            <input type="text" class="form-control" ng-model="profile.phone" ng-show="edit" placeholder="Phone">
-                            <div class="profile-contact-input" ng-hide="edit" class="ng-hide">{{profile.name}}</div>
-                            <div class="profile-contact-input" ng-hide="edit" class="ng-hide">{{profile.jobTitle}}</div>
-                            <div class="profile-contact-input" ng-hide="edit" class="ng-hide">{{profile.email}}</div>
-                            <div class="profile-contact-input" ng-hide="edit" class="ng-hide">{{profile.phone}}</div>
-                        </div>
+					<div class="profile-contact">
+						<input type="text" class="form-control" ng-model="profile.name" ng-show="edit" placeholder="Name">
+						<input type="text" class="form-control" ng-model="profile.jobTitle" ng-show="edit" placeholder="Job Title">
+						<input type="text" class="form-control" ng-model="profile.email" ng-show="edit" placeholder="Email">
+						<input type="text" class="form-control" ng-model="profile.phone" ng-show="edit" placeholder="Phone">
+						
+						<div class="profile-contact-input" ng-hide="edit" class="ng-hide">{{profile.name}}</div>
+						<div class="profile-contact-input" ng-hide="edit" class="ng-hide">{{profile.jobTitle}}</div>
+						<div class="profile-contact-input" ng-hide="edit" class="ng-hide">{{profile.email}}</div>
+						<div class="profile-contact-input" ng-hide="edit" class="ng-hide">{{profile.phone}}</div>
+					</div>
 
-                        <div class="profile-skills-container">
-                            <div class="profile-skills-title"> My Skills / Interests</div>
-                            <div class="profile-skill-tag-flex">
-                                <div class="profile-skill-tag" ng-hide="edit" ng-repeat="skill in profile.skills">#{{skill}}</div>
-                                <input type="text" class="form-control" ng-model="profile.skills" ng-show="edit" ng-list required placeholder="Email">
-                            </div>
-                        </div>
+					<div class="profile-skills-container">
+						<div class="profile-skills-title"> My Skills / Interests</div>
+						<div class="profile-skill-tag-flex">
+							<div class="profile-skill-tag" ng-hide="edit" ng-repeat="skill in profile.skills">#{{skill}}</div>
+							<input type="text" class="profile-skill-tag-input form-control" ng-model="profile.skills" ng-show="edit" ng-list required placeholder="Email">
+						</div>
+					</div>
 
-                        <div class="profile-bio">
-                            <div class="profile-shortbio">
-                                <input class="shortbio-input" type="text" ng-show="edit" ng-model=profile.shortbio placeholder="Short Bio: Keep it under 140 words" shortbio = {{profile.shortbio}}>
-                                <div class="shortbio-input" ng-hide="edit" ng-model=profile.shortBio class="ng-hide">{{profile.shortBio}}</div>
-                            </div>
-                        </div>
+					<div class="profile-bio">
+						<div class="profile-shortbio">
+							<input class="shortbio-input form-control" type="text" ng-show="edit" ng-model=profile.shortbio placeholder="Short Bio: Keep it under 140 words" shortbio = {{profile.shortbio}}>
+							<div class="shortbio-input" ng-hide="edit" ng-model=profile.shortBio class="ng-hide">{{profile.shortBio}}</div>
+						</div>
+					</div>
 
-                        <div class="profile-scheduled">{{profile.schedule}}</div>
+					<div class="profile-scheduled">{{profile.schedule}}</div>
 
-                        <div class="profile-submit submit-mentor"> <input class="btn btn-default" type="submit" value="Schedule 'Office' Hours" > </div>
-                        <div class="profile-submit submit-mentee"> <input class="btn btn-default" type="submit" value="Find a Mentor"> </div>
-
-                    </div>
-
-                </div>
+					<div class="profile-submit">
+						<input class="btn btn-default" type="submit" value="Schedule 'Office' Hours" >
+						<input class="btn btn-default" type="submit" value="Find a Mentor">
+					</div>
+				</div>
+			</div>
         </div>
     </div>
 </div>
