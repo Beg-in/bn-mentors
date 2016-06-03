@@ -70,45 +70,40 @@ Benifits Area Styles
 
 /*CHECK MARK STYLES*/
 li:before {
-    content: '✔';   
+    content: '✔';
     margin-left: -1em; margin-right: .100em;
 }
 
 ul{
-    
+
    padding-left:20px;
    text-indent:2px;
     list-style: none;
-   list-style-position:outside; 
-  
+   list-style-position:outside;
+
 }
 
-.checkmark-text{
-    font-size: 20px;
-    text-align: left;
-    margin-left: 60px;
-    text-shadow: 2px 2px #333;
+.button-text {
+  margin-top: 40px;
+  p,ul{
+      text-align: left;
+      line-height:1.8em;
+      text-shadow: 1px 1px 2px hsla(0,0,0,0.8);
+  }
+  p{text-align: center;font-size:25px;font-size: 30px;}
+  ul {margin-left: 60px;font-size: 18px}
 }
-
 /*END CHECK MARK STYLES*/
 
 /***************************/
 
 /*SEARCH BOX STYLES*/
 
-.button-text{
-    margin-top: 80px;
-
-    p{
-    font-size: 20px;
-        font-weight: 10px;
-    }
-}
-
 .mentors-button {
     width: auto;
     height: 50px;
     font-size: 20px;
+    padding:0 15px;
 }
 
 /*END SEARCH BOX STYLES*/

@@ -3,33 +3,30 @@
 
 ## Build
 ### Requirements
-- [Gulp](http://gulpjs.com/)
-```bash
-$ npm install -g gulp
-```
-- [Bower](http://bower.io/)
-```bash
-$ npm install -g bower
-```
-- [Node-Foreman](http://strongloop.github.io/node-foreman/)
-```bash
-$ npm install -g foreman
-```
 - [Postgresql](http://www.postgresql.org/)
 
-### Development runtime
-#### Livereload server:
+#### Setup
+```bash
+$ npm run setup
+$ npm install
+```
+This installs the following globally:
+- [Gulp](http://gulpjs.com/)
+- [Bower](http://bower.io/)
+- [Node Foreman](http://strongloop.github.io/node-foreman/)
+- [Node Inspector](https://github.com/node-inspector/node-inspector)
+
 Add a file called `.env` to the root of the project with the following contents:
 ```json
 {
-    "NODE_ENV": "dev"
+    "node": {
+        "env": "dev"
+    }
 }
 ```
 You can now run the development server by running the following commands:
 ```bash
-$ npm install
-$ bower install
-$ nf run gulp server
+$ npm start
 ```
 
 - You can now visit [http://localhost:8081/](http://localhost:8081/) to view changes live.
@@ -88,5 +85,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-
-

@@ -2,6 +2,7 @@ angular.module('bnMentorsApp', [
     'ngAnimate',
     'ngRoute',
     'lodash',
+    'templates',
     'angular-md5'
 ]).config(function(
     $locationProvider,
@@ -16,49 +17,49 @@ angular.module('bnMentorsApp', [
 
     $routeProvider.when('/', {
         //home page
-        templateUrl: '/views/home.html',
+        templateUrl: 'home.html',
         controller: 'homeController'
     }).when('/index.html', {
         redirectTo: '/'
     }).when('/404', {
         //404 error
-        templateUrl: '/views/404.html',
-        controller: 'staticController'
+        templateUrl: '404.html',
+        controller: '404Controller'
     }).when('/mentors', {
         //mentors call to action
-        templateUrl: '/views/mentors.html',
+        templateUrl: 'mentors.html',
         controller: 'mentorsController'
     }).when('/search', {
         //search page
-        templateUrl: '/views/search.html',
+        templateUrl: 'search.html',
         controller: 'searchController'
     }).when('/login', {
         //log in page
-        templateUrl: '/views/login.html',
+        templateUrl: 'login.html',
         controller: 'loginController'
     }).when('/profile/:id', {
         //profile page
-        templateUrl: '/views/profile.html',
+        templateUrl: 'profile.html',
         controller: 'profileController'
     }).when('/profile', {
         //profile page example
-        templateUrl: '/views/profile.html',
+        templateUrl: 'profile.html',
         controller: 'profileController'
     }).when('/signup', {
         //sign up
-        templateUrl: '/views/sign-up.html',
+        templateUrl: 'sign-up.html',
         controller: 'signUpController'
     }).when('/ourstory', {
         //about page
-        templateUrl: '/views/our-story.html',
+        templateUrl: 'our-story.html',
         controller: 'ourStoryController'
     }).when('/termsofuse', {
         //terms of use
-        templateUrl: '/views/terms-of-use.html',
+        templateUrl: 'terms-of-use.html',
         controller: 'staticController'
     }).when('/calendar', {
         //calendar page
-        templateUrl: '/views/calendar.html',
+        templateUrl: 'calendar.html',
         controller: 'calendarController'
     }).otherwise({
         redirectTo: '/404'

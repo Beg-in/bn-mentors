@@ -21,6 +21,8 @@ html, body { height: 100%; -webkit-font-smoothing: subpixel-antialiased; backgro
 body {
     font-family: $lato;
     line-height: normal;
+    font-size: 15px;
+    line-height: 1.5em;
 }
 
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
@@ -107,43 +109,45 @@ h1 {
 }
 
 h2 {
-    font-size: 48px;
+    font-size: 50px;
     line-height: 120%;
     font-style: italic;
     text-transform: uppercase;
-    font-weight: 300;
+    letter-spacing: .05em;
+    font-weight: 400;
     color: $near-black;
     padding: 0px 0 20px 0;
+    text-align: center;
 }
 
 h3 {
-    font-size: 36px;
+    font-size: 40px;
     line-height: 120%;
-    font-weight: 300;
+    font-weight: 400;
     color: $near-black;
     padding: 20px 0 10px 0;
     text-align: center;
 }
 
 h4 {
-    font-size: 24px;
+    font-size: 30px;
     line-height: 140%;
-    font-weight: 300;
+    font-weight: 400;
     color: $near-black;
     padding: 20px 0 5px 0;
 }
 
 @media (max-width: 767px) {
     h2 {
-        font-size: 28px;
+        font-size: 30px;
     }
 
     h3 {
-        font-size: 20px;
+        font-size: 24px;
     }
 
     h4 {
-        font-size: 16px;
+        font-size: 18px;
     }
 }
 
