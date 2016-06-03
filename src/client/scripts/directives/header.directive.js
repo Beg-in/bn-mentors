@@ -5,7 +5,7 @@ angular.module('bnMentorsApp').directive('headerDirective', function(
 ) { 'use strict';
 
     return {
-        templateUrl: '/views/header.html',
+        templateUrl: 'header.html',
         link: function($scope) {
         }
     };
