@@ -33,10 +33,10 @@ angular.module('bnMentorsApp', [
         //search page
         templateUrl: 'search.html',
         controller: 'searchController'
-    }).when('/login', {
+    }).when('/log-in', {
         //log in page
-        templateUrl: 'login.html',
-        controller: 'loginController'
+        templateUrl: 'log-in.html',
+        controller: 'logInController'
     }).when('/profile/:id', {
         //profile page
         templateUrl: 'profile.html',
@@ -45,7 +45,7 @@ angular.module('bnMentorsApp', [
         //profile page example
         templateUrl: 'profile.html',
         controller: 'profileController'
-    }).when('/signup', {
+    }).when('/sign-up', {
         //sign up
         templateUrl: 'sign-up.html',
         controller: 'signUpController'

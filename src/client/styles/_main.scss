@@ -7,17 +7,6 @@ html, body { height: 100%; -webkit-font-smoothing: subpixel-antialiased; backgro
     animation: none 0s;
 }
 
-/* CLEAR FIX*/
-.clearfix:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-.clickable {
-    cursor: pointer;
-}
-
 body {
     font-family: $lato;
     line-height: normal;
@@ -36,6 +25,10 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 
 .click-drop:active {
     transform:translateY(1px);
+}
+
+button, html [type="button"], [type="reset"], [type="submit"] {
+    appearance: none;
 }
 
 a, a:hover, a:active, a:focus {
@@ -88,10 +81,6 @@ a:hover, a:focus {
 
 .page-in {
     animation: pagein 0.5s;
-}
-
-.card-shadow {
-    box-shadow: $card-shadow;
 }
 
 h1 {
