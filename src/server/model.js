@@ -2,7 +2,7 @@
 
 var shortid = require('shortid');
 
-module.exports = function(_, db) {
+module.exports = function(util, _, db) {
 
     var rule = function(regex, message) {
         return  {
@@ -49,10 +49,12 @@ module.exports = function(_, db) {
                 data jsonb
             );
         `).then(function() {
-            console.info(`load table ${name}`);
+            util.log(`load table ${name}`);
         });
     };
 
+
+    debugger;
 
     var model = function(descriptor) {
         createModelTable(descriptor.table);
@@ -62,7 +64,7 @@ module.exports = function(_, db) {
             values($1, $2);
         `);
         var readQuery = db.prepare(`${descriptor.table.toUpperCase()}_READ`, `
-            select data
+            select data || jsonb_build_object('_id', id)
             from ${descriptor.table}
             where id = $1;
         `);
@@ -89,17 +91,36 @@ module.exports = function(_, db) {
             create() {
                 return createQuery([this._id, JSON.stringify(this)]);
             }
-            update() {
-                return updateQuery([this._id, JSON.stringify(this)]);
+            static create(obj) {
+                return Model.validate(obj).then(function(result) {
+                    return result.create().then(function() {
+                        return result;
+                    });
+                });
+            }
+            static read(id) {
+                return readQuery(id).then(function(result) {
+                    if(result.rows.length !== 1) {
+                        throw new Error(`Unexpected row count: ${result.rows.length}`)
+                    }
+                    return new Model(result.rows[0]);
+                });
+            }
+            update(obj) {
+                if(obj) {
+                    _.forEach(obj, function(value, property) {
+                        this[property] = value;
+                    }, this);
+                }
+                return Model.validate(this).then(function() {
+                    updateQuery([this._id, JSON.stringify(this)]);
+                });
             }
             delete() {
                 return deleteQuery(this._id);
             }
-            build(obj) {
-                _.forEach(obj, function(value, property) {
-                    this[property] = value;
-                }, this);
-                return Model.validate(this);
+            static delete() {
+                return deleteQuery(id);
             }
             static validate(obj) {
                 return new Promise(function(resolve, reject) {
@@ -108,20 +129,15 @@ module.exports = function(_, db) {
                             reject(rule.message);
                         }
                     });
-                    resolve(obj);
-                });
-            }
-            static build(obj) {
-                return Model.validate(obj).then(function() {
-                    return new Model(obj)
+                    resolve(new Model(obj));
                 });
             }
         }
 
-        Model.create = createQuery;
-        Model.read = readQuery;
-        Model.update = updateQuery;
-        Model.delete = deleteQuery;
+        Model.createQuery = createQuery;
+        Model.readQuery = readQuery;
+        Model.updateQuery = updateQuery;
+        Model.deleteQuery = deleteQuery;
 
         if(descriptor.queries) {
             _.forEach(descriptor.queries, function(query, key) {

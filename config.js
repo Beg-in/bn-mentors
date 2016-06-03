@@ -64,10 +64,11 @@ module.exports = {
         pass: process.env.PG_PASS,
         host: process.env.PG_HOST,
         port: process.env.PG_PORT,
-        db: process.env.PG_DB
+        db: process.env.PG_DB,
+        url: process.env.DATABASE_URL
     },
     platform: process.platform,
     workers: process.env.WEB_CONCURRENCY || 1,
-    isWin: process.platform === 'win32'
+    isWin: process.platform === 'win32',
+    debug: !!process.env.NODE_DEBUG
 };
-

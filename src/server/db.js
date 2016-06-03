@@ -6,20 +6,21 @@ module.exports = function(_, config) {
 
     var connect = function() {
         return new Promise(function(resolve, reject) {
-            pg.connect({
+            var details = config.pg.url || {
                 user: config.pg.user,
                 password: config.pg.pass,
                 host: config.pg.host,
                 port: config.pg.port,
                 database: config.pg.db
-            }, function(err, client, done) {
+            };
+            pg.connect(details, function(err, client, done) {
                 if(err) {
                     var message = 'error fetching client from pool';
+                    console.error(message, err);
                     reject({
                         reason: message,
                         error: err
                     });
-                    return console.error(message, err);
                 } else {
                     resolve({
                         client: client,
@@ -41,12 +42,12 @@ module.exports = function(_, config) {
                     connection.done();
                 }).on('error', function(err) {
                     var message = 'error running query';
+                    console.error(message, err);
+                    connection.done();
                     reject({
                         reason: message,
                         error: err
                     });
-                    console.error(message, err);
-                    connection.done();
                 });
             }).catch(reject);
         });
@@ -67,8 +68,17 @@ module.exports = function(_, config) {
                     values: values
                 }).catch(function(err) {
                     console.error(`error in query ${name}`, err);
+                    throw err;
                 });
             };
+        },
+        transaction: function(cb) {
+            return query('BEGIN').then(cb).then(function() {
+                return query('COMMIT');
+            }).catch(function(err) {
+                query('ROLLBACK');
+                throw err instanceof Error ? err : new Error(err);
+            });
         }
     };
 };
