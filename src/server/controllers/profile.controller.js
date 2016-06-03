@@ -1,13 +1,9 @@
     'use strict';
 
     module.exports = function(profileModel) {
-        profileModel.read('nope').then(function(result) {
-            console.log('result', result);
-        }).catch(function(err) {
-            console.log('error', err);
-        });
-        return {
-            getAll: function() {
+
+    return {
+        getAll: function() {
             return profileModel.getAll().then(function(result) {
                 return result.rows;
             });
