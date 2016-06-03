@@ -10,11 +10,11 @@ module.exports = function(model) {
         },
         queries: {
             getAll: `
-                select *
+                select ${model.JSONB}
                 from Profile;
             `,
             getByEmail: `
-                select *
+                select ${model.JSONB}
                 from Profile
                 where data->>'email' = $1;
             `
@@ -25,4 +25,49 @@ module.exports = function(model) {
             super(obj);
         }
     };
+
+
+
+    /* EXAMPLE ROBUST MODEL
+
+    return class extends model({
+        table: 'Image',
+        properties: {
+            originalname: model.valid.name,
+            mimetype: model.valid.nullable,
+            status: {
+                test: function(value) {
+                    return _.includes(TYPES, value);
+                },
+                message: 'Not a valid image status'
+            },
+            extension: model.valid.name,
+            meta: model.valid.nullable
+        },
+        safe: [
+            'originalname',
+            'status',
+            'source',
+            'meta'
+        ],
+        queries: {
+            getByStatus: `
+                select ${model.JSONB}
+                from Image
+                where data->>'status' = $1;
+            `
+        }
+    }) {
+        constructor(obj) {
+            super(obj);
+        }
+        static get Status() {
+            return TYPES;
+        }
+        get filename() {
+            return `${this._id}.${this.extension}`;
+        }
+    };
+
+    */
 };
