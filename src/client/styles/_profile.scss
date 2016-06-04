@@ -1,10 +1,6 @@
 
 .profile-view-container {
-    display: flex;
-    justify-content: center;
     width: 100%;
-    flex-wrap: wrap;
-    flex-direction: row;
     font-family: $lato;
 }
 
@@ -43,15 +39,11 @@
 }
 
 .profile-info {
-    display: flex;
-    flex-direction: column;
     font-weight: 100px;
 }
 
 .profile-contact {
     font-size: 14px;
-    display: flex;
-    flex-direction: row;
     border-bottom: 2px solid $light-grey;
     padding-bottom: 5px;
     margin-bottom: 20px;
