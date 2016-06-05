@@ -10,7 +10,9 @@ module.exports = function(model) {
             bio: model.valid.nullable,
             phone: model.valid.nullable,
             profession: model.valid.nullable,
-            tags: model.valid.nullable
+            tags: model.valid.nullable,
+            schedule: model.valid.nullable,
+            appointments: model.valid.nullable
         },
         queries: {
             getAll: `

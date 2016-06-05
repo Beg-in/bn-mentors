@@ -6,8 +6,9 @@ module.exports = function(route, profileController) {
             return profileController.getAll();
         });
 
-        method.post('id', function(req, body){
-          return profileController.read(body.id);
+        method.get(':id', function(req){
+          console.log('Hi');
+          return profileController.read(req.params.id);
         });
 
         method.post('email', function(req, body) {
@@ -25,8 +26,30 @@ module.exports = function(route, profileController) {
         method.put('new', function(req, body){
             return profileController.createProfile(body);
         });
-        method.put(':id', function(req, body, res) {
-            return imageController.update(req.params.id, body);
+        method.put(':id', function(req, body) {
+            // console.log(req.params.id);
+            return profileController.update(req.params.id, body);
         });
+
+        // SCHEDULE
+        method.put('schedule', function(req, body){
+          return profileController.createSchedule(body);
+        });
+        method.post('schedule', function(req, body){
+          return profileController.getSchedule(body.id);
+        });
+
+        // APPOINTMENTS
+        method.put('appointment', function(req, body){
+          return profileController.createAppointment(body);
+        });
+        method.post('appointment', function(req, body){
+          return profileController.getAppointments(body.id);
+        });
+        method.post('appointment/email', function(req, body){
+          return profileController.getAppointment(body);
+        });
+
+        // SIGNUP
     });
 };
