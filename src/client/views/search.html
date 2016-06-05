@@ -14,13 +14,13 @@
                 <div class="col-md-7-12">
                     <div class="search-name">{{result.name}}, <span class="search-job-title">{{result.profession}}</span> </div>
                     <div class="search-info">
-                        <div class="search-skills" ng-repeat="skill in result.skills">#{{tags}}</div>
+                        <div class="search-tags" ng-repeat="tag in result.tags">#{{tag}}</div>
                         <div class="search-shortbio">{{result.bio}}</div>
                     </div>
                 </div>
                 <div class="col-md-1-4">
                     <div class="search-view-profile-button click-drop">
-                        <a href="/#/profile"><button type="button" class="btn btn-info">View Profile</button></a>
+                        <a ng-href="/#/profile/{{result._id}}"><button type="button" class="btn btn-info">View Profile</button></a>
                     </div>
                 </div>
             </div>

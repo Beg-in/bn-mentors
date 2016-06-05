@@ -16,16 +16,16 @@
 
                     <div class="profile-contact">
                         <div class="frow gutter" ng-hide="edit">
-                            <div class="col-md-1-4">
+                            <div class="col-md-1-4" ng-show="profile.name">
                                 <div class="profile-contact-input">{{profile.name}}</div>
                             </div>
-                            <div class="col-md-1-4">
-                                <div class="profile-contact-input">{{profile.jobTitle}}</div>
+                            <div class="col-md-1-4" ng-show="profile.profession">
+                                <div class="profile-contact-input">{{profile.profession}}</div>
                             </div>
-                            <div class="col-md-1-4">
+                            <div class="col-md-1-4" ng-show="profile.email">
                                 <div class="profile-contact-input">{{profile.email}}</div>
                             </div>
-                            <div class="col-md-1-4">
+                            <div class="col-md-1-4" ng-show="profile.phone">
                                 <div class="profile-contact-input">{{profile.phone}}</div>
                             </div>
                         </div>
@@ -34,7 +34,7 @@
                                 <input type="text" class="form-control" ng-model="profile.name" placeholder="Name">
                             </div>
                             <div class="col-md-1-4">
-                                <input type="text" class="form-control" ng-model="profile.jobTitle" placeholder="Job Title">
+                                <input type="text" class="form-control" ng-model="profile.profession" placeholder="Job Title">
                             </div>
                             <div class="col-md-1-4">
                                 <input type="text" class="form-control" ng-model="profile.email" placeholder="Email">
@@ -45,12 +45,12 @@
                         </div>
                     </div>
 
-                    <div class="profile-skills-container">
-                        <div class="profile-skills-title">My Skills / Interests</div>
+                    <div class="profile-tags-container">
+                        <div class="profile-tags-title">My Skills / Interests</div>
                         <div class="profile-skill-tags">
                             <div class="frow">
-                                <div class="profile-skill-tag" ng-hide="edit" ng-repeat="skill in profile.skills">#{{skill}}</div>
-                                <input type="text" class="profile-skill-tag-input form-control" ng-model="profile.skills" ng-show="edit" ng-list required placeholder="Skills">
+                                <div class="profile-skill-tag" ng-hide="edit" ng-repeat="skill in profile.tags">#{{skill}}</div>
+                                <input type="text" class="profile-skill-tag-input form-control" ng-model="profile.tags" ng-show="edit" ng-list required placeholder="Skills">
                             </div>
                         </div>
                     </div>
