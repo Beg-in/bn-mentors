@@ -25,15 +25,6 @@ angular.module('bnMentorsApp').controller('profileController', function(
         }
     };
 
-    if ($routeParams.id) {
-        ProfileService.getUserProfile($routeParams.id).success(function(response){
-            $scope.profile = response;
-        });
-    } else {
-        // $location.path('/#/404');
-    }
-
-
     $scope.fetchGravatar = function() {
         $scope.gravatar = md5.createHash($scope.profile.email);
         $http.get('https://secure.gravatar.com/avatar/' + $scope.gravatar + '?s=1&d=404')
@@ -44,6 +35,19 @@ angular.module('bnMentorsApp').controller('profileController', function(
                 $scope.avatar = null;
             })
         ;
+    }
+
+    if ($routeParams.id) {
+        ProfileService.getUserProfile($routeParams.id).success(function(response){
+            $scope.profile = response;
+            if ($scope.profile.email) {
+                $scope.fetchGravatar();
+            }
+        }).error(function(response){
+            $location.path('/#/404');
+        });
+    } else {
+        $location.path('/#/404');
     }
 
     $scope.toggleEdit = function() {
@@ -59,9 +63,5 @@ angular.module('bnMentorsApp').controller('profileController', function(
             $scope.fetchGravatar();
         }
     };
-
-    if ($scope.profile.email) {
-        $scope.fetchGravatar();
-    }
 
 });
