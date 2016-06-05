@@ -15,7 +15,13 @@ angular.module('bnMentorsApp').controller('profileController', function(
         email: 'harrison@gmale.com',
         phone: '847.555.8847',
         skills: ['acting', 'wars', 'raiding', 'running'],
-        shortBio: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+        shortBio: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        schedule: {
+            time: new Date(1970, 0, 1, 14, 57, 0),
+            location: 'Slingshot CoWork',
+            weekOfMonth: '3',
+            repeatDay: 'Thursday'
+        }
     };
 
     if ($routeParams.id) {

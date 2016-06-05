@@ -96,9 +96,38 @@
 }
 
 .calendar-section {
-    margin-bottom: 20px;
+    margin-top: 20px;
 }
 
 .calendar-day-picker {
     margin-top: 4px;
+}
+
+.calendar-sentence {
+    margin-top: 4px;
+}
+
+.calendar-dropdown-repeat {
+    width: 100px;
+    margin: 0 3px;
+}
+
+.calendar-dropdown-day {
+    width: 100px;
+    margin: 0 3px;
+}
+
+.calendar-time {
+    width: 100px;
+    margin: 0 3px;
+}
+
+.date-day {
+    font-size: 20px;
+    line-height: 100%;
+}
+
+.date-number {
+    font-size: 70px;
+    line-height: 100%;
 }
