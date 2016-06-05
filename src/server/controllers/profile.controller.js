@@ -54,6 +54,7 @@
           });
         },
         update: function(id, obj) {
+          console.log(obj);
           return profileModel.read(id).then(profile => profile.update(obj));
         },
         read: function(id){
