@@ -1,7 +1,6 @@
 <div class="frow">
     <div class="col-md-3-4">
         <div class="page card-shadow page-in">
-
             <button type="submit" class="btn btn-primary profile-button-edit pull-right" ng-click="toggleEdit()">{{edit ? 'Save' : 'Edit'}}</button>
 
             <div class="profile-page-title">{{profile.name}}'s Profile</div>
@@ -62,14 +61,52 @@
                             <div class="shortbio-input" ng-hide="edit" ng-model=profile.shortBio class="ng-hide">{{profile.shortBio}}</div>
                         </div>
                     </div>
-
-                    <div class="profile-scheduled">{{profile.schedule}}</div>
-
-                    <div class="profile-submit">
-                        <input class="btn btn-default" type="submit" value="Schedule 'Office' Hours" >
-                        <input class="btn btn-default" type="submit" value="Find a Mentor">
-                    </div>
                 </div>
+            </div>
+            <div class="frow">
+                <div class="col-md-5-6">
+                    <form>
+                        <div class="calendar-section" ng-show="edit">
+                            <div class="frow">
+                                <p class="calendar-sentence">
+                                    Repeats on the
+                                </p>
+                                <select class="form-control calendar-dropdown-repeat" ng-model="profile.schedule.weekOfMonth">
+                                    <option value="1">1st</option>
+                                    <option value="2">2nd</option>
+                                    <option value="3">3rd</option>
+                                    <option value="4">4th</option>
+                                </select>
+                                <select class="form-control calendar-dropdown-day" ng-model="profile.schedule.repeatDay">
+                                    <option>Sunday</option>
+                                    <option>Monday</option>
+                                    <option>Tuesday</option>
+                                    <option>Wednesday</option>
+                                    <option>Thursday</option>
+                                    <option>Friday</option>
+                                    <option>Saturday</option>
+                                </select>
+                                <p class="calendar-sentence">
+                                    of the month at
+                                </p>
+                                <input type="time" class="form-control calendar-time" ng-model="profile.schedule.time" style="width: 130px">
+                                {{test}}
+                            </div>
+                            <div class="frow">
+                                <p><strong>@:</strong></p>
+                                <input type="search" class="form-control" placeholder="Location" ng-model="profile.schedule.location">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="page card-shadow page-in">
+            <div class="date-day">
+                Fri
+            </div>
+            <div class="date-number">
+                29
             </div>
         </div>
     </div>
