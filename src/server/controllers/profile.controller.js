@@ -4,30 +4,33 @@
 
     return {
         getAll: function() {
-            return profileModel.getAll().then(function(result) {
-                return result.rows;
+            return profileModel.getAll([]).then(function(result) {
+                return result;
+                // return("Cat");
             });
         },
         getByEmail: function(email) {
-            return profileModel.getByEmail([email]).then(function(result) {
-                return result.rows;
+            return profileModel.getByEmail(email).then(function(result) {
+                return result;
             });
+        },
+        createProfile: function(profile) {
+          var p = new profileModel({name: profile.name, email: profile.email, phone: profile.phone, profession: profile.profession, bio: profile.bio, tags: profile.tags});
+          profileModel.create(p);
+          return ("Thanks " + p.name + "! Profile created successfully!");
+        },
+        update: function(id, obj) {
+          return profileModel.read(id).then(profile => profile.update(obj));
         }
-    };
+        // updateByEmail: function(body) {
+        // var uprof = (this.getByEmail(body.email));
+        //   for(var property in body){
+        //     uprof[property] = body[property];
+        //   };
+        //   uprof.update();
+        // prof.update(uprof);
+        // return (prof);
 
-    // Profile.build({bio: 'thing', name: 'brian', email: 'brian.jesse@gmail.com'}).then(function(profile) {
-    //     console.log('build', profile);
-    //     profile.create();
-    //     return profile.build({bio: 'new thing'})
-    // }).then(function(profile) {
-    //     console.log('update', profile);
-    //     return profile.update();
-    // }).then(function(profile) {
-    //     return Profile.read(profile._id);
-    // }).then(function(profile) {
-    //     console.log('read', profile);
-    // }).catch(function(err) {
-    //     console.log(err);
-    // });
-
+        // }
+    }
 };

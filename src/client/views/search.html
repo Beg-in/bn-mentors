@@ -11,10 +11,10 @@
                     </div>
                 </div>
                 <div class="col-md-7-12">
-                    <div class="search-name">{{result.name}}, <span class="search-job-title" >{{result.jobTitle}}</span> </div>
+                    <div class="search-name">{{result.name}}, <span class="search-job-title" >{{result.profession}}</span> </div>
                     <div class="search-info">
-                        <div class="search-skills" ng-repeat="skill in result.skills">#{{skill}}</div>
-                        <div class="search-shortbio">{{result.shortBio | limitTo : 140}}...</div>
+                        <div class="search-skills" ng-repeat="skill in result.skills">#{{tags}}</div>
+                        <div class="search-shortbio">{{result.bio | limitTo : 140}}...</div>
                     </div>
                 </div>
                 <div class="col-md-1-4">

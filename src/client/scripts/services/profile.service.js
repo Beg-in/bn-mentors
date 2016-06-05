@@ -16,8 +16,9 @@ angular.module('bnMentorsApp').factory('ProfileService', function(
             });
         },
         getAllData: function() {
-          return ApiService.get(base + '/all/').then(function(response) {
-            return response.data;
+          return ApiService.get(base + 'all').success(function(response) {
+            // console.log("The real response", response);
+            return response;
           });
         }
     };
