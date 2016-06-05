@@ -53,6 +53,14 @@ angular.module('bnMentorsApp').controller('profileController', function(
         }
     };
 
+    $scope.updateProfile = function() {
+      ProfileService.setUserProfile($scope.profile).success(function() {
+        console.log("PROFILE UPDATED");
+      }).error(function() {
+        console.log("FAILURE");
+      });
+    };
+
     if ($scope.profile.email) {
         $scope.fetchGravatar();
     }
