@@ -2,22 +2,17 @@
 
 module.exports = function(route, profileController) {
     route('api/v1/profile', function(method) {
-        method.get(function(req, body) {
+        method.get(function() {
             return profileController.getAll();
-        });
-
-        method.get(':id', function(req){
-          console.log('Hi');
-          return profileController.read(req.params.id);
         });
 
         method.post('email', function(req, body) {
             return profileController.getByEmail(body.email);
         });
 
-        method.put('update', function(req, body) {
-            return profileController.updateByEmail(body);
-        });
+        // method.put('update', function(req, body) {
+        //     return profileController.updateByEmail(body);
+        // });
 
         method.get('url/:url', function(req) {
             return profileController.getByUrl(req.params.url);
@@ -26,10 +21,7 @@ module.exports = function(route, profileController) {
         method.put('new', function(req, body){
             return profileController.createProfile(body);
         });
-        method.put(':id', function(req, body) {
-            // console.log(req.params.id);
-            return profileController.update(req.params.id, body);
-        });
+
 
         // SCHEDULE
         method.put('schedule', function(req, body){
@@ -41,6 +33,8 @@ module.exports = function(route, profileController) {
 
         // APPOINTMENTS
         method.put('appointment', function(req, body){
+          console.log("HIIIIIIIIIIIIIIIIII");
+          console.log(body);
           return profileController.createAppointment(body);
         });
         method.post('appointment', function(req, body){
@@ -48,6 +42,15 @@ module.exports = function(route, profileController) {
         });
         method.post('appointment/email', function(req, body){
           return profileController.getAppointment(body);
+        });
+
+        method.get(':id', function(req){
+          return profileController.read(req.params.id);
+        });
+
+        method.put(':id', function(req, body) {
+            // console.log(req.params.id);
+            return profileController.update(req.params.id, body);
         });
 
         // SIGNUP
