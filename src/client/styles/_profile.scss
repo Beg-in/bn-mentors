@@ -122,10 +122,6 @@
     margin: 0 3px;
 }
 
-.profile-appointments {
-    height: 100%;
-}
-
 .appointment-month {
     font-size: 20px;
     line-height: 100%;
@@ -141,6 +137,15 @@
     line-height: 100%;
 }
 
+.appointment-location {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
 .profile-appointment-button {
     height: 50px;
+}
+
+.request-field {
+    margin: 5px 0;
 }

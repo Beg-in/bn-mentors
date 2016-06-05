@@ -101,27 +101,71 @@
                 </div>
             </div>
         </div>
-        <div class="page card-shadow page-in profile-appointments">
-            <div class="frow justify-between">
-                <span>
-                    <div class="appointment-month">
-                        July
+        <div class="frow gutters">
+            <div class="col-md-1-2">
+                <div class="page card-shadow page-in profile-appointments">
+                    <div class="frow justify-between">
+                        <div class="col-md-1-3">
+                            <div class="frow column-center">
+                                <div class="appointment-month">
+                                    July
+                                </div>
+                                <div class="appointment-number">
+                                    29
+                                </div>
+                                <div class="appointment-day">
+                                    Friday
+                                </div>
+                                <div class="appointment-time">
+                                    7:00 PM
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2-3">
+                            <div class="frow column-center" ng-hide="requested">
+                                <div class="appointment-location">
+                                    @ Slingshot CoWork, 108 E. Beaufort St. Normal, IL
+                                </div>
+                                <button class="btn btn-default profile-appointment-button" ng-click="requested = true">Request Meeting</button>
+                            </div>
+                            <div class="frow column-center" ng-show="requested">
+                                <input type="text" class="form-control request-field" ng-model="request.name" placeholder="Full Name">
+                                <input type="text" class="form-control request-field" ng-model="request.email" placeholder="Email">
+                                <input type="text" class="form-control request-field" ng-model="request.why" placeholder="Purpose">
+                                <button class="btn btn-default">Submit</button>
+                            </div>
+                        </div>
                     </div>
-                    <div class="appointment-day">
-                        Fri
-                    </div>
-                    <div class="appointment-number">
-                        29
-                    </div>
-                    <div class="appointment-time">
-                        7:00 PM
-                    </div>
-                </span>
-                <div class="appointment-location">
-                    Slingshot CoWork
                 </div>
-                <div class="frow centered">
-                    <button class="btn btn-default profile-appointment-button">Request Meeting</button>
+            </div>
+            <div class="col-md-1-2">
+                <div class="page card-shadow page-in profile-appointments">
+                    <div class="frow justify-between">
+                        <div class="col-md-1-2">
+                            <div class="frow column-center">
+                                <div class="appointment-month">
+                                    July
+                                </div>
+                                <div class="appointment-number">
+                                    29
+                                </div>
+                                <div class="appointment-day">
+                                    Friday
+                                </div>
+                                <div class="appointment-time">
+                                    7:00 PM
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-1-2">
+                            <div class="frow column-center">
+                                <div class="appointment-location">
+                                    @ Slingshot CoWork, 108 E. Beaufort St. Normal, IL
+                                </div>
+                                <button class="btn btn-default profile-appointment-button">Request Meeting</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
