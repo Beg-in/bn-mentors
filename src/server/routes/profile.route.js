@@ -47,7 +47,6 @@ module.exports = function(route, profileController) {
         });
 
         method.put(':id', function(req, body) {
-            // console.log(req.params.id);
             return profileController.update(req.params.id, body);
         });
 

@@ -29,11 +29,7 @@ angular.module('bnMentorsApp').controller('searchController', function(
         $scope.searchResults = response;
       }
       $scope.fetchGravatar();
-    //   _.forEach($scope.searchResults, function(value, key) {
-    //     //   $scope.searchResults[key].avatar = $scope.fetchGravatar($scope.searchResults[key].email);
-    //       console.log(;
-    //   });
     }).error(function(response){
-      console.log('Failed to fetch results!');
+        console.log('Failed to fetch results!');
     });
 });

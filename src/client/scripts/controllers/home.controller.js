@@ -3,7 +3,6 @@ angular.module('bnMentorsApp').controller('homeController', function(
     $location
 ) { 'use strict';
     $scope.search = function() {
-        console.log('hi');
         $location.path('/search');
     };
 });
