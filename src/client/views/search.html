@@ -6,7 +6,8 @@
                 <div class="col-md-1-6">
                     <div class="search-result-image-flex">
                         <div class="frow centered">
-                            <img class="search-result-image" src="/images/profile/default.jpg">
+                            <img ng-show="result.avatar" class="search-result-image" ng-src="{{result.avatar}}">
+                            <img ng-hide="result.avatar" class="search-result-image" src="/images/profile/default.jpg">
                         </div>
                     </div>
                 </div>
