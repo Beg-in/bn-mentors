@@ -19,9 +19,12 @@
           return ("Thanks " + p.name + "! Profile created successfully!");
         },
         createSchedule: function(schedule) {
-          var prof = profileModel.read(schedule.id);
-          prof.schedule = schedule;
-          profileModel.read(schedule.id).then(profile => profile.update(prof));
+            return profileModel.read(schedule.id).then(function(result){
+              var prof = result;
+              prof.schedule = schedule;
+              profileModel.read(schedule.id).then(profile => profile.update(prof));
+              return prof.schedule;
+          });
         },
         getSchedule: function(id) {
           return profileModel.read(id).then(function(result){
@@ -29,14 +32,16 @@
           });
         },
         createAppointment: function(appointment) {
-          var prof = profileModel.read(appointment.id);
-          console.log(prof);
-          if(!_.isArray(prof.appointments)){
-            prof.appointments = [appointment];
-          }else{
-            prof.appointments.push(appointment);
-          };
-          profileModel.read(appointment.id).then(profile => profile.update(prof));
+          return profileModel.read(appointment.id).then(function(result){
+            var prof = result;
+            if(!_.isArray(prof.appointments)){
+              prof.appointments = [appointment];
+            }else{
+              prof.appointments.push(appointment);
+            };
+            profileModel.read(appointment.id).then(profile => profile.update(prof));
+            return prof.appointments;
+          });
         },
         getAppointments: function(id){
           return profileModel.read(id).then(function(result){
@@ -49,6 +54,7 @@
           });
         },
         update: function(id, obj) {
+          console.log(obj);
           return profileModel.read(id).then(profile => profile.update(obj));
         },
         read: function(id){

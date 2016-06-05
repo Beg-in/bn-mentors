@@ -50,15 +50,15 @@
                         <div class="profile-skill-tags">
                             <div class="frow">
                                 <div class="profile-skill-tag" ng-hide="edit" ng-repeat="skill in profile.skills">#{{skill}}</div>
-                                <input type="text" class="profile-skill-tag-input form-control" ng-model="profile.skills" ng-show="edit" ng-list required placeholder="Email">
+                                <input type="text" class="profile-skill-tag-input form-control" ng-model="profile.skills" ng-show="edit" ng-list required placeholder="Skills">
                             </div>
                         </div>
                     </div>
 
                     <div class="profile-bio">
                         <div class="profile-shortbio">
-                            <input class="shortbio-input form-control" type="text" ng-show="edit" ng-model=profile.shortbio placeholder="Short Bio: Keep it under 140 words" shortbio = {{profile.shortbio}}>
-                            <div class="shortbio-input" ng-hide="edit" ng-model=profile.shortBio class="ng-hide">{{profile.shortBio}}</div>
+                            <input class="shortbio-input form-control" type="text" ng-show="edit" ng-model=profile.bio placeholder="Short Bio: Keep it under 140 words" >
+                            <div class="shortbio-input" ng-hide="edit">{{profile.bio}}</div>
                         </div>
                     </div>
                 </div>
@@ -89,8 +89,8 @@
                                 <p class="calendar-sentence">
                                     of the month at
                                 </p>
-                                <input type="time" class="form-control calendar-time" ng-model="profile.schedule.time" style="width: 130px">
-                                {{test}}
+                                <!-- <input type="time" class="form-control calendar-time" ng-model="profile.schedule.time" style="width: 130px"> -->
+                                <!-- {{profile.schedule.time}} -->
                             </div>
                             <div class="frow">
                                 <p><strong>@:</strong></p>

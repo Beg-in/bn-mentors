@@ -17,7 +17,8 @@ angular.module('bnMentorsApp').controller('profileController', function(
         skills: ['acting', 'wars', 'raiding', 'running'],
         shortBio: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
         schedule: {
-            time: new Date(1970, 0, 1, 14, 57, 0),
+          //TODO
+            time: new Date('1970-01-01T20:57:00.000Z'),
             location: 'Slingshot CoWork',
             weekOfMonth: '3',
             repeatDay: 'Thursday'
@@ -25,8 +26,7 @@ angular.module('bnMentorsApp').controller('profileController', function(
     };
 
     if ($routeParams.id) {
-        ProfileService.getUserProfile($routeParams.id).success(function(){
-            console.log('it works! ' + response);
+        ProfileService.getUserProfile($routeParams.id).success(function(response){
             $scope.profile = response;
         });
     } else {
@@ -47,6 +47,15 @@ angular.module('bnMentorsApp').controller('profileController', function(
     }
 
     $scope.toggleEdit = function() {
+        if ($scope.edit)
+        {
+          console.log($scope.profile.shortBio);
+          ProfileService.setUserProfile($routeParams.id, $scope.profile).success(function() {
+
+          }).error(function() {
+
+          });
+        }
         $scope.edit = !$scope.edit;
         if ($scope.profile.email) {
             $scope.fetchGravatar();
