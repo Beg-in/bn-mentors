@@ -33,8 +33,6 @@ module.exports = function(route, profileController) {
 
         // APPOINTMENTS
         method.put('appointment', function(req, body){
-          console.log("HIIIIIIIIIIIIIIIIII");
-          console.log(body);
           return profileController.createAppointment(body);
         });
         method.post('appointment', function(req, body){
