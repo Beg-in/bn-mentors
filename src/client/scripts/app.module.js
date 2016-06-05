@@ -57,10 +57,6 @@ angular.module('bnMentorsApp', [
         //terms of use
         templateUrl: 'terms-of-use.html',
         controller: 'staticController'
-    }).when('/calendar', {
-        //calendar page
-        templateUrl: 'calendar.html',
-        controller: 'calendarController'
     }).otherwise({
         redirectTo: '/404'
     });
