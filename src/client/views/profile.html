@@ -90,27 +90,12 @@
                                     of the month at
                                 </p>
                                 <input type="time" class="form-control calendar-time" ng-model="profile.schedule.time" style="width: 130px">
-                                {{test}}
+                                {{profile.schedule.time}}
                             </div>
                             <div class="frow">
                                 <p><strong>@:</strong></p>
                                 <input type="search" class="form-control" placeholder="Location" ng-model="profile.schedule.location">
                             </div>
-                        </div>
-                        <div class="calendar-section">
-                            <div class="frow gutters">
-                                <div class="col-md-1-2">
-                                    <p><strong>From:</strong></p>
-                                    <input type="Time" class="form-control" id="ohours-from-time" ng-model="profile.schedule.time">
-                                </div>
-                                <div class="col-md-1-2">
-                                    <p><strong>@:</strong></p>
-                                    <input type="search" class="form-control" placeholder="Location" id="ohours-location" ng-model="profile.schedule.location">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="frow">
-                            <button type="submit" class="btn btn-primary" ng-click="updateProfile()">Submit</button>
                         </div>
                     </form>
                 </div>
