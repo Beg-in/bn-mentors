@@ -122,12 +122,25 @@
     margin: 0 3px;
 }
 
-.date-day {
+.profile-appointments {
+    height: 100%;
+}
+
+.appointment-month {
     font-size: 20px;
     line-height: 100%;
 }
 
-.date-number {
+.appointment-day {
+    font-size: 20px;
+    line-height: 100%;
+}
+
+.appointment-number {
     font-size: 70px;
     line-height: 100%;
+}
+
+.profile-appointment-button {
+    height: 50px;
 }
