@@ -21,6 +21,10 @@
         },
         update: function(id, obj) {
           return profileModel.read(id).then(profile => profile.update(obj));
+        },
+        read: function(id){
+          console.log(id);
+          return profileModel.read(id);
         }
         // updateByEmail: function(body) {
         // var uprof = (this.getByEmail(body.email));

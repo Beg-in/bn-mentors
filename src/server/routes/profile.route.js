@@ -2,8 +2,12 @@
 
 module.exports = function(route, profileController) {
     route('api/v1/profile', function(method) {
-        method.get('all', function(req, body) {
+        method.get(function(req, body) {
             return profileController.getAll();
+        });
+
+        method.post('id', function(req, body){
+          return profileController.read(body.id);
         });
 
         method.post('email', function(req, body) {
@@ -20,6 +24,9 @@ module.exports = function(route, profileController) {
 
         method.put('new', function(req, body){
             return profileController.createProfile(body);
+        });
+        method.put(':id', function(req, body, res) {
+            return imageController.update(req.params.id, body);
         });
     });
 };
