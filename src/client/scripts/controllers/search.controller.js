@@ -1,6 +1,9 @@
 angular.module('bnMentorsApp').controller('searchController', function(
-    $scope
+    $scope,
+    ProfileService
 ) { 'use strict';
+
+    console.log(ProfileService.get.getAllData);
 
     $scope.searchResults = [
         {

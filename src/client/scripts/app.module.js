@@ -69,7 +69,8 @@ angular.module('bnMentorsApp', [
     $rootScope,
     $window,
     $route,
-    $location
+    $location,
+    ProfileService
 ) { 'use strict';
 
     $rootScope.$on('$routeChangeStart', function(event, next) {
