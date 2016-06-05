@@ -30,6 +30,7 @@
         },
         createAppointment: function(appointment) {
           var prof = profileModel.read(appointment.id);
+          console.log(prof);
           if(!_.isArray(prof.appointments)){
             prof.appointments = [appointment];
           }else{
