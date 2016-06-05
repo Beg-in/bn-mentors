@@ -1,6 +1,6 @@
 <div class="frow">
     <div class="col-md-2-3">
-        <h3 class="search-title"> My search results</h3>
+        <h3 class="search-title">Search results</h3>
         <div class="search-row page card-shadow" ng-repeat="result in searchResults">
             <div class="frow gutters">
                 <div class="col-md-1-6">
@@ -12,10 +12,10 @@
                     </div>
                 </div>
                 <div class="col-md-7-12">
-                    <div class="search-name">{{result.name}}, <span class="search-job-title" >{{result.profession}}</span> </div>
+                    <div class="search-name">{{result.name}}, <span class="search-job-title">{{result.profession}}</span> </div>
                     <div class="search-info">
                         <div class="search-skills" ng-repeat="skill in result.skills">#{{tags}}</div>
-                        <div class="search-shortbio">{{result.bio | limitTo : 140}}...</div>
+                        <div class="search-shortbio">{{result.bio}}</div>
                     </div>
                 </div>
                 <div class="col-md-1-4">
