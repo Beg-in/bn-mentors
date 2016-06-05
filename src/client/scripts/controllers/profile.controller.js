@@ -49,10 +49,11 @@ angular.module('bnMentorsApp').controller('profileController', function(
     $scope.toggleEdit = function() {
         if ($scope.edit)
         {
+          console.log($scope.profile.shortBio);
           ProfileService.setUserProfile($routeParams.id, $scope.profile).success(function() {
-            console.log($scope.profile.phone);
+
           }).error(function() {
-            console.log("FAILURE");
+
           });
         }
         $scope.edit = !$scope.edit;
