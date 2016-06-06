@@ -12,7 +12,6 @@ angular.module('bnMentorsApp').controller('signUpController', function(
     $scope.testGetData = function() {
       ProfileService.getAllData().then(function(response) {
         $scope.profile = response;
-        console.log($scope.profile);
       });
 
     }

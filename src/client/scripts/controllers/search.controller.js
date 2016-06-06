@@ -1,25 +1,35 @@
 angular.module('bnMentorsApp').controller('searchController', function(
-    $scope
+    $http,
+    _,
+    md5,
+    $scope,
+    ProfileService
 ) { 'use strict';
 
-    $scope.searchResults = [
-        {
-            name: 'Henry Jones',
-            shortBio: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-            skills: ['teaching', 'raiding', 'whipping', 'exploring'],
-            jobTitle: 'Archaeologist'
-        },
-        {
-            name: 'Rick Deckard',
-            shortBio: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-            skills: ['dreaming','testing', 'retiring', 'running'],
-            jobTitle: 'Blade Runner'
-        },
-        {
-            name: 'Han Solo',
-            shortBio: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-            skills: ['flying', 'charming', 'friendship', 'nerf-herding'],
-            jobTitle: 'Pilot'
-        }
-    ]
+    $scope.fetchGravatar = function() {
+        _.forEach($scope.searchResults, function(value, key) {
+            var gravatar = md5.createHash($scope.searchResults[key].email);
+            $http.get('https://secure.gravatar.com/avatar/' + gravatar + '?s=1&d=404')
+                .success(function(data, status) {
+                    $scope.searchResults[key].avatar = 'https://secure.gravatar.com/avatar/' + gravatar + '?s=500';
+                })
+                .error(function(data, status) {
+                    return null;
+                })
+            ;
+        });
+    }
+
+    ProfileService.getAllData().success(function(response) {
+      var tempResponse = response;
+      if(!_.isArray(response)) {
+        response = tempResponse ? [tempResponse] : [];
+        $scope.searchResults = response;
+      }else{
+        $scope.searchResults = response;
+      }
+      $scope.fetchGravatar();
+    }).error(function(response){
+        console.log('Failed to fetch results!');
+    });
 });

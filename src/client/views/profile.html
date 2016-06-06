@@ -1,52 +1,179 @@
 <div class="frow">
     <div class="col-md-3-4">
         <div class="page card-shadow page-in">
+            <button type="submit" class="btn btn-primary profile-button-edit pull-right" ng-click="toggleEdit()">{{edit ? 'Save' : 'Edit'}}</button>
 
-            <div class="profile-page-title"> {{profile.name}}'s Profile</div>
-            <button type="submit" class="btn btn-primary" ng-click="toggleEdit()">{{edit ? 'Save' : 'Edit'}}</button>
+            <div class="profile-page-title">{{profile.name}}'s Profile</div>
 
-                <div class="profile-image">
-                    <img ng-show="avatar" class="profile-image" ng-src="{{avatar}}">
-                    <img ng-hide="avatar" class="profile-image" ng-src="/images/profile/default.jpg">
-                    <a href="https://gravatar.com/" target="_blank" ng-show="edit">{{avatar ? 'Edit' : 'Upload Image'}}</a>
-                </div>
-                <div class="profile-view-container">
-                    <div class="profile-info">
+            <div class="profile-image">
+                <img ng-show="avatar" class="profile-image" ng-src="{{avatar}}">
+                <img ng-hide="avatar" class="profile-image" ng-src="/images/profile/default.jpg">
+                <a href="https://gravatar.com/" target="_blank" ng-show="edit">{{avatar ? 'Change Image' : 'Upload Image'}}</a>
+            </div>
 
-                        <div class="profile-contact">
-                            <input type="text" class="form-control" ng-model="profile.name" ng-show="edit" placeholder="Name">
-                            <input type="text" class="form-control" ng-model="profile.jobTitle" ng-show="edit" placeholder="Job Title">
-                            <input type="text" class="form-control" ng-model="profile.email" ng-show="edit" placeholder="Email">
-                            <input type="text" class="form-control" ng-model="profile.phone" ng-show="edit" placeholder="Phone">
-                            <div class="profile-contact-input" ng-hide="edit" class="ng-hide">{{profile.name}}</div>
-                            <div class="profile-contact-input" ng-hide="edit" class="ng-hide">{{profile.jobTitle}}</div>
-                            <div class="profile-contact-input" ng-hide="edit" class="ng-hide">{{profile.email}}</div>
-                            <div class="profile-contact-input" ng-hide="edit" class="ng-hide">{{profile.phone}}</div>
-                        </div>
+            <div class="profile-view-container">
+                <div class="profile-info">
 
-                        <div class="profile-skills-container">
-                            <div class="profile-skills-title"> My Skills / Interests</div>
-                            <div class="profile-skill-tag-flex">
-                                <div class="profile-skill-tag" ng-hide="edit" ng-repeat="skill in profile.skills">#{{skill}}</div>
-                                <input type="text" class="form-control" ng-model="profile.skills" ng-show="edit" ng-list required placeholder="Email">
+                    <div class="profile-contact">
+                        <div class="frow gutter" ng-hide="edit">
+                            <div class="col-md-1-4" ng-show="profile.name">
+                                <div class="profile-contact-input">{{profile.name}}</div>
+                            </div>
+                            <div class="col-md-1-4" ng-show="profile.profession">
+                                <div class="profile-contact-input">{{profile.profession}}</div>
+                            </div>
+                            <div class="col-md-1-4" ng-show="profile.email">
+                                <div class="profile-contact-input">{{profile.email}}</div>
+                            </div>
+                            <div class="col-md-1-4" ng-show="profile.phone">
+                                <div class="profile-contact-input">{{profile.phone}}</div>
                             </div>
                         </div>
-
-                        <div class="profile-bio">
-                            <div class="profile-shortbio">
-                                <input class="shortbio-input" type="text" ng-show="edit" ng-model=profile.shortbio placeholder="Short Bio: Keep it under 140 words" shortbio = {{profile.shortbio}}>
-                                <div class="shortbio-input" ng-hide="edit" ng-model=profile.shortBio class="ng-hide">{{profile.shortBio}}</div>
+                        <div class="frow gutter" ng-show="edit">
+                            <div class="col-md-1-4">
+                                <input type="text" class="form-control" ng-model="profile.name" placeholder="Name">
+                            </div>
+                            <div class="col-md-1-4">
+                                <input type="text" class="form-control" ng-model="profile.profession" placeholder="Job Title">
+                            </div>
+                            <div class="col-md-1-4">
+                                <input type="text" class="form-control" ng-model="profile.email" placeholder="Email">
+                            </div>
+                             <div class="col-md-1-4">
+                                <input type="text" class="form-control" ng-model="profile.phone" placeholder="Phone">
                             </div>
                         </div>
-
-                        <div class="profile-scheduled">{{profile.schedule}}</div>
-
-                        <div class="profile-submit submit-mentor"> <input class="btn btn-default" type="submit" value="Schedule 'Office' Hours" > </div>
-                        <div class="profile-submit submit-mentee"> <input class="btn btn-default" type="submit" value="Find a Mentor"> </div>
-
                     </div>
 
+                    <div class="profile-tags-container">
+                        <div class="profile-tags-title">My Skills / Interests</div>
+                        <div class="profile-tag-tags">
+                            <div class="frow">
+                                <div class="profile-tag-tag" ng-hide="edit" ng-repeat="tag in profile.tags">#{{tag}}</div>
+                                <input type="text" class="profile-tag-tag-input form-control" ng-model="profile.tags" ng-show="edit" ng-list required placeholder="Skills">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="profile-bio">
+                        <div class="profile-shortbio">
+                            <input class="shortbio-input form-control" type="text" ng-show="edit" ng-model=profile.bio placeholder="Short Bio: Keep it under 140 words" >
+                            <div class="shortbio-input" ng-hide="edit">{{profile.bio}}</div>
+                        </div>
+                    </div>
                 </div>
+            </div>
+            <div class="frow">
+                <div class="col-md-5-6">
+                    <form>
+                        <div class="calendar-section" ng-show="edit">
+                            <div class="frow">
+                                <p class="calendar-sentence">
+                                    Repeats on the
+                                </p>
+                                <select class="form-control calendar-dropdown-repeat" ng-model="profile.schedule.weekOfMonth">
+                                    <option value="1">1st</option>
+                                    <option value="2">2nd</option>
+                                    <option value="3">3rd</option>
+                                    <option value="4">4th</option>
+                                </select>
+                                <select class="form-control calendar-dropdown-day" ng-model="profile.schedule.repeatDay">
+                                    <option>Sunday</option>
+                                    <option>Monday</option>
+                                    <option>Tuesday</option>
+                                    <option>Wednesday</option>
+                                    <option>Thursday</option>
+                                    <option>Friday</option>
+                                    <option>Saturday</option>
+                                </select>
+                                <p class="calendar-sentence">
+                                    of the month at
+                                </p>
+                                <!-- <input type="time" class="form-control calendar-time" ng-model="profile.schedule.time" style="width: 130px"> -->
+                                <!-- {{profile.schedule.time}} -->
+                            </div>
+                            <div class="frow">
+                                <p><strong>@:</strong></p>
+                                <input type="search" class="form-control" placeholder="Location" ng-model="profile.schedule.location">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="frow gutters">
+            <div class="col-md-1-2">
+                <div class="page card-shadow page-in profile-appointments">
+                    <div class="frow justify-between">
+                        <div class="col-md-1-3">
+                            <div class="frow column-center">
+                                <div class="appointment-month">
+                                    July
+                                </div>
+                                <div class="appointment-number">
+                                    22
+                                </div>
+                                <div class="appointment-day">
+                                    Friday
+                                </div>
+                                <div class="appointment-time">
+                                    7:00 PM
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2-3">
+                            <div class="frow column-center" ng-hide="requested">
+                                <div class="appointment-location">
+                                    @ Slingshot CoWork, 108 E. Beaufort St. Normal, IL
+                                </div>
+                                <button class="btn btn-default profile-appointment-button" ng-click="requested = true">Request Meeting</button>
+                            </div>
+                            <div class="frow column-center" ng-show="requested">
+                                <input type="text" class="form-control request-field" ng-model="request.name" placeholder="Full Name">
+                                <input type="text" class="form-control request-field" ng-model="request.email" placeholder="Email">
+                                <input type="text" class="form-control request-field" ng-model="request.why" placeholder="Purpose">
+                                <button class="btn btn-default">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-1-2">
+                <div class="page card-shadow page-in profile-appointments">
+                    <div class="frow justify-between">
+                        <div class="col-md-1-3">
+                            <div class="frow column-center">
+                                <div class="appointment-month">
+                                    August
+                                </div>
+                                <div class="appointment-number">
+                                    26
+                                </div>
+                                <div class="appointment-day">
+                                    Friday
+                                </div>
+                                <div class="appointment-time">
+                                    7:00 PM
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2-3">
+                            <div class="frow column-center" ng-hide="requested">
+                                <div class="appointment-location">
+                                    @ Slingshot CoWork, 108 E. Beaufort St. Normal, IL
+                                </div>
+                                <button class="btn btn-default profile-appointment-button" ng-click="requested = true">Request Meeting</button>
+                            </div>
+                            <div class="frow column-center" ng-show="requested">
+                                <input type="text" class="form-control request-field" ng-model="request.name" placeholder="Full Name">
+                                <input type="text" class="form-control request-field" ng-model="request.email" placeholder="Email">
+                                <input type="text" class="form-control request-field" ng-model="request.why" placeholder="Purpose">
+                                <button class="btn btn-default">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

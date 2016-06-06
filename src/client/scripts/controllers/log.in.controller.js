@@ -1,4 +1,4 @@
-angular.module('bnMentorsApp').controller('loginController', function(
+angular.module('bnMentorsApp').controller('logInController', function(
     $scope,
     $location,
     LoginService

@@ -10,14 +10,14 @@ angular.module('bnMentorsApp').factory('ProfileService', function(
                 return response;
             });
         },
-        setUserProfile: function(data) {
-            return ApiService.post(base + 'user', data).success(function(response) {
+        setUserProfile: function(id, data) {
+            return ApiService.put(base + id, data).success(function(response) {
                 return response;
             });
         },
         getAllData: function() {
-          return ApiService.get('/user/all/').then(function(response) {
-            return response.data;
+          return ApiService.get(base).success(function(response) {
+            return (response);
           });
         }
     };
