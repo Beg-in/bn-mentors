@@ -1,30 +1,56 @@
-.video-container {
-	position: relative;
-	padding-bottom: 56.25%;
-	padding-top: 30px;
-	height: 0;
-	overflow: hidden;
-
-        iframe, object {
-        	position: absolute;
-        	top: 0;
-        	left: 0;
-        	width: 100%;
-        	height: 100%;
-        }
-}
-
-.fourohfour {
-    font-size: 300px;
+.fof {
     text-align: center;
     font-weight: 300;
     color: $link-primary;
 
-    .message {
-        font-size: 80px;
+    .fof-message-1 {
+        font-size: 72px;
+        text-align: center;
+        font-weight: 600;
+        color: $link-primary;
+        line-height: 100%;
+        padding-bottom:15px;
+    }
+
+    .fof-message-2 {
+        font-size: 26px;
         text-align: center;
         font-weight: 300;
         color: $link-primary;
+        line-height: 100%;
+        padding-bottom:20px;
+    }
+
+    .fof-video-container {
+    	position: relative;
+    	padding-bottom: 36.25%;
+        padding-top: 30px;
+    	height: 0;
+        width: 66%;
+    	overflow: hidden;
+        margin: auto;
+
+            iframe, object {
+            	position: absolute;
+            	top: 0;
+            	left: 0;
+            	width: 100%;
+            	height: 100%;
+            }
+    }
+
+    .fof-quotes {
+        font-size:16px;
+        line-height: 100%;
+        padding-top: 16px;
+        font-style: italic;
+    }
+
+    .fof-quoted {
+        font-size:16px;
+        font-style: italic;
+        line-height: 100%;
+        padding-top:8px;
     }
 
 }
