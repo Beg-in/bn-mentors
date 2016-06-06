@@ -45,6 +45,7 @@ font-family: $lato;
     border:1px solid #6E6E6E;
     border-radius:2px;
     padding:2px;
+    display: inline-block;
 
     &:last-child {
         margin-right: 0px;
@@ -52,12 +53,6 @@ font-family: $lato;
 
     &:hover{
         background-color: #d4d4d4;
-    }
-}
-
-.search-info {
-    div {
-        display: inline-block;
     }
 }
 
